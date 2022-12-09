@@ -7,7 +7,7 @@
 
     userSettings = 
       {
-            "files.autoSave" = "off";
+            "files.autoSave" = "on";
             "[nix]"."editor.tabSize" = 2;
       };
   };
