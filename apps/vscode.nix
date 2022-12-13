@@ -25,10 +25,6 @@
     ];
     keybindings = [
       {
-        "command" = "workbench.action.showAllEditorsByMostRecentlyUsed";
-        "key" = "cmd+e";
-      }
-      {
         "command" = "workbench.action.terminal.toggleTerminal";
         "key" = "cmd+2";
         "when" = "terminal.active";
@@ -49,18 +45,14 @@
         "when" = "activeViewlet == 'workbench.view.scm'";
       }
       {
-        "command" = "-workbench.view.explorer";
-        "key" = "cmd+1";
-      }
-      {
         "command" = "workbench.view.explorer";
         "key" = "cmd+1";
-        "when" = "!explorerViewletVisible";
+        "when" = "!filesExplorerFocus";
       }
       {
         "command" = "workbench.action.toggleSidebarVisibility";
         "key" = "cmd+1";
-        "when" = "explorerViewletVisible";
+        "when" = "filesExplorerFocus";
       }
       {
         "command" = "workbench.view.scm";
@@ -69,9 +61,27 @@
       {
         "command" = "workbench.action.toggleSidebarVisibility";
         "key" = "cmd+3";
-        "when" = "scmRepository";
+        "when" = "sideBarFocus && activeViewlet == 'workbench.view.scm'";
       }
-
+      {
+        "key" = "ctrl+alt+w";
+        "command" = "workbench.action.switchWindow";
+      }
+      {
+        "key" = "cmd+e";
+        "command" = "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup";
+        "when" = "!activeEditorGroupEmpty";
+      }
+      {
+        "key" = "cmd+e";
+        "command" = "workbench.action.quickOpenNavigateNextInEditorPicker";
+        "when" = "inEditorsPicker && inQuickOpen";
+      }
+      {
+        "key" = "cmd+shift+e";
+        "command" = "workbench.action.quickOpenNavigatePreviousInEditorPicker";
+        "when" = "inEditorsPicker && inQuickOpen";
+      }
     ];
     userSettings =
       builtins.fromJSON (builtins.readFile ./configs/vscode.json);
