@@ -52,6 +52,8 @@
     "fontFamily": "monospace",
     "fontSize": 13
   },
+  "vim.useSystemClipboard": true,
   "workbench.colorTheme": "Correia Gruvbox Theme",
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.showTabs": false
 }
