@@ -44,7 +44,7 @@
 
   programs.fish = (pkgs.callPackage ./apps/fish.nix { }).programs.fish;
   programs.neovim = (pkgs.callPackage ./apps/neovim.nix { }).programs.neovim;
-  programs.vscode= (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
+  programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
 
   # programs.direnv = {
   #   enable = true;

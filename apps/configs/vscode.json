@@ -1,0 +1,57 @@
+{
+  "[nix]": {
+    "editor.defaultFormatter": "B4dM4n.nixpkgs-fmt",
+    "editor.formatOnSave": false
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    }
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    }
+  },
+  "[go]": {
+    "editor.formatOnSave": false
+  },
+  "debug.javascript.unmapMissingSources": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "emmet.showExpandedAbbreviation": "never",
+  "emmet.showSuggestionsAsSnippets": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "git.branchWhitespaceChar": "_",
+  "prettier.singleQuote": false,
+  "redhat.telemetry.enabled": false,
+  "search.exclude": {
+    "**/.direnv": true,
+    "**/.git": true,
+    "*.lock": true
+  },
+  "terminal.integrated": {
+    "fontFamily": "monospace",
+    "fontSize": 13
+  },
+  "workbench.colorTheme": "Correia Gruvbox Theme",
+  "workbench.iconTheme": "material-icon-theme"
+}
