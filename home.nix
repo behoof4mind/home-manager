@@ -32,12 +32,11 @@
     python311
     ranger
     ruby
-    # terraform
+    terraform
     terragrunt
     tree
     vault
     vim
-    # vscode-with-extensions
     watch
     wget
   ];

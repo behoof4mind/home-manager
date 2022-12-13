@@ -25,52 +25,53 @@
     ];
     keybindings = [
       {
-        "key" = "cmd+e";
         "command" = "workbench.action.showAllEditorsByMostRecentlyUsed";
+        "key" = "cmd+e";
       }
       {
-        "key" = "cmd+2";
         "command" = "workbench.action.terminal.toggleTerminal";
+        "key" = "cmd+2";
         "when" = "terminal.active";
       }
       {
-        "key" = "cmd+alt+m";
         "command" = "workbench.action.toggleMaximizedPanel";
+        "key" = "cmd+alt+m";
         "when" = "terminalFocus";
       }
       {
-        "key" = "escape";
         "command" = "workbench.action.focusActiveEditorGroup";
+        "key" = "escape";
         "when" = "terminalFocus || filesExplorerFocus";
       }
       {
-        "key" = "escape";
         "command" = "workbench.view.explorer";
+        "key" = "escape";
         "when" = "activeViewlet == 'workbench.view.scm'";
       }
       {
-        "key" = "cmd+1";
         "command" = "-workbench.view.explorer";
+        "key" = "cmd+1";
       }
       {
-        "key" = "cmd+1";
         "command" = "workbench.view.explorer";
+        "key" = "cmd+1";
         "when" = "!explorerViewletVisible";
       }
       {
-        "key" = "cmd+1";
         "command" = "workbench.action.toggleSidebarVisibility";
+        "key" = "cmd+1";
         "when" = "explorerViewletVisible";
       }
       {
-        "key" = "cmd+3";
         "command" = "workbench.view.scm";
+        "key" = "cmd+3";
       }
       {
-        "key" = "cmd+3";
         "command" = "workbench.action.toggleSidebarVisibility";
+        "key" = "cmd+3";
         "when" = "scmRepository";
       }
+
     ];
     userSettings =
       builtins.fromJSON (builtins.readFile ./configs/vscode.json);
