@@ -49,7 +49,7 @@
     "*.lock": true
   },
   "terminal.integrated": {
-    "fontFamily": "monospace",
+    "fontFamily": "MesloLGS NF",
     "fontSize": 13
   },
   "vim.useSystemClipboard": true,
