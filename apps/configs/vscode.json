@@ -42,6 +42,9 @@
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
   "git.branchWhitespaceChar": "_",
+  "git.ignoreRebaseWarning": true,
+  "git.path": "/Users/dlavrushko/.nix-profile/bin/git",
+  "go.toolsManagement.autoUpdate": true,
   "markdown.extension.preview.autoShowPreviewToSide": true,
   "prettier.singleQuote": false,
   "redhat.telemetry.enabled": false,
@@ -52,12 +55,14 @@
   },
   "terminal.integrated": {
     "fontFamily": "MesloLGS NF",
-    "fontSize": 13,
+    "fontSize": 12,
     "defaultProfile.osx": "fish"
   },
-  "vim.useSystemClipboard": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "update.mode": "none",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/Users/dlavrushko/.nix-profile/bin/nvim",
   "workbench.colorTheme": "Correia Gruvbox Theme",
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.showTabs": false,
-  "terminal.integrated.defaultProfile.osx": "fish"
+  "workbench.iconTheme": "material-icon-theme"
 }
