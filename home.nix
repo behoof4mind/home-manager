@@ -12,6 +12,7 @@
     direnv
     dive
     gnugrep
+    gnupg
     gnused
     golangci-lint
     grc
@@ -42,8 +43,11 @@
   ];
 
   programs.fish = (pkgs.callPackage ./apps/fish.nix { }).programs.fish;
+  programs.git= (pkgs.callPackage ./apps/git.nix { }).programs.git;
   programs.neovim = (pkgs.callPackage ./apps/neovim.nix { }).programs.neovim;
   programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
+  home.file."/Users/dlavrushko/Library/Application\ Support/iTerm2/DynamicProfiles/iterm-profiles.json".source = ./apps/configs/iterm2-profiles.json;
+  home.file."/Users/dlavrushko/MyGitHub/tools-configs/iterm2/com.googlecode.iterm2.plist".source = ./apps/configs/iterm2-config.plist;
 
   # programs.direnv = {
   #   enable = true;
