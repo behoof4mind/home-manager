@@ -5,23 +5,23 @@
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      ms-azuretools.vscode-docker
-      redhat.vscode-yaml
-      yzhang.markdown-all-in-one
-      vscodevim.vim
-      hashicorp.terraform
-      golang.go
+      asvetliakov.vscode-neovim
       b4dm4n.vscode-nixpkgs-fmt
+      bbenoist.nix
       brettm12345.nixfmt-vscode
-      editorconfig.editorconfig
-      eamodio.gitlens
       christian-kohler.path-intellisense
-      shardulm94.trailing-spaces
-      ms-kubernetes-tools.vscode-kubernetes-tools
-      mhutchie.git-graph
       donjayamanne.githistory
+      eamodio.gitlens
+      editorconfig.editorconfig
+      golang.go
+      hashicorp.terraform
+      mhutchie.git-graph
+      ms-azuretools.vscode-docker
+      ms-kubernetes-tools.vscode-kubernetes-tools
+      redhat.vscode-yaml
+      shardulm94.trailing-spaces
       wholroyd.jinja
+      yzhang.markdown-all-in-one
     ];
     keybindings = [
       {
