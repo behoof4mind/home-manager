@@ -30,14 +30,24 @@
    "when": "filesExplorerFocus"
   },
   {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
    "key": "cmd+3",
    "command": "workbench.view.scm"
   },
-  {
-   "command": "workbench.action.toggleSidebarVisibility",
-   "key": "cmd+3",
-   "when": "sideBarFocus && activeViewlet:= 'workbench.view.scm'"
-  },
+  // {
+  //  "command": "workbench.action.toggleSidebarVisibility",
+  //  "key": "cmd+3",
+  //  "when": "sideBarFocus && activeViewlet:= 'workbench.view.scm'"
+  // },
   {
    "key": "cmd+4",
    "command": "workbench.debug.action.focusRepl"
