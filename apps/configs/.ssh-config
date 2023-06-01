@@ -1,0 +1,30 @@
+Match final host *.github.com
+     HostName github.com
+     IdentityFile ~/.ssh/iits-github
+
+Host IITS GitHub
+     HostName github.com
+     User Denis
+     IdentityFile ~/.ssh/github
+
+Host IITS GitHub
+     HostName github.com
+     User user-one
+     IdentityFile ~/.ssh/iits-github
+
+Host gitlab.com
+     HostName gitlab.com
+     IdentityFile ~/.ssh/iits-gitlab
+
+Host gitlab.iits.tech
+     HostName gitlab.iits.tech
+     IdentityFile ~/.ssh/iits-gitlab
+
+Host git-ssh.tsi-dev.otc-service.com
+    HostName git-ssh.tsi-dev.otc-service.com
+    IdentityFile ~/.ssh/otc_marketplace_gitlab
+
+Host mkp-buildmachine
+    HostName 80.158.56.15
+    IdentityFile ~/.ssh/denis-mkp-buildmachine.pem
+    User linux

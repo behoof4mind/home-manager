@@ -1,0 +1,14 @@
+[user]
+  name = "Denis Lavrushko"
+  email = "denis.lavrushko@iits-consulting.de"
+  username = "dlavrushko"
+  signingKey = "4D6F36D54173B8A1"
+[commit]
+  gpgSign = true
+[tag]
+  gpgSign = true
+[gpg]
+  program = "/Users/dlavrushko/.nix-profile/bin/gpg"
+[core]
+  editor = nvim
+  sshCommand = ssh -i ~/.ssh/iits-gitlab
