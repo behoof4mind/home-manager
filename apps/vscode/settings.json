@@ -4,11 +4,11 @@
     "editor.formatOnSave": false
   },
   "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
       "source.formatAll.terraform": true
-    }
+    },
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false
   },
   "[terraform-vars]": {
     "editor.defaultFormatter": "hashicorp.terraform",
@@ -45,8 +45,8 @@
       "**/.trunk/*logs/": true,
       "**/.trunk/*plugins/": true
     },
-  "autoSave": "afterDelay",
-  "autoSaveDelay": 1000
+    "autoSave": "afterDelay",
+    "autoSaveDelay": 1000
   },
   "git.branchWhitespaceChar": "_",
   "git.ignoreRebaseWarning": true,

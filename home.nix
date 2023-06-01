@@ -58,6 +58,7 @@
   home.file."/Users/dlavrushko/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
   home.file."/Users/dlavrushko/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
   home.file."/Users/dlavrushko/.ssh/config".source = ./apps/configs/.ssh-config;
+  home.file."Library/Application Support/Code/User/keybindings.json".source = apps/vscode/keybindings.json;
 
   # programs.direnv = {
   #   enable = true;
