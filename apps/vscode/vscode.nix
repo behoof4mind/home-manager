@@ -4,27 +4,30 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions; [
-      asvetliakov.vscode-neovim
-      b4dm4n.vscode-nixpkgs-fmt
-      bbenoist.nix
-      brettm12345.nixfmt-vscode
-      christian-kohler.path-intellisense
-      donjayamanne.githistory
-      eamodio.gitlens
-      editorconfig.editorconfig
-      esbenp.prettier-vscode
-      golang.go
-      hashicorp.terraform
-      mhutchie.git-graph
-      ms-azuretools.vscode-docker
-      ms-kubernetes-tools.vscode-kubernetes-tools
-      redhat.vscode-yaml
-      shardulm94.trailing-spaces
-      ms-vscode-remote.remote-ssh
-      wholroyd.jinja
-      yzhang.markdown-all-in-one
-    ];
+    extensions =
+        pkgs.vscode-utils.extensionsFromVscodeMarketplace
+        (fromJSON (readFile extensions.json));
+    # extensions = with pkgs.vscode-extensions; [
+    #   asvetliakov.vscode-neovim
+    #   b4dm4n.vscode-nixpkgs-fmt
+    #   bbenoist.nix
+    #   brettm12345.nixfmt-vscode
+    #   christian-kohler.path-intellisense
+    #   donjayamanne.githistory
+    #   eamodio.gitlens
+    #   editorconfig.editorconfig
+    #   esbenp.prettier-vscode
+    #   golang.go
+    #   hashicorp.terraform
+    #   mhutchie.git-graph
+    #   ms-azuretools.vscode-docker
+    #   ms-kubernetes-tools.vscode-kubernetes-tools
+    #   redhat.vscode-yaml
+    #   shardulm94.trailing-spaces
+    #   ms-vscode-remote.remote-ssh
+    #   wholroyd.jinja
+    #   yzhang.markdown-all-in-one
+    # ];
     keybindings = [
       {
         "command" = "workbench.action.terminal.toggleTerminal";

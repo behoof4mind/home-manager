@@ -1,0 +1,140 @@
+[
+  {
+    "name": "EditorConfig",
+    "publisher": "EditorConfig",
+    "version": "0.16.4",
+    "sha256": "0fa4h9hk1xq6j3zfxvf483sbb4bd17fjl5cdm3rll7z9kaigdqwg"
+  },
+  {
+    "name": "Nix",
+    "publisher": "bbenoist",
+    "version": "1.0.1",
+    "sha256": "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b"
+  },
+  {
+    "name": "correia-github-gruvbox",
+    "publisher": "CorreiaGitHubGruvbox",
+    "version": "2.2.0",
+    "sha256": "0522mkinivmgbkrqzd99zxji4j6bpi3h1ym5k7krply518vksrf7"
+  },
+  {
+    "name": "git-graph",
+    "publisher": "mhutchie",
+    "version": "1.30.0",
+    "sha256": "000zhgzijf3h6abhv4p3cz99ykj6489wfn81j0s691prr8q9lxxh"
+  },
+  {
+    "name": "githistory",
+    "publisher": "donjayamanne",
+    "version": "0.6.20",
+    "sha256": "0x9q7sh5l1frpvfss32ypxk03d73v9npnqxif4fjwcfwvx5mhiww"
+  },
+  {
+    "name": "gitlens",
+    "publisher": "eamodio",
+    "version": "2023.5.3105",
+    "sha256": "0wgwpmkiwzjrkc7xfqmnffz98n1n5kxxm6pffdmf5hwbdfvhzl6d"
+  },
+  {
+    "name": "go",
+    "publisher": "golang",
+    "version": "0.38.0",
+    "sha256": "0i2kmlabpsvrb02ljy9asdlhqssm6as3h438rq0lx67qbjwsirf0"
+  },
+  {
+    "name": "jinja",
+    "publisher": "wholroyd",
+    "version": "0.0.8",
+    "sha256": "1ln9gly5bb7nvbziilnay4q448h9npdh7sd9xy277122h0qawkci"
+  },
+  {
+    "name": "markdown-all-in-one",
+    "publisher": "yzhang",
+    "version": "3.5.1",
+    "sha256": "04b8hiha6z7w189lkx0lhy0sgldrfwx1yikl2463lkhhkm3f8av7"
+  },
+  {
+    "name": "nixfmt-vscode",
+    "publisher": "brettm12345",
+    "version": "0.0.1",
+    "sha256": "07w35c69vk1l6vipnq3qfack36qcszqxn8j3v332bl0w6m02aa7k"
+  },
+  {
+    "name": "nixpkgs-fmt",
+    "publisher": "B4dM4n",
+    "version": "0.0.1",
+    "sha256": "1gvjqy54myss4w1x55lnyj2l887xcnxc141df85ikmw1gr9s8gdz"
+  },
+  {
+    "name": "path-intellisense",
+    "publisher": "christian-kohler",
+    "version": "2.8.4",
+    "sha256": "1729ij89hsdmpij4hcpd3gmdakx6iqdcnqbqajqhjfs769r5hh0l"
+  },
+  {
+    "name": "prettier-vscode",
+    "publisher": "esbenp",
+    "version": "9.13.0",
+    "sha256": "1g28yngxnbflqzpjw4ircnfjsmh30cy1i81hl8gk0jqxm8xzbb12"
+  },
+  {
+    "name": "remote-explorer",
+    "publisher": "ms-vscode",
+    "version": "0.5.2023052909",
+    "sha256": "132v3r8n8nmc8zk74ffnrfb6nzfabzk10fhy39rbbgxxx6hsd8z0"
+  },
+  {
+    "name": "remote-ssh",
+    "publisher": "ms-vscode-remote",
+    "version": "0.103.2023051015",
+    "sha256": "09g6jd3588nz0rh6ag3mwdsl66l9mcips1m6y43v9v26ycsab9qd"
+  },
+  {
+    "name": "terraform",
+    "publisher": "hashicorp",
+    "version": "2.26.2023051115",
+    "sha256": "0dfhda4f2a9zazzmxwppq49lvnkk3kwbfw8dwigksha26xyb2djl"
+  },
+  {
+    "name": "trailing-spaces",
+    "publisher": "shardulm94",
+    "version": "0.4.1",
+    "sha256": "15i1xcd7p6xfb8kj90irznf4xw48mmwzc528zrk3kiniy9nkbcd4"
+  },
+  {
+    "name": "vscode-docker",
+    "publisher": "ms-azuretools",
+    "version": "1.25.1",
+    "sha256": "1r0h6mi339gbczz3rrr1k2hfxk6w9f1pvpf4lrclp670nldfch5w"
+  },
+  {
+    "name": "vscode-intellij-recent-files",
+    "publisher": "percygrunwald",
+    "version": "1.1.1",
+    "sha256": "09gb3df8p1sqkfkn2jx5rd1zlhvamjp9513261ajxiyc588g8k59"
+  },
+  {
+    "name": "vscode-kubernetes-tools",
+    "publisher": "ms-kubernetes-tools",
+    "version": "1.3.11",
+    "sha256": "1jr74lrjbmciam2zpfajicnj662fij37l31x46i0idhmvvsrssr3"
+  },
+  {
+    "name": "vscode-neovim",
+    "publisher": "asvetliakov",
+    "version": "0.0.97",
+    "sha256": "1z5vqvbgk6pn0li265mi0r28q4ir7wzd508q9sii933pc3qrdldc"
+  },
+  {
+    "name": "vscode-openapi",
+    "publisher": "42Crunch",
+    "version": "4.17.0",
+    "sha256": "0bkif379hm2pwvjsy59735svp0qbr3imnk9cy3wzaikzh73bxki9"
+  },
+  {
+    "name": "vscode-yaml",
+    "publisher": "redhat",
+    "version": "1.13.0",
+    "sha256": "07ayfsxsgb4i2bp3g1wf4chgx09468gy4gj70nlj1198fld1amgh"
+  }
+]
