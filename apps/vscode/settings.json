@@ -22,21 +22,32 @@
     "editor.defaultFormatter": "golang.go"
   },
   "debug.javascript.unmapMissingSources": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.detectIndentation": false,
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": true,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
-  "editor.insertSpaces": true,
-  "editor.minimap.enabled": false,
-  "editor.tabSize": 2,
+  "editor": {
+    "defaultFormatter": "esbenp.prettier-vscode",
+    "detectIndentation": false,
+    "fontFamily": "Fira Code",
+    "fontLigatures": true,
+    "formatOnPaste": false,
+    "formatOnSave": true,
+    "insertSpaces": true,
+    "minimap.enabled": false,
+    "tabSize": 2,
+    "accessibilitySupport": "off"
+  },
   "emmet.showExpandedAbbreviation": "never",
   "emmet.showSuggestionsAsSnippets": false,
   "explorer.confirmDelete": false,
   "extensions.ignoreRecommendations": true,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
+  "files": {
+    "exclude": {
+      "**/.trunk/*out/": true,
+      "**/.trunk/*actions/": true,
+      "**/.trunk/*logs/": true,
+      "**/.trunk/*plugins/": true
+    },
+  "autoSave": "afterDelay",
+  "autoSaveDelay": 1000
+  },
   "git.branchWhitespaceChar": "_",
   "git.ignoreRebaseWarning": true,
   "git.path": "/Users/dlavrushko/.nix-profile/bin/git",

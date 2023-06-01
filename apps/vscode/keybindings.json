@@ -1,0 +1,7 @@
+[
+  {
+    "command": "workbench.action.terminal.toggleTerminal",
+    "key": "cmd+2",
+    "when": "terminal.active"
+  }
+]
