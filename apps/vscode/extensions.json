@@ -32,8 +32,8 @@
   {
     "name": "gitlens",
     "publisher": "eamodio",
-    "version": "2023.5.3105",
-    "sha256": "0wgwpmkiwzjrkc7xfqmnffz98n1n5kxxm6pffdmf5hwbdfvhzl6d"
+    "version": "2023.6.105",
+    "sha256": "0ykkw67siz2a9p507g3fz0p31pwkwsllas4m8wx0pjfb6bv1jv76"
   },
   {
     "name": "go",
@@ -42,40 +42,28 @@
     "sha256": "0i2kmlabpsvrb02ljy9asdlhqssm6as3h438rq0lx67qbjwsirf0"
   },
   {
+    "name": "io",
+    "publisher": "trunk",
+    "version": "3.4.3",
+    "sha256": "1g9jdi8whr134jy3xq04bhq8gdnmavdxd906kjsmsd551z1jnfdi"
+  },
+  {
     "name": "jinja",
     "publisher": "wholroyd",
     "version": "0.0.8",
     "sha256": "1ln9gly5bb7nvbziilnay4q448h9npdh7sd9xy277122h0qawkci"
   },
   {
-    "name": "markdown-all-in-one",
-    "publisher": "yzhang",
-    "version": "3.5.1",
-    "sha256": "04b8hiha6z7w189lkx0lhy0sgldrfwx1yikl2463lkhhkm3f8av7"
-  },
-  {
-    "name": "nixfmt-vscode",
-    "publisher": "brettm12345",
-    "version": "0.0.1",
-    "sha256": "07w35c69vk1l6vipnq3qfack36qcszqxn8j3v332bl0w6m02aa7k"
-  },
-  {
-    "name": "nixpkgs-fmt",
-    "publisher": "B4dM4n",
-    "version": "0.0.1",
-    "sha256": "1gvjqy54myss4w1x55lnyj2l887xcnxc141df85ikmw1gr9s8gdz"
+    "name": "markdown-preview-enhanced",
+    "publisher": "shd101wyy",
+    "version": "0.6.8",
+    "sha256": "1gas3243w532kg4ms0h1622dhv1i6lfx98ffi5s952bj1cg5mm7l"
   },
   {
     "name": "path-intellisense",
     "publisher": "christian-kohler",
     "version": "2.8.4",
     "sha256": "1729ij89hsdmpij4hcpd3gmdakx6iqdcnqbqajqhjfs769r5hh0l"
-  },
-  {
-    "name": "prettier-vscode",
-    "publisher": "esbenp",
-    "version": "9.13.0",
-    "sha256": "1g28yngxnbflqzpjw4ircnfjsmh30cy1i81hl8gk0jqxm8xzbb12"
   },
   {
     "name": "remote-explorer",

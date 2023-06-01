@@ -60,8 +60,8 @@ final_json=$(echo "$json" | tr -d '\n' | sed 's/},]/}]/' | jq -r 'sort_by(.name)
 echo "Latest extension versions downloaded and new extensions.json constructed."
 
 echo -n "Backing old vscode/extensions.json ... "
-cp ../apps/vscode/extensions.json ../apps/vscode/extensions.json.niu || :
-echo "done, (vscode/extensions.json.niu)."
+cp /Users/dlavrushko/.config/nixpkgs/apps/vscode/extensions.json /Users/dlavrushko/.config/nixpkgs/apps/vscode/extensions.json.niu || :
+echo "done, (apps/vscode/extensions.json.niu)."
 
 echo -n "Writing result to vscode/extensions.json ... "
 echo "$final_json" > /Users/dlavrushko/.config/nixpkgs/apps/vscode/extensions.json
