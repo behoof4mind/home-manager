@@ -14,11 +14,11 @@
    "key": "escape",
    "when": "terminalFocus || filesExplorerFocus"
   },
-  {
-   "command": "workbench.view.explorer",
-   "key": "escape",
-   "when": "activeViewlet:= 'workbench.view.scm'"
-  },
+  // {
+  //  "command": "workbench.view.explorer",
+  //  "key": "escape",
+  //  "when": "activeViewlet:= 'workbench.view.scm'"
+  // },
   {
    "command": "workbench.view.explorer",
    "key": "cmd+1",

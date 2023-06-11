@@ -51,14 +51,14 @@
   programs.fish = (pkgs.callPackage ./apps/fish.nix { }).programs.fish;
   programs.git= (pkgs.callPackage ./apps/git.nix { }).programs.git;
   programs.neovim = (pkgs.callPackage ./apps/neovim.nix { }).programs.neovim;
-  programs.vscode = (pkgs.callPackage ./apps/vscode/vscode.nix { }).programs.vscode;
+  programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
   home.file."/Users/dlavrushko/Library/Application\ Support/iTerm2/DynamicProfiles/iterm-profiles.json".source = ./apps/configs/iterm2-profiles.json;
   home.file."/Users/dlavrushko/.config/iterm/com.googlecode.iterm2.plist".source = ./apps/configs/iterm2-config.plist;
   home.file."/Users/dlavrushko/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
   home.file."/Users/dlavrushko/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
   home.file."/Users/dlavrushko/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
   home.file."/Users/dlavrushko/.ssh/config".source = ./apps/configs/.ssh-config;
-  home.file."Library/Application Support/Code/User/keybindings.json".source = apps/vscode/keybindings.json;
+  home.file."Library/Application Support/Code/User/keybindings.json".source = ./apps/configs/vscode/keybindings.json;
 
   # programs.direnv = {
   #   enable = true;

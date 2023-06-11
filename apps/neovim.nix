@@ -22,6 +22,7 @@
       with pkgs.vimPlugins; [
         yankring
         vim-nix
+        packer-nvim
       ];
   };
 }

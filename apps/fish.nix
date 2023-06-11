@@ -114,7 +114,7 @@
       hms = "home-manager switch";
     };
     interactiveShellInit = ''
-      export PATH="$PATH:/Users/dlavrushko/.asdf/shims:/opt/homebrew/bin"
+      export PATH="$PATH:/opt/homebrew/bin"
       export "PATH=$PATH:$HOME/kubectl-plugins"
       kubectl completion fish | source
       export EDITOR="nvim"
