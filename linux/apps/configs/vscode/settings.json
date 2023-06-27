@@ -1,0 +1,85 @@
+{
+  "[nix]": {
+    "editor.defaultFormatter": "brettm12345.nixfmt-vscode",
+    "editor.formatOnSave": false
+  },
+  "[terraform]": {
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    },
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.formatAll.terraform": true
+    }
+  },
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "golang.go"
+  },
+  "debug.javascript.unmapMissingSources": true,
+  "editor": {
+    "defaultFormatter": "esbenp.prettier-vscode",
+    "detectIndentation": false,
+    "fontFamily": "Fira Code",
+    "fontLigatures": true,
+    "formatOnPaste": false,
+    "formatOnSave": true,
+    "insertSpaces": true,
+    "minimap.enabled": false,
+    "tabSize": 2,
+    "accessibilitySupport": "off"
+  },
+  "emmet.showExpandedAbbreviation": "never",
+  "emmet.showSuggestionsAsSnippets": false,
+  "explorer.confirmDelete": false,
+  "extensions.ignoreRecommendations": true,
+  "files": {
+    "exclude": {
+      "**/.trunk/*out/": true,
+      "**/.trunk/*actions/": true,
+      "**/.trunk/*logs/": true,
+      "**/.trunk/*plugins/": true
+    },
+    "autoSave": "afterDelay",
+    "autoSaveDelay": 1000
+  },
+  "git.branchWhitespaceChar": "_",
+  "git.ignoreRebaseWarning": true,
+  "git.path": "/Users/dlavrushko/.nix-profile/bin/git",
+  "go.toolsManagement.autoUpdate": true,
+  "markdown.extension.preview.autoShowPreviewToSide": true,
+  "prettier.singleQuote": false,
+  "redhat.telemetry.enabled": false,
+  "remote.SSH.remotePlatform": {
+    "mkp-buildmachine": "linux"
+  },
+  "search.exclude": {
+    "**/.direnv": true,
+    "**/.git": true,
+    "*.lock": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated": {
+    "fontFamily": "MesloLGS NF",
+    "fontSize": 12,
+    "defaultProfile.osx": "fish",
+    "copyOnSelection": true,
+    "profiles": {
+      "linux": {
+        "fish": {
+          "/usr/bin/fish": "fish"
+        }
+      }
+    }
+  },
+  "update.mode": "none",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/Users/dlavrushko/.nix-profile/bin/nvim",
+  "workbench.colorTheme": "Correia Gruvbox Theme",
+  "workbench.editor.showTabs": false,
+  "workbench.editor.enablePreview": false
+}

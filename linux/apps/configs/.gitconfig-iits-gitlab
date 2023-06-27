@@ -1,0 +1,7 @@
+[user]
+  name = "Denis Lavrushko"
+  email = "denis.lavrushko@iits-consulting.de"
+  username = "dlavrushko"
+[core]
+  editor = nvim
+  sshCommand = ssh -i ~/.ssh/iits-gitlab

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "EditorConfig",
+    "publisher": "EditorConfig",
+    "version": "0.16.4",
+    "sha256": "0fa4h9hk1xq6j3zfxvf483sbb4bd17fjl5cdm3rll7z9kaigdqwg"
+  },
+  {
+    "name": "Nix",
+    "publisher": "bbenoist",
+    "version": "1.0.1",
+    "sha256": "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b"
+  },
+  {
+    "name": "git-graph",
+    "publisher": "mhutchie",
+    "version": "1.30.0",
+    "sha256": "000zhgzijf3h6abhv4p3cz99ykj6489wfn81j0s691prr8q9lxxh"
+  },
+  {
+    "name": "githistory",
+    "publisher": "donjayamanne",
+    "version": "0.6.20",
+    "sha256": "0x9q7sh5l1frpvfss32ypxk03d73v9npnqxif4fjwcfwvx5mhiww"
+  },
+  {
+    "name": "gitlens",
+    "publisher": "eamodio",
+    "version": "2023.6.105",
+    "sha256": "0ykkw67siz2a9p507g3fz0p31pwkwsllas4m8wx0pjfb6bv1jv76"
+  },
+  {
+    "name": "jinja",
+    "publisher": "wholroyd",
+    "version": "0.0.8",
+    "sha256": "1ln9gly5bb7nvbziilnay4q448h9npdh7sd9xy277122h0qawkci"
+  },
+  {
+    "name": "remote-containers",
+    "publisher": "ms-vscode-remote",
+    "version": "0.294.0",
+    "sha256": "1zm98xypkq9w8s1z5hjxfs2h0xsb674xx799sczw9rfki2gilz1f"
+  },
+  {
+    "name": "remote-explorer",
+    "publisher": "ms-vscode",
+    "version": "0.5.2023052909",
+    "sha256": "132v3r8n8nmc8zk74ffnrfb6nzfabzk10fhy39rbbgxxx6hsd8z0"
+  },
+  {
+    "name": "remote-server",
+    "publisher": "ms-vscode",
+    "version": "1.2.2023053109",
+    "sha256": "0kvw4d9s02pl4a3d10ibbsk08aalan8in3jpbaby3yh3x7bi3nha"
+  },
+  {
+    "name": "remote-ssh",
+    "publisher": "ms-vscode-remote",
+    "version": "0.103.2023051015",
+    "sha256": "09g6jd3588nz0rh6ag3mwdsl66l9mcips1m6y43v9v26ycsab9qd"
+  },
+  {
+    "name": "remote-ssh-edit",
+    "publisher": "ms-vscode-remote",
+    "version": "0.86.0",
+    "sha256": "0cmh2d73y1kmp6a92h3z7gams7lnqvb7rgib52kqslm4hyhdmii6"
+  },
+  {
+    "name": "remote-wsl",
+    "publisher": "ms-vscode-remote",
+    "version": "0.79.1",
+    "sha256": "0cqz5ppkx0sff8nkl2ixszwy183ybpml7qpby9k5980rmamv4svc"
+  },
+  {
+    "name": "terraform",
+    "publisher": "hashicorp",
+    "version": "2.26.2023051115",
+    "sha256": "0dfhda4f2a9zazzmxwppq49lvnkk3kwbfw8dwigksha26xyb2djl"
+  },
+  {
+    "name": "trailing-spaces",
+    "publisher": "shardulm94",
+    "version": "0.4.1",
+    "sha256": "15i1xcd7p6xfb8kj90irznf4xw48mmwzc528zrk3kiniy9nkbcd4"
+  },
+  {
+    "name": "vscode-docker",
+    "publisher": "ms-azuretools",
+    "version": "1.25.1",
+    "sha256": "1r0h6mi339gbczz3rrr1k2hfxk6w9f1pvpf4lrclp670nldfch5w"
+  },
+  {
+    "name": "vscode-kubernetes-tools",
+    "publisher": "ms-kubernetes-tools",
+    "version": "1.3.11",
+    "sha256": "1jr74lrjbmciam2zpfajicnj662fij37l31x46i0idhmvvsrssr3"
+  },
+  {
+    "name": "vscode-neovim",
+    "publisher": "asvetliakov",
+    "version": "0.0.97",
+    "sha256": "1z5vqvbgk6pn0li265mi0r28q4ir7wzd508q9sii933pc3qrdldc"
+  },
+  {
+    "name": "vscode-openapi",
+    "publisher": "42Crunch",
+    "version": "4.17.0",
+    "sha256": "0bkif379hm2pwvjsy59735svp0qbr3imnk9cy3wzaikzh73bxki9"
+  },
+  {
+    "name": "vscode-remote-extensionpack",
+    "publisher": "ms-vscode-remote",
+    "version": "0.24.0",
+    "sha256": "0sha4l16x4nn3pxm2g6mxlvm7dz56ry2y3ii4b1s9ilckid0kzpa"
+  },
+  {
+    "name": "vscode-yaml",
+    "publisher": "redhat",
+    "version": "1.13.0",
+    "sha256": "07ayfsxsgb4i2bp3g1wf4chgx09468gy4gj70nlj1198fld1amgh"
+  }
+]
