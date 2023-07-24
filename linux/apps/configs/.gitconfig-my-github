@@ -1,12 +1,6 @@
 [user]
   name = "Denis Lavrushko"
   email = "dlavrushko@protonmail.com"
-  username = "behoof4mind"
-  signingKey = "4D6F36D54173B8A1"
-[commit]
-  gpgSign = true
-[tag]
-  gpgSign = true
 [core]
   editor = nvim
   sshCommand = ssh -i ~/.ssh/github

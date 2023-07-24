@@ -14,6 +14,7 @@
     go
     golangci-lint
     golangci-lint-langserver
+    gomplate
     gopls
     grc
     jq
@@ -25,6 +26,7 @@
     kubectl-tree
     kubernetes-helm
     kustomize
+    lemonade
     lsd
     nix-prefetch-git
     nixfmt
