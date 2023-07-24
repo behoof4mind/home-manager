@@ -125,7 +125,6 @@
       export EDITOR="nvim"
       export VISUAL="nvim"
       source ~/.iterm2_shell_integration.fish
-
     '';
     plugins = [
       {
