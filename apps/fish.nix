@@ -4,9 +4,14 @@
   programs.fish = {
     enable = true;
     shellAbbrs = {
+
+      ## Movements
       "..." = "cd ../..";
-      gtm = "cd ~/Workplace/gitlab/iits-sources";
+      gtm = "cd ~/Workplace/gitlab/marketplace";
+      gtmb = "cd ~/Workplace/gitlab/marketplace/backend";
+      gtmi = "cd ~/Workplace/gitlab/marketplace/infrastructure";
       gtw = "cd ~/MyGitHub";
+      ctbm = "ssh mkp-buildmachine";
 
       ## Docker
       g = "git";

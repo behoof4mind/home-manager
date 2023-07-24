@@ -30,6 +30,7 @@
     kubectl-tree
     kubernetes-helm
     kustomize
+    lemonade
     lsd
     nix-prefetch-git
     nixpkgs-fmt
@@ -41,7 +42,6 @@
     ranger
     ruby
     terragrunt
-    tmux
     tree
     vault
     vim
@@ -52,6 +52,7 @@
   # Crossplatform
   programs.fish = (pkgs.callPackage ./apps/fish.nix { }).programs.fish;
   programs.git= (pkgs.callPackage ./apps/git.nix { }).programs.git;
+  programs.tmux = (pkgs.callPackage ./apps/tmux.nix { }).programs.tmux;
   programs.neovim = (pkgs.callPackage ./apps/neovim.nix { }).programs.neovim;
   programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
   home.file."/Users/dlavrushko/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
