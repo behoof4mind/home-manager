@@ -6,6 +6,8 @@
     shellAbbrs = {
       "..." = "cd ../..";
       gtm = "cd ~/Workplace/gitlab/marketplace";
+      gtmb = "cd ~/Workplace/gitlab/marketplace/backend";
+      gtmi = "cd ~/Workplace/gitlab/marketplace/infrastructure";
       gtw = "cd ~/MyGitHub";
 
       ## Docker

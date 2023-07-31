@@ -5,8 +5,11 @@
   home.homeDirectory = "/home/linux";
 
   home.packages = with pkgs; [
+    air
+    cargo
     ctags
     delve
+    deno
     direnv
     dive
     docker-compose
@@ -17,6 +20,7 @@
     gomplate
     gopls
     grc
+    fd
     jq
     k9s
     kubecolor
@@ -31,12 +35,14 @@
     nix-prefetch-git
     nixfmt
     nixpkgs-fmt
+    nodePackages.pnpm
     nodePackages.yaml-language-server
     nodejs
     oh-my-fish
     openjdk
     python311
     ranger
+    ripgrep
     ruby
     terraform-ls
     terragrunt

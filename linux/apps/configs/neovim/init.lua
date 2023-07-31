@@ -114,6 +114,14 @@ require('lazy').setup({
 
   {'ojroques/nvim-osc52'},
 
+  {'editorconfig/editorconfig-vim'},
+  {
+  'stevearc/oil.nvim',
+  opts = {},
+  -- Optional dependencies
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
@@ -228,6 +236,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -237,6 +246,11 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
+require("oil").setup({
+  view_options = {
+    show_hidden = true,
+  },
+})
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -446,6 +460,7 @@ local servers = {
   gopls = {},
   yamlls = {},
   terraformls = {},
+  rnix = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
