@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     argocd
+    cargo
     coreutils-full
     ctags
     delve
