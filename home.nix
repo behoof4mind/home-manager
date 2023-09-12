@@ -60,12 +60,7 @@
   home.file."/Users/dlavrushko/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
   home.file."/Users/dlavrushko/.ssh/config".source = ./apps/configs/.ssh-config;
   home.file."/Users/dlavrushko/.ctags".source = ./apps/configs/.ctags;
-  home.file."/Users/dlavrushko/.config/nvim/lua/behoof4mind/init.lua".source = ./apps/configs/neovim/lua/behoof4mind/init.lua;
-  home.file."/Users/dlavrushko/.config/nvim/lua/behoof4mind/packer.lua".source = ./apps/configs/neovim/lua/behoof4mind/packer.lua;
-  home.file."/Users/dlavrushko/.config/nvim/lua/behoof4mind/lspconfig.lua".source = ./apps/configs/neovim/lua/behoof4mind/lspconfig.lua;
-  home.file."/Users/dlavrushko/.config/nvim/lua/behoof4mind/remap.lua".source = ./apps/configs/neovim/lua/behoof4mind/remap.lua;
-  home.file."/Users/dlavrushko/.config/nvim/lua/behoof4mind/set.lua".source = ./apps/configs/neovim/lua/behoof4mind/set.lua;
-  home.file."/Users/dlavrushko/.config/nvim/lua/behoof4mind/nvim-tree.lua".source = ./apps/configs/neovim/lua/behoof4mind/nvim-tree.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/custom/plugins/init.lua".source = ./apps/configs/neovim/lua/custom/plugins/init.lua;
 
   # MacOS specific
   home.file."/Users/dlavrushko/Library/Application\ Support/Code/User/keybindings.json".source = ./apps/configs/vscode/keybindings.json;

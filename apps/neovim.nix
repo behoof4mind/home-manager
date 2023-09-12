@@ -4,13 +4,8 @@
   programs.neovim = {
     enable = true;
     extraLuaConfig = ''
-      require("behoof4mind")
+      ${builtins.readFile ./configs/neovim/init.lua}
     '';
-    plugins =
-      with pkgs.vimPlugins; [
-        yankring
-        vim-nix
-        packer-nvim
-      ];
   };
 }
+

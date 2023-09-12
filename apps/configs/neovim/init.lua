@@ -70,6 +70,14 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
+  {
+    -- Theme inspired by Atom
+    'morhetz/gruvbox',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'gruvbox'
+    end,
+  },
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -112,6 +120,16 @@ require('lazy').setup({
     },
   },
 
+  {'ojroques/nvim-osc52'},
+
+  {'editorconfig/editorconfig-vim'},
+  {
+  'stevearc/oil.nvim',
+  opts = {},
+  -- Optional dependencies
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
@@ -141,14 +159,6 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- }
-  {
-    -- Theme inspired by Atom
-    'rebelot/kanagawa.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'kanagawa'
-    end,
-  },
 
   {
     -- Set lualine as statusline
@@ -226,6 +236,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -235,6 +246,11 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
+require("oil").setup({
+  view_options = {
+    show_hidden = true,
+  },
+})
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -259,6 +275,9 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('v', '<leader>c', require('osc52').copy_visual)
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -441,6 +460,7 @@ local servers = {
   gopls = {},
   yamlls = {},
   terraformls = {},
+  rnix = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},

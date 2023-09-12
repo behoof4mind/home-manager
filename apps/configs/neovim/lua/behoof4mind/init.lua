@@ -1,5 +1,0 @@
-require("behoof4mind.set")
-require("behoof4mind.remap")
-require("behoof4mind.packer")
-require("behoof4mind.lspconfig")
--- require("behoof4mind.nvim-tree")
