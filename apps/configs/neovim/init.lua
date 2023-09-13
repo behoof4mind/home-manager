@@ -189,7 +189,22 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    keys = {
+      { "<leader>fh", "<cmd>Telescope find_files no_ignore=true<cr>", desc = "Telescope Files Hidden" },
+      {
+        "<leader>ss",
+        function()
+          require("telescope.builtin").live_grep({ additional_args = { "--hidden" } })
+        end,
+        desc = "Telescope Grep Hidden",
+      },
+    },
+    dependencies = { 'nvim-lua/plenary.nvim' }
+
+  },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system

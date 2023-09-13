@@ -41,6 +41,7 @@
     openjdk
     python311
     ranger
+    ripgrep
     ruby
     terragrunt
     tree
