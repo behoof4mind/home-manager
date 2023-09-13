@@ -30,6 +30,7 @@
     kubectl-tree
     kubernetes-helm
     kustomize
+    lemonade
     lsd
     nix-prefetch-git
     nixfmt
