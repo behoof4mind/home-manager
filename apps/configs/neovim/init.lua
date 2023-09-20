@@ -103,6 +103,13 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  -- Go tools
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      'leoluz/nvim-dap-go'
+    },
+  },
 
   {
     -- Autocompletion

@@ -5,6 +5,7 @@
   home.homeDirectory = "/Users/dlavrushko";
 
   home.packages = with pkgs; [
+    air
     argocd
     cargo
     coreutils-full
