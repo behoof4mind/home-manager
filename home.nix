@@ -45,6 +45,7 @@
     ripgrep
     ruby
     terragrunt
+    tflint
     tree
     vault
     vim
