@@ -31,6 +31,7 @@
     kubernetes-helm
     kustomize
     lemonade
+    luajitPackages.luarocks
     lsd
     nix-prefetch-git
     nixfmt
@@ -40,7 +41,8 @@
     nodejs
     oh-my-fish
     openjdk
-    python311
+    php
+    php80Packages.composer
     ranger
     ripgrep
     ruby
