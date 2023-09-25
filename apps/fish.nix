@@ -8,8 +8,7 @@
       ## Movements
       "..." = "cd ../..";
       gtm = "cd ~/Workplace/gitlab/marketplace";
-      gtmb = "cd ~/Workplace/gitlab/marketplace/backend";
-      gtmi = "cd ~/Workplace/gitlab/marketplace/infrastructure";
+      gtmd = "cd ~/Workplace/gitlab/mdoc";
       gtw = "cd ~/MyGitHub";
       ctbm = "ssh mkp-buildmachine";
 
