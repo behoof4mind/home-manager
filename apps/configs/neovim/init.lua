@@ -68,8 +68,10 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
 
+  { 'hashivim/vim-terraform' },
+  { 'codota/tabnine-nvim', build = "./dl_binaries.sh" },
+  { 'tpope/vim-commentary' },
   {
     -- Theme inspired by Atom
     'morhetz/gruvbox',
@@ -84,7 +86,20 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
+  {
+    'nathom/filetype.nvim',
+      config = function()
+          require("filetype").setup {
+              overrides = {
+                  extensions = {
+                      tf = "terraform",
+                      tfvars = "terraform",
+                      tfstate = "json",
+                  },
+              },
+          }
+      end,
+  },
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -101,6 +116,21 @@ require('lazy').setup({
     },
   },
   -- Go tools
+  {
+    'fatih/vim-go',
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  },
   {
     'mfussenegger/nvim-dap',
     dependencies = {
@@ -226,6 +256,12 @@ require('lazy').setup({
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    opts = {
+      ensure_installed = {
+        "hcl",
+        "terraform",
+      },
+    },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
@@ -269,6 +305,16 @@ require("oil").setup({
   view_options = {
     show_hidden = true,
   },
+})
+
+require('tabnine').setup({
+  disable_auto_comment=true,
+  accept_keymap="<A-Tab>",
+  dismiss_keymap = "<C-]>",
+  debounce_ms = 800,
+  suggestion_color = {gui = "#808080", cterm = 244},
+  exclude_filetypes = {"TelescopePrompt", "NvimTree"},
+  log_file_path = nil, -- absolute path to Tabnine log file
 })
 -- Enable break indent
 vim.o.breakindent = true
@@ -499,29 +545,15 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-  end,
-}
-
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
+require'lspconfig'.terraformls.setup{}
+require'lspconfig'.gopls.setup {}
 
 cmp.setup {
   snippet = {

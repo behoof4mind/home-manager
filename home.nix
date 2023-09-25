@@ -45,6 +45,7 @@
     ripgrep
     ruby
     terragrunt
+    terraform-ls
     tflint
     tree
     vault
