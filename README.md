@@ -55,3 +55,4 @@ These actions should add VSCode to the Spotlight:
 
 ### Go
 - Language and its packages
+
