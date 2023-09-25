@@ -1,10 +1,9 @@
 # Home-manager
-My nix home-manager setup.  
+My nix home-manager setup.
 The idea is to configure all needed apps once (DRY princip in action).
 
-> OS Version: MacOS Monterey 12.6  
+> OS Version: MacOS Monterey 12.6
 > Home-Manager Version: 22.11
-
 
 ## Installation
 - install nix
@@ -14,7 +13,7 @@ The idea is to configure all needed apps once (DRY princip in action).
 - home-manage swith
 
 ## Usage
-Right after installation all applications should be availabale and have proper configuration.  
+Right after installation all applications should be availabale and have proper configuration.
 To apply any changes you need to:
 ```shell
 home-manager switch
@@ -33,11 +32,11 @@ These things is not automated due to lack of the time or beause of complexity.
     ```
 ### VSCode
 Everything that was not done with VSCode is here.
-1. Gruvbox theme  
-    My theme is not available as nix package, need to find out another way how to add it.  
+1. Gruvbox theme
+    My theme is not available as nix package, need to find out another way how to add it.
     This  theme should be installed manually `Correia Github Gruvbox`
-2. App in Applications (Spotlight) .  
-These actions should add VSCode to the Spotlight:  
+2. App in Applications (Spotlight) .
+These actions should add VSCode to the Spotlight:
     - Create Automator script (Run Shell)
     - Add `open /Users/dlavrushko/.nix-profile/bin/code && sleep 1 && pkill Terminal`
     - Save to Applications as `Code.app`
