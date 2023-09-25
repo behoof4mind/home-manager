@@ -2,7 +2,7 @@
   name = "Denis Lavrushko"
   email = "dlavrushko@protonmail.com"
   username = "behoof4mind"
-  signingKey = "4D6F36D54173B8A1"
+  signingKey = "F081F70A59C5E9AC"
 [commit]
   gpgSign = true
 [tag]

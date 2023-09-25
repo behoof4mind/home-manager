@@ -2,7 +2,7 @@
   name = "Denis Lavrushko"
   email = "denis.lavrushko@iits-consulting.de"
   username = "dlavrushko"
-  signingKey = "4D6F36D54173B8A1"
+  signingKey = "9F97378D7F1C2F7F"
 [commit]
   gpgSign = true
 [tag]
