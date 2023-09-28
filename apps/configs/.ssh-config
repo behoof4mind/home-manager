@@ -28,3 +28,7 @@ Host mkp-buildmachine
     HostName 80.158.56.15
     IdentityFile ~/.ssh/denis-mkp-buildmachine.pem
     User linux
+
+Host *.*.mdoc.iits.tech
+    IdentityFile ~/.ssh/iits-gitlab
+    User denislavrushko

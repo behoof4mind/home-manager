@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     air
     argocd
+    bash
     cargo
     coreutils-full
     ctags
@@ -14,6 +15,7 @@
     direnv
     docker-compose
     dive
+    fd
     gnugrep
     gnupg
     gnused
@@ -27,13 +29,16 @@
     k9s
     kubecolor
     kubectl
+    julia-bin
     kubectl-doctor
     kubectl-example
     kubectl-tree
     kubernetes-helm
     kustomize
+    lazygit
     lemonade
     lsd
+    luajitPackages.luarocks
     neovim
     nix-prefetch-git
     nixpkgs-fmt
@@ -41,7 +46,10 @@
     nodejs
     oh-my-fish
     openjdk
-    python311
+    openssh
+    php
+    php81Packages.composer
+    python310Packages.pip
     ranger
     ripgrep
     ruby
