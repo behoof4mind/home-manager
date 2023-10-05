@@ -80,6 +80,7 @@
   home.file."/Users/dlavrushko/.config/nvim/lua/config/autocmds.lua".source = ./apps/configs/neovim/lua/config/autocmds.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/config/keymaps.lua".source = ./apps/configs/neovim/lua/config/keymaps.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/config/lazy.lua".source = ./apps/configs/neovim/lua/config/lazy.lua;
+  home.file."/Users/dlavrushko/.config/lazygit/config.yml".source = ./apps/configs/neovim/lazygit_config.yml;
   home.file."/Users/dlavrushko/.config/nvim/lua/config/options.lua".source = ./apps/configs/neovim/lua/config/options.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/example.lua".source = ./apps/configs/neovim/lua/plugins/example.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/colorscheme.lua".source = ./apps/configs/neovim/lua/plugins/colorscheme.lua;

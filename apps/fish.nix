@@ -118,11 +118,12 @@
       hms = "home-manager switch";
     };
     interactiveShellInit = ''
-      export PATH="$PATH:/opt/homebrew/bin"
       export "PATH=$PATH:$HOME/kubectl-plugins"
-      kubectl completion fish | source
       export EDITOR="nvim"
+      export PATH="$PATH:/opt/homebrew/bin"
       export VISUAL="nvim"
+      export XDG_CONFIG_HOME="$HOME/.config"
+      kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
     '';
     plugins = [
