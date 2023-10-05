@@ -11,25 +11,27 @@
     cargo
     coreutils-full
     ctags
+    cz-cli
     delve
     direnv
-    docker-compose
     dive
+    docker-compose
     fd
+    git
     gnugrep
     gnupg
     gnused
     go
+    go-swagger
     golangci-lint
     golangci-lint-langserver
     gopls
-    go-swagger
     grc
     jq
+    julia-bin
     k9s
     kubecolor
     kubectl
-    julia-bin
     kubectl-doctor
     kubectl-example
     kubectl-tree
@@ -41,8 +43,8 @@
     luajitPackages.luarocks
     neovim
     nix-prefetch-git
-    nixpkgs-fmt
     nixfmt
+    nixpkgs-fmt
     nodejs
     oh-my-fish
     openjdk
@@ -53,14 +55,15 @@
     ranger
     ripgrep
     ruby
-    terragrunt
     terraform-ls
+    terragrunt
     tflint
     tree
     vault
     vim
     watch
     wget
+    yq
   ];
 
   # Crossplatform
@@ -68,9 +71,9 @@
   programs.git = (pkgs.callPackage ./apps/git.nix { }).programs.git;
   programs.tmux = (pkgs.callPackage ./apps/tmux.nix { }).programs.tmux;
   programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
-  home.file."/Users/dlavrushko/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
-  home.file."/Users/dlavrushko/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
-  home.file."/Users/dlavrushko/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
+  home.file."/Users/dlavrushko/.gitconfig-my-github".source = ./apps/configs/git/.gitconfig-my-github;
+  home.file."/Users/dlavrushko/.gitconfig-iits-github".source = ./apps/configs/git/.gitconfig-iits-github;
+  home.file."/Users/dlavrushko/.gitconfig-iits-gitlab".source = ./apps/configs/git/.gitconfig-iits-gitlab;
   home.file."/Users/dlavrushko/.ssh/config".source = ./apps/configs/.ssh-config;
   home.file."/Users/dlavrushko/.ctags".source = ./apps/configs/.ctags;
   home.file."/Users/dlavrushko/.config/nvim/init.lua".source = ./apps/configs/neovim/init.lua;
