@@ -23,3 +23,7 @@ map("n", "<leader>fh", function()
   require("telescope.builtin").live_grep({ additional_args = { "--hidden" } })
 end, { desc = "Telescope Grep Hidden" })
 map("n", "<leader>fi", "<cmd>Telescope find_files no_ignore=true<cr>", { desc = "Telescope Files Hidden" })
+
+-- decode base64 on-the-fly and show or decode and add to the buffer
+vim.keymap.set("v", "<leader>64", "y:let @+ = system('base64 --decode', @\")<cr><esc>")
+vim.keymap.set("v", "<leader><leader>64", "y:echo system('base64 --decode', @\")<cr>")
