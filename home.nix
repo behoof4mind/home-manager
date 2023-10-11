@@ -13,6 +13,7 @@
     ctags
     cz-cli
     delve
+    helm-ls
     direnv
     dive
     docker-compose
@@ -82,7 +83,7 @@
   home.file."/Users/dlavrushko/.config/nvim/lua/config/lazy.lua".source = ./apps/configs/neovim/lua/config/lazy.lua;
   home.file."/Users/dlavrushko/.config/lazygit/config.yml".source = ./apps/configs/neovim/lazygit_config.yml;
   home.file."/Users/dlavrushko/.config/nvim/lua/config/options.lua".source = ./apps/configs/neovim/lua/config/options.lua;
-  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/example.lua".source = ./apps/configs/neovim/lua/plugins/example.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/coding.lua".source = ./apps/configs/neovim/lua/plugins/coding.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/colorscheme.lua".source = ./apps/configs/neovim/lua/plugins/colorscheme.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/disabled.lua".source = ./apps/configs/neovim/lua/plugins/disabled.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/file-editor.lua".source = ./apps/configs/neovim/lua/plugins/file-editor.lua;
