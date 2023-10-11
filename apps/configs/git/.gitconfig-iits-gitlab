@@ -12,3 +12,5 @@
 [core]
   editor = nvim
   sshCommand = ssh -i ~/.ssh/iits-gitlab
+[push]
+  default = simple
