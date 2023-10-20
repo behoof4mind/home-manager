@@ -13,7 +13,6 @@
     ctags
     cz-cli
     delve
-    helm-ls
     direnv
     dive
     docker-compose
@@ -28,6 +27,7 @@
     golangci-lint-langserver
     gopls
     grc
+    helm-ls
     jq
     julia-bin
     k9s
@@ -46,19 +46,23 @@
     nix-prefetch-git
     nixfmt
     nixpkgs-fmt
+    nodePackages.bash-language-server
     nodejs
     oh-my-fish
     openjdk
     openssh
     php
     php81Packages.composer
+    popeye
     python310Packages.pip
     ranger
+    redis
     ripgrep
     ruby
     terraform-ls
     terragrunt
     tflint
+    tig
     tree
     vault
     vim
@@ -85,8 +89,10 @@
   home.file."/Users/dlavrushko/.config/nvim/lua/config/options.lua".source = ./apps/configs/neovim/lua/config/options.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/coding.lua".source = ./apps/configs/neovim/lua/plugins/coding.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/colorscheme.lua".source = ./apps/configs/neovim/lua/plugins/colorscheme.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/databases.lua".source = ./apps/configs/neovim/lua/plugins/databases.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/disabled.lua".source = ./apps/configs/neovim/lua/plugins/disabled.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/file-editor.lua".source = ./apps/configs/neovim/lua/plugins/file-editor.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/git.lua".source = ./apps/configs/neovim/lua/plugins/git.lua;
 
   # MacOS specific
   home.file."/Users/dlavrushko/Library/Application\ Support/Code/User/keybindings.json".source = ./apps/configs/vscode/keybindings.json;
