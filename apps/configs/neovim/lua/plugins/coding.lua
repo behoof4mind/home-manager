@@ -1,9 +1,6 @@
 return {
   {
-    "stevearc/conform.nvim",
-    opts = {
-      format_on_save = { timeout_ms = 500, lsp_fallback = true },
-    },
+    "mfussenegger/nvim-lint",
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -44,7 +41,18 @@ return {
       require("lspconfig").gopls.setup({})
       require("lspconfig").golangci_lint_ls.setup({})
       require("lspconfig").bashls.setup({})
-      require("lspconfig").terraformls.setup({})
+      require("lspconfig").yamlls.setup({
+        on_attach = function(client, bufnr)
+          local excluded_patterns = { ".+/templates/.+.yaml", ".+/templates/.+%.tpl", ".+%.gotmpl", "helmfile.+%.yaml" }
+          local filename = vim.fn.expand("%:p")
+          for _, pattern in ipairs(excluded_patterns) do
+            if string.match(filename, pattern) then
+              vim.lsp.stop_client(1)
+              return
+            end
+          end
+        end,
+      })
     end,
   },
   {
