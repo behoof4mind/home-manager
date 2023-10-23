@@ -47,6 +47,7 @@
     nixfmt
     nixpkgs-fmt
     nodePackages.bash-language-server
+    nodePackages.yaml-language-server
     nodejs
     oh-my-fish
     openjdk
@@ -88,7 +89,14 @@
   home.file."/Users/dlavrushko/.config/lazygit/config.yml".source = ./apps/configs/neovim/lazygit_config.yml;
   home.file."/Users/dlavrushko/.config/nvim/lua/config/options.lua".source = ./apps/configs/neovim/lua/config/options.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/coding.lua".source = ./apps/configs/neovim/lua/plugins/coding.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lsp.lua".source = ./apps/configs/neovim/lua/plugins/lsp.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/colorscheme.lua".source = ./apps/configs/neovim/lua/plugins/colorscheme.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lang/terraform.lua".source = ./apps/configs/neovim/lua/plugins/lang/terraform.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lang/yaml.lua".source = ./apps/configs/neovim/lua/plugins/lang/yaml.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lang/docker.lua".source = ./apps/configs/neovim/lua/plugins/lang/docker.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lang/markdown.lua".source = ./apps/configs/neovim/lua/plugins/lang/markdown.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lang/java.lua".source = ./apps/configs/neovim/lua/plugins/lang/java.lua;
+  home.file."/Users/dlavrushko/.config/nvim/lua/plugins/lang/json.lua".source = ./apps/configs/neovim/lua/plugins/lang/json.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/databases.lua".source = ./apps/configs/neovim/lua/plugins/databases.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/disabled.lua".source = ./apps/configs/neovim/lua/plugins/disabled.lua;
   home.file."/Users/dlavrushko/.config/nvim/lua/plugins/file-editor.lua".source = ./apps/configs/neovim/lua/plugins/file-editor.lua;
