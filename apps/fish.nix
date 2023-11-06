@@ -1,16 +1,17 @@
 { pkgs, ... }:
 
+let
+  vars = import ../variables.nix;
+in
 {
   programs.fish = {
     enable = true;
     shellAbbrs = {
 
-      ## Movements
       "..." = "cd ../..";
-      gtm = "cd ~/Workplace/gitlab/marketplace";
-      gtmd = "cd ~/Workplace/gitlab/mdoc";
-      gtw = "cd ~/MyGitHub";
-      ctbm = "ssh mkp-buildmachine";
+      gtm = "cd " + vars.currentProject;
+      gtw = "cd ~/Workplace/";
+      exmt = "bash"  + vars.currentProject + "/v2/terraform/stages/tunnels.sh -u denislavrushko";
 
       ## Docker
       g = "git";
@@ -43,7 +44,7 @@
       kar = "kubectl api-resources";
       kgp = "kubectl get pods";
       kgpa = "kubectl get pods -A";
-      kgpn = "kubects get pods --namespace";
+      kgpn = "kubectl get pods --namespace";
       kdp = "kubectl describe pod";
       kep = "kubectl edit pod";
       kdelp = "kubectl delete pod";
