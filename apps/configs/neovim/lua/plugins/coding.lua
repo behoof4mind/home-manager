@@ -1,5 +1,16 @@
 return {
   {
+    "someone-stole-my-name/yaml-companion.nvim",
+    requires = {
+      { "neovim/nvim-lspconfig" },
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+    config = function()
+      require("telescope").load_extension("yaml_schema")
+    end,
+  },
+  {
     "mfussenegger/nvim-lint",
   },
   {
@@ -37,22 +48,21 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").helm_ls.setup({})
-      require("lspconfig").gopls.setup({})
-      require("lspconfig").golangci_lint_ls.setup({})
-      require("lspconfig").bashls.setup({})
       require("lspconfig").yamlls.setup({
         on_attach = function(client, bufnr)
           local excluded_patterns = { ".+/templates/.+.yaml", ".+/templates/.+%.tpl", ".+%.gotmpl", "helmfile.+%.yaml" }
           local filename = vim.fn.expand("%:p")
           for _, pattern in ipairs(excluded_patterns) do
             if string.match(filename, pattern) then
-              vim.lsp.stop_client(1)
-              return
+              vim.lsp.stop_client(client.id)
             end
           end
         end,
       })
+      require("lspconfig").helm_ls.setup({})
+      require("lspconfig").gopls.setup({})
+      require("lspconfig").golangci_lint_ls.setup({})
+      require("lspconfig").bashls.setup({})
     end,
   },
   {
