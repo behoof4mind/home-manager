@@ -2,6 +2,7 @@
 
 with pkgs; [
   air
+  ansible-language-server
   argocd
   autossh
   bash
@@ -13,8 +14,10 @@ with pkgs; [
   direnv
   dive
   docker-compose
+  docker-compose-language-service
   fd
   git
+  gitflow
   gnugrep
   gnupg
   gnused
@@ -22,9 +25,13 @@ with pkgs; [
   go-swagger
   golangci-lint
   golangci-lint-langserver
+  goose
   gopls
   grc
   helm-ls
+  hugo
+  imagemagick
+  jfrog-cli
   jq
   julia-bin
   k9s
@@ -40,17 +47,27 @@ with pkgs; [
   lazygit
   lemonade
   lsd
+  lua-language-server
   luajitPackages.luarocks
+  marksman
+  maven
   neovim
   nix-prefetch-git
   nixfmt
   nixpkgs-fmt
   nodePackages.bash-language-server
+  nodePackages.dockerfile-language-server-nodejs
+  nodePackages.eslint
+  nodePackages.node2nix
+  nodePackages.pnpm
+  nodePackages.vscode-json-languageserver
+  nodePackages.vue-language-server
   nodePackages.yaml-language-server
   nodejs
   oh-my-fish
   openjdk
   openssh
+  pgadmin4-desktopmode
   php
   php81Packages.composer
   popeye
@@ -58,7 +75,9 @@ with pkgs; [
   ranger
   redis
   ripgrep
+  rnix-lsp
   ruby
+  scrcpy
   terraform-ls
   terragrunt
   tflint
