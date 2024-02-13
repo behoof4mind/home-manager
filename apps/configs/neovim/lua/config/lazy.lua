@@ -14,7 +14,6 @@ require("lazy").setup({
       "nvimtools/none-ls.nvim",
       enabled = false,
     },
-    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {

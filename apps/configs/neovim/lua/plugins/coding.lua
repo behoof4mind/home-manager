@@ -37,6 +37,7 @@ return {
     build = "cd app && npm install",
     lazy = true,
   },
+  { "mbbill/undotree" },
   {
     "hashivim/vim-terraform",
   },

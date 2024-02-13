@@ -19,11 +19,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<leader>fh", function()
-  require("telescope.builtin").live_grep({ additional_args = { "--hidden" } })
-end, { desc = "Telescope Grep Hidden" })
-map("n", "<leader>fi", "<cmd>Telescope find_files no_ignore=true<cr>", { desc = "Telescope Files Hidden" })
-
 -- decode base64 on-the-fly and show or decode and add to the buffer
 vim.keymap.set("v", "<leader>64", "y:let @+ = system('base64 --decode', @\")<cr><esc>")
 vim.keymap.set("v", "<leader><leader>64", "y:echo system('base64 --decode', @\")<cr>")
@@ -38,7 +33,8 @@ map("n", "<C-h>", vim.lsp.buf.signature_help, { desc = "GoTo signature_help" })
 map("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "GoTo type_definition" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "GoTo rename" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
-map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
+map("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Open UndoTree" })
 vim.api.nvim_set_keymap(
   "n",
   "<leader>hh",
