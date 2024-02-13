@@ -59,10 +59,21 @@ return {
           end
         end,
       })
-      require("lspconfig").helm_ls.setup({})
-      require("lspconfig").gopls.setup({})
-      require("lspconfig").golangci_lint_ls.setup({})
       require("lspconfig").bashls.setup({})
+      require("lspconfig").golangci_lint_ls.setup({})
+      require("lspconfig").gopls.setup({})
+      require("lspconfig").helm_ls.setup({})
+      require("lspconfig").jsonls.setup({})
+      require("lspconfig").lua_ls.setup({})
+      require("lspconfig").marksman.setup({})
+      require("lspconfig").terraformls.setup({})
+      require("lspconfig").rnix.setup({})
+      require("lspconfig").vuels.setup({})
+      require("lspconfig").dockerls.setup({})
+      require("lspconfig").docker_compose_language_service.setup({})
+      require("lspconfig").ansiblels.setup({})
+      require("lspconfig").sqlls.setup({})
+      require("lspconfig").pylsp.setup({})
     end,
   },
   {
