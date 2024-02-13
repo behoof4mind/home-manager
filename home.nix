@@ -3,7 +3,6 @@
 let
   packageList = import ./packages.nix { inherit pkgs; };
   configPath = "${builtins.getEnv "HOME"}/.config";
-
 in {
   home.username = "dlavrushko";
   home.homeDirectory = "/Users/dlavrushko";
@@ -33,6 +32,8 @@ in {
       ./apps/configs/neovim/lazygit_config.yml;
     "${configPath}/nvim/lua/config/options.lua".source =
       ./apps/configs/neovim/lua/config/options.lua;
+    "${configPath}/nvim/lua/plugins/obsidian.lua".source =
+      ./apps/configs/neovim/lua/plugins/obsidian.lua;
     "${configPath}/nvim/lua/plugins/coding.lua".source =
       ./apps/configs/neovim/lua/plugins/coding.lua;
     "${configPath}/nvim/lua/plugins/lsp.lua".source =
@@ -43,6 +44,10 @@ in {
       ./apps/configs/neovim/lua/plugins/lang/terraform.lua;
     "${configPath}/nvim/lua/plugins/lang/yaml.lua".source =
       ./apps/configs/neovim/lua/plugins/lang/yaml.lua;
+    "${configPath}/nvim/lua/plugins/copilot.lua".source =
+      ./apps/configs/neovim/lua/plugins/copilot.lua;
+    "${configPath}/nvim/lua/plugins/lualine.lua".source =
+      ./apps/configs/neovim/lua/plugins/lualine.lua;
     "${configPath}/nvim/lua/plugins/lang/docker.lua".source =
       ./apps/configs/neovim/lua/plugins/lang/docker.lua;
     "${configPath}/nvim/lua/plugins/lang/markdown.lua".source =
