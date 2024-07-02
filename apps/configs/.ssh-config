@@ -3,7 +3,7 @@ Host GitHub
      User dlavrushko@protonmail.com
      IdentityFile ~/.ssh/github
 
-# Example
+## Example
 Host *.*.test.app
     IdentityFile ~/.ssh/gitlab
     User denislavrushko
