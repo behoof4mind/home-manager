@@ -8,8 +8,8 @@ with pkgs; [
   bash
   cargo
   coreutils-full
+  commitizen
   ctags
-  cz-cli
   delve
   direnv
   dive
