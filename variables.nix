@@ -1,3 +1,4 @@
 {
-  currentProject = "/Users/dlavrushko/Workplace/gitlab/mdoc";
+  userName = "denislavrushko";
+  currentProject = "/Users/denislavrushko/Workplace/ftapi";
 }
