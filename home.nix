@@ -3,15 +3,16 @@
 let
   packageList = import ./packages.nix { inherit pkgs; };
   configPath = "${builtins.getEnv "HOME"}/.config";
+  vars = import ./variables.nix;
 in {
-  home.username = "dlavrushko";
-  home.homeDirectory = "/Users/dlavrushko";
+  home.username = vars.userName;
+  home.homeDirectory = "/Users/${vars.userName}";
   home.packages = packageList;
 
   programs.fish = (pkgs.callPackage ./apps/fish.nix { }).programs.fish;
   programs.git = (pkgs.callPackage ./apps/git.nix { }).programs.git;
   programs.tmux = (pkgs.callPackage ./apps/tmux.nix { }).programs.tmux;
-  programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
+#  programs.vscode = (pkgs.callPackage ./apps/vscode.nix { }).programs.vscode;
   home.file = {
     "${builtins.getEnv "HOME"}/.gitconfig-my-github".source =
       ./apps/configs/git/.gitconfig-my-github;

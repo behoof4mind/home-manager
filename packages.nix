@@ -42,6 +42,7 @@ with pkgs; [
   kubectl-doctor
   kubectl-example
   kubectl-tree
+  kubelogin-oidc
   kubernetes-helm
   kustomize
   lazygit
@@ -51,6 +52,7 @@ with pkgs; [
   luajitPackages.luarocks
   marksman
   maven
+  meslo-lgs-nf
   neovim
   nil
   nix-prefetch-git
@@ -83,7 +85,6 @@ with pkgs; [
   tflint
   tig
   tree
-  vault
   vim
   watch
   wget

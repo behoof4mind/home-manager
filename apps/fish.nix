@@ -9,9 +9,7 @@ in
     shellAbbrs = {
 
       "..." = "cd ../..";
-      gtp = "cd " + vars.currentProject;
-      gtw = "cd ~/Workplace/";
-      expt = "bash "  + vars.currentProject + "/devops/v2/terraform/stages/tunnels.sh -u denislavrushko";
+      gtw = "cd ${vars.currentProject} && nvim .";
 
       ## Docker
       g = "git";
