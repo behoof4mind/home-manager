@@ -10,11 +10,11 @@
       }
       {
           path = "~/.gitconfig-my-github";
-          condition = "gitdir:~/.config/home-manager";
+          condition = "gitdir:~/.config/home-manager/**";
       }
       {
           path = "~/.gitconfig-ftapi-github";
-          condition = "gitdir:~/Workplace/ftapi/";
+          condition = "gitdir:~/Workplace/ftapi/**";
       }
     ];
   };
