@@ -84,7 +84,7 @@ return {
       require("lspconfig").lua_ls.setup({})
       require("lspconfig").marksman.setup({})
       require("lspconfig").terraformls.setup({})
-      require("lspconfig").rnix.setup({})
+      require("lspconfig").nil_ls.setup({})
       require("lspconfig").vuels.setup({})
       require("lspconfig").dockerls.setup({})
       require("lspconfig").docker_compose_language_service.setup({})
@@ -102,6 +102,7 @@ return {
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio",
         -- stylua: ignore
         keys = {
           { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },

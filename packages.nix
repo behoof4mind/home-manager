@@ -52,6 +52,7 @@ with pkgs; [
   marksman
   maven
   neovim
+  nil
   nix-prefetch-git
   nixfmt
   nixpkgs-fmt
@@ -75,7 +76,6 @@ with pkgs; [
   ranger
   redis
   ripgrep
-  rnix-lsp
   ruby
   scrcpy
   terraform-ls
