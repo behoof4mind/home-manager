@@ -15,10 +15,8 @@ in {
   home.file = {
     "${builtins.getEnv "HOME"}/.gitconfig-my-github".source =
       ./apps/configs/git/.gitconfig-my-github;
-    "${builtins.getEnv "HOME"}/.gitconfig-iits-github".source =
-      ./apps/configs/git/.gitconfig-iits-github;
-    "${builtins.getEnv "HOME"}/.gitconfig-iits-gitlab".source =
-      ./apps/configs/git/.gitconfig-iits-gitlab;
+    "${builtins.getEnv "HOME"}/.gitconfig-ftapi-github".source =
+      ./apps/configs/git/.gitconfig-ftapi-github;
     "${builtins.getEnv "HOME"}/.ssh/config".source = ./apps/configs/.ssh-config;
     "${builtins.getEnv "HOME"}/.ctags".source = ./apps/configs/.ctags;
     "${configPath}/nvim/init.lua".source = ./apps/configs/neovim/init.lua;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.git = {
@@ -10,15 +10,11 @@
       }
       {
           path = "~/.gitconfig-my-github";
-          condition = "gitdir:~/.config/nixpkgs/**";
+          condition = "gitdir:~/.config/home-manager";
       }
       {
-          path = "~/.gitconfig-iits-github";
-          condition = "gitdir:~/Workplace/github/**";
-      }
-      {
-          path = "~/.gitconfig-iits-gitlab";
-          condition = "gitdir:~/Workplace/gitlab/**";
+          path = "~/.gitconfig-ftapi-github";
+          condition = "gitdir:~/Workplace/ftapi/";
       }
     ];
   };
