@@ -2,13 +2,15 @@
 
 with pkgs; [
   air
+  thefuck
   ansible-language-server
   argocd
   autossh
   bash
   cargo
-  coreutils-full
+  chart-testing
   commitizen
+  coreutils-full
   ctags
   delve
   direnv
@@ -44,6 +46,7 @@ with pkgs; [
   kubectl-tree
   kubelogin-oidc
   kubernetes-helm
+  kubernetes-helmPlugins.helm-unittest
   kustomize
   lazygit
   lemonade
@@ -70,6 +73,7 @@ with pkgs; [
   oh-my-fish
   openjdk
   openssh
+  ov
   pgadmin4-desktopmode
   php
   php81Packages.composer
@@ -86,6 +90,7 @@ with pkgs; [
   tig
   tree
   vim
+  vscode-langservers-extracted
   watch
   wget
   yq-go

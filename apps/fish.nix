@@ -9,6 +9,7 @@ in
     shellAbbrs = {
 
       "..." = "cd ../..";
+      gtp = "cd ${vars.currentProject}";
       gtw = "cd ${vars.currentProject} && nvim .";
 
       ## Docker
@@ -122,8 +123,10 @@ in
       export PATH="$PATH:/opt/homebrew/bin"
       export VISUAL="nvim"
       export XDG_CONFIG_HOME="$HOME/.config"
+      export KUBECONFIG="$HOME/.config/kube/config"
       kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
+      thefuck --alias | source
     '';
     plugins = [
       {
