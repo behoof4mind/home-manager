@@ -1,14 +1,9 @@
 [user]
-  name = "Denis Lavrushko"
   email = "denis.lavrushko@ftapi.com"
-  username = "behoof4mind"
   signingKey = "002CF58D9A5CE384"
 [commit]
   gpgSign = true
 [tag]
   gpgSign = true
 [core]
-  editor = nvim
   sshCommand = "ssh -i ~/.ssh/ftapi-github"
-[push]
-  default = simple

@@ -1,14 +1,10 @@
 [user]
-  name = "Denis Lavrushko"
   email = "dlavrushko@protonmail.com"
-  username = "behoof4mind"
   signingKey = "4B5E6DEBF81CEFB6"
 [commit]
   gpgSign = true
 [tag]
   gpgSign = true
 [core]
-  editor = nvim
   sshCommand = "ssh -i ~/.ssh/github"
-[push]
-  default = simple
+  excludesfile = "/Users/denislavrushko/.config/git/ignore"
