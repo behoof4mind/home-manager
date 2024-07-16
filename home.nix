@@ -21,6 +21,9 @@ in {
     "${builtins.getEnv "HOME"}/.ssh/config".source = ./apps/configs/.ssh-config;
     "${builtins.getEnv "HOME"}/.ctags".source = ./apps/configs/.ctags;
     "${configPath}/nvim/init.lua".source = ./apps/configs/neovim/init.lua;
+    "${configPath}/k9s/skins/gruvbox.yaml".source = ./apps/configs/k9s/skins/gruvbox.yaml;
+    "${configPath}/k9s/skins/red.yaml".source = ./apps/configs/k9s/skins/red.yaml;
+    "${configPath}/k9s/config.yaml".source = ./apps/configs/k9s/config.yaml;
     "${configPath}/cz/config.yaml".source = ./apps/configs/git/commitizen-config.yaml;
     "${configPath}/nvim/lua/config/autocmds.lua".source =
       ./apps/configs/neovim/lua/config/autocmds.lua;
