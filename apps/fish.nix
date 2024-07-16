@@ -128,6 +128,12 @@ in
       source ~/.iterm2_shell_integration.fish
       thefuck --alias | source
     '';
+    functions = {
+      __fish_command_not_found_handler = {
+        body = "__fish_default_command_not_found_handler $argv[1]";
+        onEvent = "fish_command_not_found";
+      };
+    };
     plugins = [
       {
         name = "nix-env";
