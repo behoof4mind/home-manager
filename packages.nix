@@ -1,14 +1,15 @@
 { pkgs }:
 
 with pkgs; [
+  age
   air
-  thefuck
   ansible-language-server
   argocd
   autossh
   bash
   cargo
   chart-testing
+  cmctl
   commitizen
   coreutils-full
   ctags
@@ -18,6 +19,7 @@ with pkgs; [
   docker-compose
   docker-compose-language-service
   fd
+  fluxcd
   git
   gitflow
   gnugrep
@@ -38,6 +40,7 @@ with pkgs; [
   julia-bin
   k9s
   kdash
+  krew
   kube-linter
   kubecolor
   kubectl
@@ -69,7 +72,7 @@ with pkgs; [
   nodePackages.vscode-json-languageserver
   nodePackages.vue-language-server
   nodePackages.yaml-language-server
-  nodejs
+  nodejs_22
   oh-my-fish
   openjdk
   openssh
@@ -77,6 +80,7 @@ with pkgs; [
   pgadmin4-desktopmode
   php
   php81Packages.composer
+  podman
   popeye
   python310Packages.pip
   ranger
@@ -84,14 +88,18 @@ with pkgs; [
   ripgrep
   ruby
   scrcpy
+  sops
+  stern
   terraform-ls
   terragrunt
   tflint
+  thefuck
   tig
   tree
   vim
   vscode-langservers-extracted
   watch
   wget
+  yarn
   yq-go
 ]
