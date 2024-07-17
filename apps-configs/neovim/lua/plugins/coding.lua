@@ -4,28 +4,7 @@ return {
     dependencies = {
       { "neovim/nvim-lspconfig" },
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim" },
     },
-    config = function()
-      require("telescope").load_extension("yaml_schema")
-      require("telescope").setup({
-        pickers = {
-          find_files = {
-            hidden = true,
-          },
-          live_grep = {
-            additional_args = function()
-              return { "--hidden", "--glob", "!**/.git/*" }
-            end,
-          },
-          grep_string = {
-            additional_args = function()
-              return { "--hidden", "--glob", "!**/.git/*" }
-            end,
-          },
-        },
-      })
-    end,
   },
   {
     "mfussenegger/nvim-lint",
@@ -77,7 +56,7 @@ return {
         end,
       })
       require("lspconfig").bashls.setup({})
-      -- require("lspconfig").golangci_lint_ls.setup({})
+      require("lspconfig").golangci_lint_ls.setup({})
       require("lspconfig").gopls.setup({})
       require("lspconfig").helm_ls.setup({})
       require("lspconfig").jsonls.setup({})
