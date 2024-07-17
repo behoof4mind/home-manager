@@ -56,6 +56,7 @@ with pkgs; [
   lsd
   lua-language-server
   luajitPackages.luarocks
+  markdownlint-cli2
   marksman
   maven
   meslo-lgs-nf
@@ -69,6 +70,7 @@ with pkgs; [
   nodePackages.eslint
   nodePackages.node2nix
   nodePackages.pnpm
+  nodePackages.prettier
   nodePackages.vscode-json-languageserver
   nodePackages.vue-language-server
   nodePackages.yaml-language-server
@@ -88,8 +90,11 @@ with pkgs; [
   ripgrep
   ruby
   scrcpy
+  shfmt
   sops
   stern
+  stylua
+  terraform
   terraform-ls
   terragrunt
   tflint
@@ -100,6 +105,7 @@ with pkgs; [
   vscode-langservers-extracted
   watch
   wget
+  yamlfmt
   yarn
   yq-go
 ]

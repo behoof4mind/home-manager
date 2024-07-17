@@ -1,31 +1,31 @@
-{ ... }:
+{ vars }:
 
 {
   programs.git = {
     enable = true;
     includes = [
       {
-          path = "~/.gitconfig-my-github";
+          path = "/Users/${vars.userName}/.gitconfig-my-github";
           condition = "gitdir:~/MyGitHub/**";
       }
       {
-          path = "~/.gitconfig-my-github";
+          path = "/Users/${vars.userName}/.gitconfig-my-github";
           condition = "gitdir:~/.config/home-manager/**";
       }
       {
-          path = "~/.gitconfig-my-github";
+          path = "/Users/${vars.userName}/.gitconfig-my-github";
           condition = "gitdir:~/Workplace/other/";
       }
       {
-          path = "~/.gitconfig-my-github";
+          path = "/Users/${vars.userName}/.gitconfig-my-github";
           condition = "gitdir:~/Workplace/other/**";
       }
       {
-          path = "~/.gitconfig-ftapi-github";
+          path = "/Users/${vars.userName}/.gitconfig-ftapi-github";
           condition = "gitdir:~/Workplace/ftapi/";
       }
       {
-          path = "~/.gitconfig-ftapi-github";
+          path = "/Users/${vars.userName}/.gitconfig-ftapi-github";
           condition = "gitdir:~/Workplace/ftapi/**";
       }
     ];
@@ -34,7 +34,7 @@
             editor = "nvim";
             excludesfile = "~/.config/git/ignore";
           };
-          psh = {
+          push = {
             default = "simple";
           };
           user = {

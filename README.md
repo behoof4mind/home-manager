@@ -37,22 +37,23 @@ These things is not automated due to lack of the time or beause of complexity.
 
 1. Make fish default system shell
 
-    ```shell
-    chsh -s /Users/dlavrushko/.nix-profile/bin/fish
-    ```
+   ```shell
+   chsh -s /Users/dlavrushko/.nix-profile/bin/fish
+   ```
 
 ### VSCode
 
 Everything that was not done with VSCode is here.
 
 1. Gruvbox theme
-    My theme is not available as nix package, need to find out another way how to add it.
-    This  theme should be installed manually `Correia Github Gruvbox`
+   My theme is not available as nix package, need to find out another way how
+   to add it.
+   This theme should be installed manually `Correia Github Gruvbox`
 2. App in Applications (Spotlight) .
-These actions should add VSCode to the Spotlight:
-    - Create Automator script (Run Shell)
-    - Add `open /Users/dlavrushko/.nix-profile/bin/code && sleep 1 && pkill Terminal`
-    - Save to Applications as `Code.app`
+   These actions should add VSCode to the Spotlight: - Create Automator script
+   (Run Shell) - Add
+   `open /Users/dlavrushko/.nix-profile/bin/code && sleep 1 && pkill Terminal` -
+   Save to Applications as `Code.app`
 
 ### Git
 

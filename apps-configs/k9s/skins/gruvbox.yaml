@@ -4,18 +4,17 @@
 # -----------------------------------------------------------------------------
 
 # Styles...
-foreground: &foreground "#ebdbb2"
-background: &background "#272727"
-current_line: &current_line "#ebdbb2"
-selection: &selection "#3c3735"
-comment: &comment "#bdad93"
-cyan: &cyan "#689d69"
-green: &green "#989719"
-orange: &orange "#d79920"
-magenta: &magenta "#b16185"
-blue: &blue "#448488"
-red: &red "#cc231c"
-
+foreground: &foreground '#ebdbb2'
+background: &background '#272727'
+current_line: &current_line '#ebdbb2'
+selection: &selection '#3c3735'
+comment: &comment '#bdad93'
+cyan: &cyan '#689d69'
+green: &green '#989719'
+orange: &orange '#d79920'
+magenta: &magenta '#b16185'
+blue: &blue '#448488'
+red: &red '#cc231c'
 k9s:
   body:
     fgColor: *foreground
@@ -81,7 +80,7 @@ k9s:
     table:
       fgColor: *foreground
       bgColor: *background
-      cursorFgColor: "#fff"
+      cursorFgColor: '#fff'
       cursorBgColor: *current_line
       header:
         fgColor: *foreground

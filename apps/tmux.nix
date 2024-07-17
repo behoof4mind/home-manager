@@ -1,8 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, vars }:
 
-let
-    vars = import ../variables.nix;
-in {
+{
   programs = {
     tmux = {
       enable = true;

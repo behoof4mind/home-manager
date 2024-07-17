@@ -3,8 +3,6 @@
 -- Add any additional keymaps here
 --
 -- This file is automatically loaded by lazyvim.config.init
-local Util = require("lazyvim.util")
-
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
@@ -33,30 +31,30 @@ map("n", "<C-h>", vim.lsp.buf.signature_help, { desc = "GoTo signature_help" })
 map("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "GoTo type_definition" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "GoTo rename" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
 map("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Open UndoTree" })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>hh",
-  [[:lua require("harpoon.ui").toggle_quick_menu()<CR>]],
-  { noremap = true, silent = true }
-)
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ha",
-  [[:lua require("harpoon.mark").add_file()<CR>]],
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>hn",
-  [[:lua require("harpoon.ui").nav_next()<CR>]],
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>hp",
-  [[:lua require("harpoon.ui").nav_prev()<CR>]],
-  { noremap = true, silent = true }
-)
+-- Debugger
+local wk = require("which-key")
+wk.add({
+  -- Harpoon group
+  { "<leader>h", group = "Harpoon" },
+  { "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "Toggle quick menu", mode = "n" },
+  { "<leader>ha", ":lua require('harpoon.ui').add_file()<CR>", desc = "Add file", mode = "n" },
+  { "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", desc = "Next", mode = "n" },
+  { "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", desc = "Previous", mode = "n" },
+  -- Debugger group
+  { "<leader>d", group = "Debugger" },
+  { "<leader>dO", ":DapStepOver<CR>", desc = "Step over", mode = "n" },
+  { "<leader>db", ":DapToggleBreakpoint<CR>", desc = "Toggle breakpoint", mode = "n" },
+  { "<leader>dc", ":DapContinue<CR>", desc = "Continue", mode = "n" },
+  { "<leader>di", ":DapStepInto<CR>", desc = "Step into", mode = "n" },
+  { "<leader>dn", ":DapNew<CR>", desc = "Start debugger", mode = "n" },
+  { "<leader>do", ":DapStepOut<CR>", desc = "Step out", mode = "n" },
+  { "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", desc = "Reset UI", mode = "n" },
+  { "<leader>dt", ":DapTerminate<CR>", desc = "Terminate", mode = "n" },
+  { "<leader>du", ":lua require('dapui').toggle({})<CR>", desc = "Toggle UI", mode = "n" },
+  {
+    mode = { "n", "v" },
+    { "<leader>de", ":lua require('dapui').eval()<CR>", desc = "Evaluate" },
+  },
+})

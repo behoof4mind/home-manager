@@ -1,9 +1,9 @@
 customCommands:
-  - key: "C"
-    command: "cz --config ~/.config/cz/config.yaml commit"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
+  - key: C
+    command: cz --config ~/.config/cz/config.yaml commit
+    description: commit with commitizen
+    context: files
+    loadingText: opening commitizen commit tool
     subprocess: true
   - key: b
     command: tig blame -- {{.SelectedFile.Name}}

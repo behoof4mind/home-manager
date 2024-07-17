@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, vars }:
 
-let
-  vars = import ../variables.nix;
-in
 {
   programs.fish = {
     enable = true;
