@@ -33,7 +33,6 @@ map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "GoTo rename" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
 map("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Open UndoTree" })
 
--- Debugger
 local wk = require("which-key")
 wk.add({
   -- Harpoon group

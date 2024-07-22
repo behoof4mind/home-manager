@@ -71,6 +71,7 @@ with pkgs; [
   nodePackages.node2nix
   nodePackages.pnpm
   nodePackages.prettier
+  nodePackages.vscode-html-languageserver-bin
   nodePackages.vscode-json-languageserver
   nodePackages.vue-language-server
   nodePackages.yaml-language-server

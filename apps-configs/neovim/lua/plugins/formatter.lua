@@ -6,7 +6,7 @@ return {
         ["go"] = { "gofmt" },
         ["nix"] = { "nixfmt" },
         ["tf"] = { "terraform_fmt" },
-        ["yaml"] = { "yq" },
+        -- ["yaml"] = { "yq" },
       },
     },
     formatters = {
