@@ -14,6 +14,17 @@
       nv = "nvim";
       v = "vim";
 
+      p = "podman";
+      pps = "podman ps";
+      ppsa = "podman ps -a";
+      psh = "podman exec -it";
+      prm = "podman rm";
+      prmf = "podman rm --force";
+      pvl = "podman volume list";
+      pvrm = "podman volume rm";
+      pils = "podman image ls";
+      pirm = "podman image rm";
+
       d = "docker";
       dps = "docker ps";
       dpsa = "docker ps -a";
