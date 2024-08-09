@@ -41,6 +41,12 @@ wk.add({
   { "<leader>ha", ":lua require('harpoon.ui').add_file()<CR>", desc = "Add file", mode = "n" },
   { "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", desc = "Next", mode = "n" },
   { "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", desc = "Previous", mode = "n" },
+  -- Telescope group
+  { "<leader>f", group = "Telescope" },
+  {
+    mode = { "n", "v" },
+    { "<leader>cf", "<cmd>Telescope ssh-config<CR>", desc = "Open an ssh connexion" },
+  },
   -- Debugger group
   { "<leader>d", group = "Debugger" },
   { "<leader>dO", ":DapStepOver<CR>", desc = "Step over", mode = "n" },
@@ -56,4 +62,26 @@ wk.add({
     mode = { "n", "v" },
     { "<leader>de", ":lua require('dapui').eval()<CR>", desc = "Evaluate" },
   },
+  -- Obsidian group
+  { "<leader>o", group = "Obsidian" },
+  {
+    "<leader>od",
+    ":silent !lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/daily.mustache' --tag='ftapi' --tag='daily-notes'<CR>",
+    desc = "Create new daily note",
+    mode = "n",
+  },
+  {
+    "<leader>ol",
+    ":silent !lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/learned.mustache' --tag='learned'<CR>",
+    desc = "Create new learned note",
+    mode = "n",
+  },
+  {
+    "<leader>op",
+    ":silent !lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/personal.mustache' --tag='personal'<CR>",
+    desc = "Create new personal note",
+    mode = "n",
+  },
+  { "<leader>of", ":ObsidianQuickSwitch<CR>", desc = "Search for note", mode = "n" },
+  { "<leader>oc", ":ObsidianToggleCheckbox<CR>", desc = "Insert toggle checkbox", mode = "n" },
 })

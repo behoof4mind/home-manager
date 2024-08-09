@@ -2,6 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   config = function()
     require("telescope").load_extension("yaml_schema")
+    require("telescope").load_extension("ssh-config")
     require("telescope").setup({
       pickers = {
         find_files = {
@@ -16,6 +17,12 @@ return {
           additional_args = function()
             return { "--hidden", "--glob", "!**/.git/*" }
           end,
+        },
+        extensions = {
+          ["ssh-config"] = {
+            client = "oil",
+            ssh_config_path = "~/.ssh/config",
+          },
         },
       },
     })

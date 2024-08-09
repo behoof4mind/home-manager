@@ -10,12 +10,8 @@
       keyMode = "vi";
 
       plugins = with pkgs; [
-        {
-          plugin = tmuxPlugins.pain-control;
-        }
-        {
-          plugin = tmuxPlugins.yank;
-        }
+        { plugin = tmuxPlugins.pain-control; }
+        { plugin = tmuxPlugins.yank; }
         {
           plugin = tmuxPlugins.prefix-highlight;
           extraConfig = "set -g @prefix_highlight_show_copy_mode 'on'";
@@ -24,9 +20,7 @@
           plugin = tmuxPlugins.extrakto;
           extraConfig = "set -g @extrakto_split_direction 'v'";
         }
-        {
-          plugin = tmuxPlugins.resurrect;
-        }
+        { plugin = tmuxPlugins.resurrect; }
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = "set -g @continuum-save-interval '5'";
@@ -44,10 +38,9 @@
         set -g @plugin 'tmux-plugins/tpm'
         set -g @plugin 'tmux-plugins/tmux-sensible'
         # add spotify plugin that does not have nix package
+        set -g @plugin 'niksingh710/minimal-tmux-status'
         set -g @plugin 'xamut/tmux-spotify'
-        set -g @plugin 'wfxr/tmux-power'
-        set -g @plugin 'egel/tmux-gruvbox'
-        set -g @tmux-gruvbox 'dark' # or 'light'
+        # set -g @plugin 'janoamaral/tokyo-night-tmux'
 
         # Increase panes numbers timeout
         set -g display-panes-time 5000
@@ -68,7 +61,6 @@
 
         # Upgrade $TERM
         set -g default-terminal "screen-256color"
-        set -g @tmux_power_theme 'moon'
 
         # Emacs key bindings in tmux command prompt (prefix + :) are better than
         # vi keys, even for vim users

@@ -13,6 +13,7 @@
     direnv
     dive
     docker-compose
+    fd
     gcc_multi
     go
     golangci-lint
@@ -20,10 +21,8 @@
     gomplate
     gopls
     grc
-    fd
     jq
     k9s
-    kubecolor
     kubectl
     kubectl-doctor
     kubectl-example
@@ -31,8 +30,8 @@
     kubernetes-helm
     kustomize
     lemonade
-    luajitPackages.luarocks
     lsd
+    luajitPackages.luarocks
     nix-prefetch-git
     nixfmt
     nixpkgs-fmt
@@ -62,7 +61,7 @@
   home.file."/home/linux/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
   home.file."/home/linux/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
   home.file."/home/linux/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
-  home.file."/home/linux/.ssh/config".source = ./apps/configs/.ssh-config;
+  # home.file."/home/linux/.ssh/config".source = ./apps/configs/.ssh-config;
   home.file."/home/linux/.ctags".source = ./apps/configs/.ctags;
   home.file."/home/linux/.config/nvim/lua/custom/plugins/init.lua".source = ./apps/configs/neovim/lua/custom/plugins/init.lua;
   home.file."/home/linux/.config/nvim/lua/custom/plugins/go.lua".source = ./apps/configs/neovim/lua/custom/plugins/go.lua;

@@ -9,11 +9,11 @@
       gtp = "cd ${vars.currentProject}";
       gtw = "cd ${vars.currentProject} && nvim .";
 
-      ## Docker
       g = "git";
       nv = "nvim";
       v = "vim";
 
+      # Podman
       p = "podman";
       pps = "podman ps";
       ppsa = "podman ps -a";
@@ -24,7 +24,11 @@
       pvrm = "podman volume rm";
       pils = "podman image ls";
       pirm = "podman image rm";
+      pcu = "podman-compose up";
+      pcd = "podman-compose down";
+      pcud = "podman-compose up -d";
 
+      # Docker
       d = "docker";
       dps = "docker ps";
       dpsa = "docker ps -a";
@@ -35,93 +39,102 @@
       dvrm = "docker volume rm";
       dils = "docker image ls";
       dirm = "docker image rm";
-
       dcu = "docker-compose up";
       dcd = "docker-compose down";
       dcud = "docker-compose up -d";
 
-      ## Kubectl
+      ## kubectl global
       k = "kubectl";
-      krun = "kubectl run temorary-pod --image";
-      kruny = "kubectl run temorary-pod --dry-run=client -o yaml --image";
+      kar = "kubectl api-resources";
       kc = "kubectl create";
-      kg = "kubectl get";
       kdel = "kubectl delete";
       ke = "kubectl edit";
-      kar = "kubectl api-resources";
+      kg = "kubectl get";
+
+      ## kubectl pods
+      kdelp = "kubectl delete pod";
+      kdp = "kubectl describe pod";
+      kep = "kubectl edit pod";
       kgp = "kubectl get pods";
       kgpa = "kubectl get pods -A";
       kgpn = "kubectl get pods --namespace";
-      kdp = "kubectl describe pod";
-      kep = "kubectl edit pod";
-      kdelp = "kubectl delete pod";
+      kl = "kubectl logs";
+      krun = "kubectl run temorary-pod --image";
+      kruny = "kubectl run temorary-pod --dry-run=client -o yaml --image";
 
-      kgsec = "kubectl get secret";
-      kgsecn = "kubectl get secret --namespace";
+      ## kubectl secrets
+      kdelsec = "kubectl delete secret";
       kdsec = "kubectl get secret --namespace";
       kesec = "kubectl edit secret";
-      kdelsec = "kubectl delete secret";
+      kgsec = "kubectl get secret";
+      kgsecn = "kubectl get secret --namespace";
 
-      kgns = "kubectl get ns";
+      ## kubectl namespaces
+      kdelns = "kubectl delete namespace";
       kdns = "kubectl describe ns";
       kens = "kubectl edit namespace";
-      kdelns = "kubectl delete namespace";
+      kgns = "kubectl get ns";
 
-      kgdep = "kubectl get deploy";
-      kgdepn = "kubectl get deploy --namespace";
+      ## kubectl deploy
       kddep = "kubectl describe deploy";
-      kedep = "kubectl edit deploy";
       kdeldep = "kubectl delete deploy";
       kdeldepn = "kubectl delete deploy --namespace";
+      kedep = "kubectl edit deploy";
+      kgdep = "kubectl get deploy";
+      kgdepn = "kubectl get deploy --namespace";
 
-      kgpvc = "kubectl get pvc";
-      kgpvcn = "kubectl get pvc --namespace";
-      kdpvc = "kubectl describe pvc";
-      kepvc = "kubectl edit pvc";
       kdelpvc = "kubectl delete pvc";
       kdelpvcn = "kubectl delete pvc --namespace";
+      kdpvc = "kubectl describe pvc";
+      kepvc = "kubectl edit pvc";
+      kgpvc = "kubectl get pvc";
+      kgpvcn = "kubectl get pvc --namespace";
 
-      kgpv = "kubectl get pv";
-      kdpv = "kubectl describe pv";
       kdelpv = "kubectl delete pv";
+      kdpv = "kubectl describe pv";
+      kgpv = "kubectl get pv";
 
-      kgcm = "kubectl get configmap";
-      kgcmn = "kubectl get configmap --namespace";
       kdcm = "kubectl describe configmap";
+      kdelcm = "kubectl delete configmap";
       kecm = "kubectl edit configmap";
       kecmn = "kubectl edit configmap --namespace";
-      kdelcm = "kubectl delete configmap";
+      kgcm = "kubectl get configmap";
+      kgcmn = "kubectl get configmap --namespace";
 
       kge = "kubectl get events";
       kgea = "kubectl get events -A";
 
+      kgi = "kubectl get ingress";
+      kdi = "kubectl describe ingress";
+      kdeli = "kubectl delete ingress";
+
       kgnode = "kubectl get nodes";
       kgnodew = "kubectl get nodes --wide";
 
+      kdelnp = "kubectl delete networkpolicy";
+      kdelnpn = "kubectl delete networkpolicy --namespace";
+      kenp = "kubectl edit networkpolicy";
+      kenpn = "kubectl edit networkpolicy --namespace";
       kgnp = "kubectl get networkpolicy";
       kgnpa = "kubectl get networkpolicy -A";
       kgnpn = "kubectl get networkpolicy --namespace";
-      kenp = "kubectl edit networkpolicy";
-      kenpn = "kubectl edit networkpolicy --namespace";
-      kdelnp = "kubectl delete networkpolicy";
-      kdelnpn = "kubectl delete networkpolicy --namespace";
 
-      kcv = "kubectl config view";
       kcgc = "kubectl config get-contexts";
-      kcuc = "kubectl config use-context";
       kcsccn = "kubectl config set-context --current --namespace";
+      kcuc = "kubectl config use-context";
+      kcv = "kubectl config view";
 
       kaf = "kubectl apply -f";
       ksh = "kubectl exec -it";
-      ktp = "kubectl top pod";
       ktn = "kubectl top node";
+      ktp = "kubectl top pod";
 
-      tg = "terragrunt";
-      tga = "terragrunt apply";
-      tgp = "terragrunt plan";
       tf = "terraform";
       tfa = "terraform apply";
       tfp = "terraform plan";
+      tg = "terragrunt";
+      tga = "terragrunt apply";
+      tgp = "terragrunt plan";
 
       hms = "home-manager switch";
     };
@@ -135,6 +148,7 @@
       kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
       thefuck --alias | source
+      zoxide init fish | source
     '';
     functions = {
       __fish_command_not_found_handler = {

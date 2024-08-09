@@ -1,19 +1,23 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+[
   age
   air
   ansible-language-server
   argocd
   autossh
+  awscli
   bash
+  bat
   cargo
-  chart-testing
   cmctl
   commitizen
   coreutils-full
   ctags
   delve
+  devcontainer
+  devpod
   direnv
   dive
   docker-compose
@@ -32,6 +36,8 @@ with pkgs; [
   goose
   gopls
   grc
+  hackgen-nf-font
+  hadolint
   helm-ls
   hugo
   imagemagick
@@ -39,32 +45,35 @@ with pkgs; [
   jq
   julia-bin
   k9s
-  kdash
-  krew
+  kail # kubectl plugin
+  kdash # simple dashboard for kubernetes
+  kube-capacity # kubectl plugin
   kube-linter
   kubecolor
   kubectl
-  kubectl-doctor
-  kubectl-example
-  kubectl-tree
-  kubelogin-oidc
+  kubectl-doctor # kubectl plugin
+  kubectl-example # kubectl plugin
+  kubectl-explore # kubectl plugin
+  kubectl-gadget # kubectl plugin
+  kubectl-images
+  kubectl-tree # kubectl plugin
+  kubelogin-oidc # kubectl plugin
+  kubepug # kubectl plugin
   kubernetes-helm
   kubernetes-helmPlugins.helm-unittest
   kustomize
   lazygit
   lemonade
   lsd
-  lua-language-server
-  luajitPackages.luarocks
-  markdownlint-cli2
+  lua-language-server # LS for NeoVim
+  markdownlint-cli2 # LS for NeoVim
   marksman
   maven
-  meslo-lgs-nf
   neovim
+  nerdfonts
   nil
   nix-prefetch-git
-  nixfmt
-  nixpkgs-fmt
+  nixfmt-rfc-style
   nodePackages.bash-language-server
   nodePackages.dockerfile-language-server-nodejs
   nodePackages.eslint
@@ -74,9 +83,8 @@ with pkgs; [
   nodePackages.vscode-html-languageserver-bin
   nodePackages.vscode-json-languageserver
   nodePackages.vue-language-server
-  nodePackages.yaml-language-server
   nodejs_22
-  oh-my-fish
+  obsidian
   openjdk
   openssh
   ov
@@ -84,10 +92,14 @@ with pkgs; [
   php
   php81Packages.composer
   podman
+  podman-compose
   popeye
-  python310Packages.pip
+  python3
+  python312Packages.python-lsp-server
+  rakkess
   ranger
   redis
+  restic
   ripgrep
   ruby
   scrcpy
@@ -102,11 +114,14 @@ with pkgs; [
   thefuck
   tig
   tree
+  unrar
   vim
   vscode-langservers-extracted
   watch
   wget
+  yaml-language-server
   yamlfmt
   yarn
   yq-go
+  zoxide
 ]

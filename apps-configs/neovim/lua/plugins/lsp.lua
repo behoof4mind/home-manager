@@ -15,7 +15,6 @@ return {
         end,
       })
       require("lspconfig").bashls.setup({})
-      require("lspconfig").golangci_lint_ls.setup({})
       require("lspconfig").gopls.setup({})
       require("lspconfig").helm_ls.setup({})
       require("lspconfig").html.setup({})
