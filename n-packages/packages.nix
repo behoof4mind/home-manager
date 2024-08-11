@@ -3,7 +3,6 @@
 with pkgs;
 [
   age
-  karabiner-elements
   air
   ansible-language-server
   argocd
