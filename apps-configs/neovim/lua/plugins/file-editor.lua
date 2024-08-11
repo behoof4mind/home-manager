@@ -44,6 +44,11 @@ return {
                 vim.cmd("Neotree reveal")
               end
             end,
+            ["T"] = "open_tab_drop",
+            ["<tab>"] = function(state)
+              state.commands["open"](state)
+              vim.cmd("Neotree reveal")
+            end,
           },
         },
       })

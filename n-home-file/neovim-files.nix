@@ -11,7 +11,7 @@
   "${XDG_PATH}/nvim/lua/plugins/obsidian.lua".source = ../apps-configs/neovim/lua/plugins/obsidian.lua;
   "${XDG_PATH}/nvim/lua/plugins/coding.lua".source = ../apps-configs/neovim/lua/plugins/coding.lua;
   "${XDG_PATH}/nvim/lua/plugins/lsp.lua".source = ../apps-configs/neovim/lua/plugins/lsp.lua;
-  # "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source = ../apps-configs/neovim/lua/plugins/colorscheme.lua;
+  "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source = ../apps-configs/neovim/lua/plugins/colorscheme.lua;
   "${XDG_PATH}/nvim/lua/plugins/lang/terraform.lua".source = ../apps-configs/neovim/lua/plugins/lang/terraform.lua;
   "${XDG_PATH}/nvim/lua/plugins/lang/yaml.lua".source = ../apps-configs/neovim/lua/plugins/lang/yaml.lua;
   "${XDG_PATH}/nvim/lua/plugins/copilot.lua".source = ../apps-configs/neovim/lua/plugins/copilot.lua;
