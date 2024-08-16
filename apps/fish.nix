@@ -44,90 +44,100 @@
       dcud = "docker-compose up -d";
 
       ## kubectl global
-      k = "kubectl";
-      kar = "kubectl api-resources";
-      kc = "kubectl create";
-      kdel = "kubectl delete";
-      ke = "kubectl edit";
-      kg = "kubectl get";
+      k = "kubecolor";
+      kar = "kubecolor api-resources";
+      kc = "kubecolor create";
+      kdel = "kubecolor delete";
+      ke = "kubecolor edit";
+      kg = "kubecolor get";
+      kga = "kubecolor get all";
+      kgaa = "kubecolor get all -A";
 
       ## kubectl pods
-      kdelp = "kubectl delete pod";
-      kdp = "kubectl describe pod";
-      kep = "kubectl edit pod";
-      kgp = "kubectl get pods";
-      kgpa = "kubectl get pods -A";
-      kgpn = "kubectl get pods --namespace";
-      kl = "kubectl logs";
-      krun = "kubectl run temorary-pod --image";
-      kruny = "kubectl run temorary-pod --dry-run=client -o yaml --image";
+      kdelp = "kubecolor delete pod";
+      kdp = "kubecolor describe pod";
+      kep = "kubecolor edit pod";
+      kgp = "kubecolor get pods";
+      kgpa = "kubecolor get pods -A";
+      kgpn = "kubecolor get pods --namespace";
+      kl = "kubecolor logs";
+      krun = "kubecolor run temorary-pod --image";
+      kruny = "kubecolor run temorary-pod --dry-run=client -o yaml --image";
 
       ## kubectl secrets
-      kdelsec = "kubectl delete secret";
-      kdsec = "kubectl get secret --namespace";
-      kesec = "kubectl edit secret";
-      kgsec = "kubectl get secret";
-      kgsecn = "kubectl get secret --namespace";
+      kdelsec = "kubecolor delete secret";
+      kdsec = "kubecolor get secret --namespace";
+      kesec = "kubecolor edit secret";
+      kgsec = "kubecolor get secret";
+      kgsecn = "kubecolor get secret --namespace";
 
       ## kubectl namespaces
-      kdelns = "kubectl delete namespace";
-      kdns = "kubectl describe ns";
-      kens = "kubectl edit namespace";
-      kgns = "kubectl get ns";
+      kdelns = "kubecolor delete namespace";
+      kdns = "kubecolor describe ns";
+      kens = "kubecolor edit namespace";
+      kgns = "kubecolor get ns";
 
       ## kubectl deploy
-      kddep = "kubectl describe deploy";
-      kdeldep = "kubectl delete deploy";
-      kdeldepn = "kubectl delete deploy --namespace";
-      kedep = "kubectl edit deploy";
-      kgdep = "kubectl get deploy";
-      kgdepn = "kubectl get deploy --namespace";
+      kddep = "kubecolor describe deploy";
+      kdeldep = "kubecolor delete deploy";
+      kdeldepn = "kubecolor delete deploy --namespace";
+      kedep = "kubecolor edit deploy";
+      kgdep = "kubecolor get deploy";
+      kgdepn = "kubecolor get deploy --namespace";
 
-      kdelpvc = "kubectl delete pvc";
-      kdelpvcn = "kubectl delete pvc --namespace";
-      kdpvc = "kubectl describe pvc";
-      kepvc = "kubectl edit pvc";
-      kgpvc = "kubectl get pvc";
-      kgpvcn = "kubectl get pvc --namespace";
+      ## kubectl statefullset
+      kdsts = "kubecolor describe statefulsets";
+      kdelsts = "kubecolor delete statefulsets";
+      kdelstsn = "kubecolor delete statefulsets --namespace";
+      kests = "kubecolor edit statefulsets";
+      kgsts = "kubecolor get statefulsets";
+      kgstsn = "kubecolor get statefulsets --namespace";
 
-      kdelpv = "kubectl delete pv";
-      kdpv = "kubectl describe pv";
-      kgpv = "kubectl get pv";
+      kdelpvc = "kubecolor delete pvc";
+      kdelpvcn = "kubecolor delete pvc --namespace";
+      kdpvc = "kubecolor describe pvc";
+      kepvc = "kubecolor edit pvc";
+      kgpvc = "kubecolor get pvc";
+      kgpvcn = "kubecolor get pvc --namespace";
 
-      kdcm = "kubectl describe configmap";
-      kdelcm = "kubectl delete configmap";
-      kecm = "kubectl edit configmap";
-      kecmn = "kubectl edit configmap --namespace";
-      kgcm = "kubectl get configmap";
-      kgcmn = "kubectl get configmap --namespace";
+      kdelpv = "kubecolor delete pv";
+      kdpv = "kubecolor describe pv";
+      kgpv = "kubecolor get pv";
 
-      kge = "kubectl get events";
-      kgea = "kubectl get events -A";
+      kdcm = "kubecolor describe configmap";
+      kdelcm = "kubecolor delete configmap";
+      kecm = "kubecolor edit configmap";
+      kecmn = "kubecolor edit configmap --namespace";
+      kgcm = "kubecolor get configmap";
+      kgcmn = "kubecolor get configmap --namespace";
 
-      kgi = "kubectl get ingress";
-      kdi = "kubectl describe ingress";
-      kdeli = "kubectl delete ingress";
+      kge = "kubecolor get events";
+      kgea = "kubecolor get events -A";
 
-      kgnode = "kubectl get nodes";
-      kgnodew = "kubectl get nodes --wide";
+      kgi = "kubecolor get ingress";
+      kdi = "kubecolor describe ingress";
+      kdeli = "kubecolor delete ingress";
 
-      kdelnp = "kubectl delete networkpolicy";
-      kdelnpn = "kubectl delete networkpolicy --namespace";
-      kenp = "kubectl edit networkpolicy";
-      kenpn = "kubectl edit networkpolicy --namespace";
-      kgnp = "kubectl get networkpolicy";
-      kgnpa = "kubectl get networkpolicy -A";
-      kgnpn = "kubectl get networkpolicy --namespace";
+      kgnode = "kubecolor get nodes";
+      kgnodew = "kubecolor get nodes --wide";
 
-      kcgc = "kubectl config get-contexts";
-      kcsccn = "kubectl config set-context --current --namespace";
-      kcuc = "kubectl config use-context";
-      kcv = "kubectl config view";
+      kdelnp = "kubecolor delete networkpolicy";
+      kdelnpn = "kubecolor delete networkpolicy --namespace";
+      kenp = "kubecolor edit networkpolicy";
+      kenpn = "kubecolor edit networkpolicy --namespace";
+      kgnp = "kubecolor get networkpolicy";
+      kgnpa = "kubecolor get networkpolicy -A";
+      kgnpn = "kubecolor get networkpolicy --namespace";
 
-      kaf = "kubectl apply -f";
-      ksh = "kubectl exec -it";
-      ktn = "kubectl top node";
-      ktp = "kubectl top pod";
+      kcgc = "kubecolor config get-contexts";
+      kcsccn = "kubecolor config set-context --current --namespace";
+      kcuc = "kubecolor config use-context";
+      kcv = "kubecolor config view";
+
+      kaf = "kubecolor apply -f";
+      ksh = "kubecolor exec -it";
+      ktn = "kubecolor top node";
+      ktp = "kubecolor top pod";
 
       tf = "terraform";
       tfa = "terraform apply";
@@ -154,6 +164,14 @@
       __fish_command_not_found_handler = {
         body = "__fish_default_command_not_found_handler $argv[1]";
         onEvent = "fish_command_not_found";
+      };
+      kubectl = {
+        body = "command kubecolor $argv";
+        wraps = "kubectl";
+      };
+      kubecolor = {
+        body = "command kubecolor $argv";
+        wraps = "kubectl";
       };
     };
     plugins = [
