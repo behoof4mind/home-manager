@@ -14,6 +14,7 @@ with pkgs;
   cmctl
   commitizen
   coreutils-full
+  cpulimit
   ctags
   delve
   devcontainer
@@ -35,6 +36,7 @@ with pkgs;
   golangci-lint-langserver
   goose
   gopls
+  grafana-loki
   grc
   hackgen-nf-font
   hadolint
