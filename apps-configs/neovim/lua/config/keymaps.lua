@@ -38,7 +38,7 @@ wk.add({
   -- Harpoon group
   { "<leader>h", group = "Harpoon" },
   { "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "Toggle quick menu", mode = "n" },
-  { "<leader>ha", ":lua require('harpoon.ui').add_file()<CR>", desc = "Add file", mode = "n" },
+  { "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", desc = "Add file", mode = "n" },
   { "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", desc = "Next", mode = "n" },
   { "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", desc = "Previous", mode = "n" },
   -- Telescope group
