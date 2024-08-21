@@ -22,6 +22,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
+    rm $out/LICENSE
     cp $out/static-tcpdump $out/bin/static-tcpdump
     case ${stdenv.hostPlatform.system} in
       x86_64-linux)
@@ -38,7 +39,6 @@ stdenv.mkDerivation rec {
         exit 1
         ;;
     esac
-    mv $out/LICENSE $out/LICENSE.ksniff
   '';
 
   meta = {
@@ -47,7 +47,5 @@ stdenv.mkDerivation rec {
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ behoof4mind ];
     platforms = with lib.platforms; linux ++ darwin;
-    # platforms = lib.platforms; linux ++ darwin;
   };
-
 }

@@ -5,6 +5,7 @@ let
   homeFiles = import ./n-home-file/main.nix { inherit XDG_PATH; };
   packageList = import ./n-packages/packages.nix { inherit pkgs; };
   vars = import ./n-variables/variables.nix;
+  dumpy = pkgs.callPackage ./n-packages/local/dumpy.nix { inherit (pkgs) stdenv fetchurl lib; };
   ksniff = pkgs.callPackage ./n-packages/local/ksniff.nix {
     inherit (pkgs)
       stdenv
@@ -29,6 +30,7 @@ in
   home.packages = [
     kubectl-node-shell
     ksniff
+    dumpy
   ] ++ packageList;
 
   programs.fish = (pkgs.callPackage ./apps/fish.nix { inherit vars; }).programs.fish;
