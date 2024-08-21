@@ -18,41 +18,6 @@
         },
         "rules": [
           {
-            "description": "Hotkeys modification change cursor position",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "grave_accent_and_tilde",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_control"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "set_mouse_cursor_position": {
-                        "screen": 0,
-                        "x": "0%",
-                        "y": "100%"
-                      }
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Hotkeys modification for the GatherTown",
             "manipulators": [
               {
@@ -322,29 +287,66 @@
             ]
           },
           {
-            "description": "Change left_command to open 2 different Iterm2 profiles",
+            "description": "Use left_command pressed once to foreground Iterm and move cursor to the buttom left side of the screen",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "left_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "lazy": true
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "software_function": {
+                      "set_mouse_cursor_position": {
+                        "screen": 0,
+                        "x": "0%",
+                        "y": "100%"
+                      }
+                    }
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change right_command held_down to execute Tmux copy mode and tmux prefix without holding it",
             "manipulators": [
               {
                 "from": {
                   "key_code": "right_command"
                 },
                 "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 250,
-                  "basic.to_if_held_down_threshold_milliseconds": 250
+                  "basic.to_if_held_down_threshold_milliseconds": 500,
+                  "basic.to_if_alone_timeout_milliseconds": 250
                 },
                 "to_if_alone": [
                   {
-                    "key_code": "grave_accent_and_tilde",
+                    "key_code": "n",
                     "modifiers": "left_control"
                   }
                 ],
                 "to_if_held_down": [
                   {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": [
-                      "left_control",
-                      "left_shift"
-                    ]
+                    "key_code": "n",
+                    "modifiers": "left_control"
+                  },
+                  {
+                    "key_code": "hyphen"
                   }
                 ],
                 "type": "basic"
