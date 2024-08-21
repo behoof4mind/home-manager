@@ -15,6 +15,7 @@
 
       # Podman
       p = "podman";
+      pms = "podman machine start";
       pps = "podman ps";
       ppsa = "podman ps -a";
       psh = "podman exec -it";
@@ -25,6 +26,7 @@
       pils = "podman image ls";
       pirm = "podman image rm";
       pcu = "podman-compose up";
+      pcub = "podman-compose up --build";
       pcd = "podman-compose down";
       pcud = "podman-compose up -d";
 
@@ -155,6 +157,7 @@
       export VISUAL="nvim"
       export XDG_CONFIG_HOME="$HOME/.config"
       export KUBECONFIG="$HOME/.config/kube/config"
+      export ATAC_KEY_BINDINGS="~/.atac_vim_key_bindings.toml"
       kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
       thefuck --alias | source

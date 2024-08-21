@@ -6,11 +6,13 @@ with pkgs;
   air
   ansible-language-server
   argocd
+  atac
   autossh
   awscli
   bash
   bat
   cargo
+  chart-testing
   cmctl
   commitizen
   coreutils-full
@@ -71,6 +73,7 @@ with pkgs;
   markdownlint-cli2 # LS for NeoVim
   marksman
   maven
+  minio-client
   neovim
   nerdfonts
   nil
@@ -109,6 +112,8 @@ with pkgs;
   sops
   stern
   stylua
+  tcpdump
+  termshark
   terraform
   terraform-ls
   terragrunt
