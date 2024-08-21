@@ -4,18 +4,27 @@
 --
 -- This file is automatically loaded by lazyvim.config.init
 local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
+  -- local keys = require("lazy.core.handler").handlers.keys
+  -- ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    if opts.remap and not vim.g.vscode then
-      opts.remap = nil
-    end
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
+  -- if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+  --   opts = opts or {}
+  --   opts.silent = opts.silent ~= false
+  --   if opts.remap and not vim.g.vscode then
+  --     opts.remap = nil
+  --   end
+  --   vim.keymap.set(mode, lhs, rhs, opts)
+  -- end
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
+
+-- Unmap some LazyVim keybindings
+map("n", "<leader>tn", "<Nop>")
+map("n", "<leader>ft", "<Nop>")
+map("n", "<leader>fT", "<Nop>")
+map("n", "<c-/>", "<Nop>")
+map("n", "<c-/>", "<Nop>")
+map("n", "<c-_>", "<Nop>")
 
 -- decode base64 on-the-fly and show or decode and add to the buffer
 vim.keymap.set("v", "<leader>64", "y:let @+ = system('base64 --decode', @\")<cr><esc>")
@@ -47,6 +56,11 @@ wk.add({
     mode = { "n", "v" },
     { "<leader>cf", "<cmd>Telescope ssh-config<CR>", desc = "Open an ssh connexion" },
   },
+  -- Terminal group
+  { "<leader>t", group = "Terminal" },
+  { "<leader>tn", ":ToggleTerm direction=float<CR>", desc = "Open terminal in float window", mode = "n" },
+  { "<leader>th", ":ToggleTerm direction=horizontal<CR>", desc = "Open terminal in horizontal window", mode = "n" },
+  { "<leader>tv", ":ToggleTerm size=80 direction=vertical<CR>", desc = "Open terminal in vertical window", mode = "n" },
   -- Debugger group
   { "<leader>d", group = "Debugger" },
   { "<leader>dO", ":DapStepOver<CR>", desc = "Step over", mode = "n" },
