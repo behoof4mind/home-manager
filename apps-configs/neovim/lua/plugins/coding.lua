@@ -1,13 +1,20 @@
 return {
+  -- {
+  --   "https://codeberg.org/esensar/nvim-dev-container",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   config = function()
+  --     require("devcontainer").setup({})
+  --   end,
+  --   opts = {
+  --     compose_command = "podman-compose",
+  --   },
+  -- },
   {
-    "https://codeberg.org/esensar/nvim-dev-container",
-    dependencies = "nvim-treesitter/nvim-treesitter",
+    "NachoNievaG/atac.nvim",
+    dependencies = { "akinsho/toggleterm.nvim" },
     config = function()
-      require("devcontainer").setup({})
+      require("atac").setup({})
     end,
-    opts = {
-      compose_command = "podman-compose",
-    },
   },
   {
     "ziontee113/icon-picker.nvim",
@@ -18,7 +25,6 @@ return {
 
       vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
       vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-      vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
     end,
   },
   {
