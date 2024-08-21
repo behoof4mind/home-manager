@@ -6,9 +6,9 @@ let
 in
 {
   "${XDG_PATH}/cz/config.yaml".source = ../apps-configs/git/commitizen-config.yaml;
-  "${XDG_PATH}/iterm2/DynamicProfiles/iterm-profiles.json".source = ../apps-configs/iterm2-profiles.json;
   "${builtins.getEnv "HOME"}/Library/Application\ Support/iTerm2/DynamicProfiles/iterm2/DynamicProfiles/iterm-profile.json".source = ../apps-configs/iterm2-profile.json;
   "${builtins.getEnv "HOME"}/Library/Preferences/com.googlecode.iterm2.plist".source = ../apps-configs/iterm2-config.plist;
+  "${builtins.getEnv "HOME"}/.atac_vim_key_bindings.toml".source = ../apps-configs/atac_vim_key_bindings.toml;
   "${builtins.getEnv "HOME"}/.config/karabiner/karabiner.json".source = ../apps-configs/karabiner.json;
   "${builtins.getEnv "HOME"}/.ctags".source = ../apps-configs/.ctags;
   "${builtins.getEnv "HOME"}/.gitconfig-ftapi-github".source = ../apps-configs/git/.gitconfig-ftapi-github;

@@ -121,7 +121,9 @@
       kubectl completion fish | source
       export EDITOR="nvim"
       export VISUAL="nvim"
+      export ATAC_KEY_BINDINGS="~/.atac_vim_key_bindings.toml"
       source ~/.iterm2_shell_integration.fish
+      direnv hook fish | source
     '';
     plugins = [
       {
