@@ -6,20 +6,15 @@ jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-  notify:
-    name: PR notification
-    runs-on: [ubuntu-latest]
-    steps:
+      # - name: Dump GitHub context
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJSON(github) }}
+      #   run: echo "$GITHUB_CONTEXT"
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload-file-path: "./payload-slack-content.json"
-          payload-file-path-parsed: true
           # For posting a rich message using Block Kit
           # payload: |
           #   {
