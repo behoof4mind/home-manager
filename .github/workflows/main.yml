@@ -27,7 +27,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "PR_NAME",
+                    "text": "{{ github.event.pull_request.base.user.url }}",
                     "emoji": true
                   }
                 },
@@ -40,7 +40,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "Created by:\n*<fakeLink.toEmployeeProfile.com|Tommy Lee>*"
+                      "text": "Created by:\n*<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>*"
                     }
                   ]
                 },
