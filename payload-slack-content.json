@@ -17,7 +17,7 @@
         },
         {
           "type": "mrkdwn",
-          "text": "Created by:\n*<fakeLink.toEmployeeProfile.com|${{ github.job }}>*"
+          "text": "Created by:\n*<fakeLink.toEmployeeProfile.com|Tommy Lee>*"
         }
       ]
     },
