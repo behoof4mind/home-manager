@@ -18,7 +18,7 @@
         },
         "rules": [
           {
-            "description": "Hotkeys modification for the GatherTown",
+            "description": "Use Left Command for GatherTown",
             "manipulators": [
               {
                 "conditions": [
@@ -287,16 +287,15 @@
             ]
           },
           {
-            "description": "Use left_command pressed once to foreground Iterm and move cursor to the buttom left side of the screen",
+            "description": "Use Left Command for Iterm2 and NeoVim",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "left_command",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
+                  "key_code": "left_command"
+                },
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 200,
+                  "basic.to_if_alone_timeout_milliseconds": 100
                 },
                 "to": [
                   {
@@ -319,12 +318,18 @@
                     }
                   }
                 ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": "left_control"
+                  }
+                ],
                 "type": "basic"
               }
             ]
           },
           {
-            "description": "Change right_command held_down to execute Tmux copy mode and tmux prefix without holding it",
+            "description": "Use Right Command for Tmux",
             "manipulators": [
               {
                 "from": {
