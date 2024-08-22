@@ -1,12 +1,97 @@
 {
-  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
   "blocks": [
     {
-      "type": "section",
+      "type": "header",
       "text": {
-        "type": "mrkdwn",
-        "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+        "type": "plain_text",
+        "text": "PR_NAME",
+        "emoji": true
       }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Project:*\nPROJECT_NAME"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "Created by:\n*<fakeLink.toEmployeeProfile.com|Tommy Lee>*"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Size:*\nSIZE_LABEL"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Complexity:*\nCOMPLEXITY_LABEL"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Affects:*\nAFFECTS"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Description:*\nDESCRIPTION"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "Use the following emojies as reactions to answer to the request:\n\n"
+        }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": ":clock1: - I can look at it later (use Thread later)"
+        },
+        {
+          "type": "mrkdwn",
+          "text": ":snail: - I would be able to look at it, but have no time"
+        },
+        {
+          "type": "mrkdwn",
+          "text": ":x: - I am not able to give a review, I don't know enough"
+        },
+        {
+          "type": "mrkdwn",
+          "text": ":hammer: - I'm done reviewing the PR, but I did request some changes"
+        },
+        {
+          "type": "mrkdwn",
+          "text": ":work-in-progress: - I will look at it right away"
+        },
+        {
+          "type": "mrkdwn",
+          "text": ":done: - I'm done reviewing the PR, all looks good"
+        }
+      ]
     }
   ]
 }
