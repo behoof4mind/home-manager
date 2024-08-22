@@ -136,6 +136,7 @@ jobs:
                     "value": "open_in_browser",
                     "url": "${{ github.event.pull_request._links.self.href }}",
                     "action_id": "button-action"
+                  }
                 }
               ]
             }
