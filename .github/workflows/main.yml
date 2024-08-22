@@ -26,8 +26,8 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "plain_text",
-                    "text": "${{ github.event.pull_request.base.title }} #${{ github.event.pull_request.base.number }}",
+                    "type": "mrkdwn",
+                    "text": "${{ github.event.pull_request.title }} - #${{ github.event.pull_request.number }}",
                     "emoji": true
                   }
                 },
@@ -36,7 +36,16 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Project:*\nPROJECT_NAME"
+                      "text": "<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Project:*\n${{ github.repository }}"
                     },
                     {
                       "type": "mrkdwn",
@@ -115,6 +124,18 @@ jobs:
                       "text": ":done: - I'm done reviewing the PR, all looks good"
                     }
                   ]
+                },
+                {
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Open in Browser",
+                      "emoji": true
+                    },
+                    "value": "open_in_browser",
+                    "url": "${{ github.event.pull_request._links.self.href }}",
+                    "action_id": "button-action"
                 }
               ]
             }
