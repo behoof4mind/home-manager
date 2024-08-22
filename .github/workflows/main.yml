@@ -26,7 +26,7 @@ jobs:
                 {
                   "type": "header",
                   "text": {
-                    "type": "mrkdwn",
+                    "type": "plain_text",
                     "text": "${{ github.event.pull_request.title }} - #${{ github.event.pull_request.number }}",
                     "emoji": true
                   }
