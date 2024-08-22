@@ -27,7 +27,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "{{ github.event.pull_request.base.user.url }}",
+                    "text": "${{ github.event.pull_request.base.title }} #${{ github.event.pull_request.base.number }}",
                     "emoji": true
                   }
                 },
