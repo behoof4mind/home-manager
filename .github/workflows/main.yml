@@ -1,8 +1,7 @@
 name: PR creation event notification
 on:
   pull_request:
-    - opened
-    - reopened
+    types: [opened, reopened]
 jobs:
   notify:
     name: PR notification
