@@ -59,7 +59,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Filse changed:*\${{ github.event.pull_request.nchanged_files }}"
+                      "text": "*Filse changed:* ${{ github.event.pull_request.nchanged_files }}"
                     },
                     {
                       "type": "mrkdwn",

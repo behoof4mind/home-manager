@@ -4,7 +4,7 @@
       "type": "header",
       "text": {
         "type": "plain_text",
-        "text": "PR_NAME",
+        "text": "${{ github.event.pull_request.title }} - #${{ github.event.pull_request.number }}",
         "emoji": true
       }
     },
@@ -13,11 +13,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Project:*\nPROJECT_NAME"
-        },
-        {
-          "type": "mrkdwn",
-          "text": "Created by:\n*<fakeLink.toEmployeeProfile.com|Tommy Lee>*"
+          "text": "<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>"
         }
       ]
     },
@@ -26,7 +22,20 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Size:*\nSIZE_LABEL"
+          "text": "*Project:*\n${{ github.repository }}"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "Created by:\n*<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>*"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Filse changed:* ${{ github.event.pull_request.nchanged_files }}"
         },
         {
           "type": "mrkdwn",
@@ -92,6 +101,24 @@
           "text": ":done: - I'm done reviewing the PR, all looks good"
         }
       ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "This is a section block with a button."
+      },
+      "accessory": {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "Open in Browser",
+          "emoji": true
+        },
+        "value": "click_me_123",
+        "url": "https://google.com",
+        "action_id": "button-action"
+      }
     }
   ]
 }
