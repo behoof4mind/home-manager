@@ -1,10 +1,11 @@
 name: PR creation event notification
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, synchronize, reopened, ready_for_review]
 jobs:
   one:
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.draft }}
     steps:
       # - name: Dump GitHub context
       #   env:
@@ -58,7 +59,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Size:*\nSIZE_LABEL"
+                      "text": "*Filse changed:*\${{ github.event.pull_request.nchanged_files }}"
                     },
                     {
                       "type": "mrkdwn",
@@ -126,6 +127,11 @@ jobs:
                   ]
                 },
                 {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "This is a section block with a button."
+                  },
                   "accessory": {
                     "type": "button",
                     "text": {
@@ -133,8 +139,8 @@ jobs:
                       "text": "Open in Browser",
                       "emoji": true
                     },
-                    "value": "open_in_browser",
-                    "url": "${{ github.event.pull_request._links.self.href }}",
+                    "value": "click_me_123",
+                    "url": "https://google.com",
                     "action_id": "button-action"
                   }
                 }
