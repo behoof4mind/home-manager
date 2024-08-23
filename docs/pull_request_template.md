@@ -1,7 +1,5 @@
-## Description
+Description:
 
-<!--- Describe your changes in detail -->
+Affects:
 
-## Affects
-
-<!--- Describe services or part of the platform/stages it affects -->
+Complexity:
