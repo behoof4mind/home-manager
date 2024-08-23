@@ -17,7 +17,7 @@ jobs:
       - name: Get Description
         id: description
         run: |
-          echo ${{ github.event.pull_request.body }} | awk -F'Description: ' '{print $2}' | awk -F'Affects:' '{print $1}'
+          echo ${{ github.event.pull_request.body }} | | sed -n -e '/Description: /,/Affects: / p' | sed -e '1d;$d''
       - name: Test variable
         run: |
           echo ${{ steps.description.outputs.fragment }}
