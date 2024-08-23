@@ -4,18 +4,9 @@
       "type": "header",
       "text": {
         "type": "plain_text",
-        "text": "${{ github.event.pull_request.title }} - #${{ github.event.pull_request.number }}",
+        "text": "New PR: #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}",
         "emoji": true
       }
-    },
-    {
-      "type": "section",
-      "fields": [
-        {
-          "type": "mrkdwn",
-          "text": "<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>"
-        }
-      ]
     },
     {
       "type": "section",
@@ -39,7 +30,7 @@
         },
         {
           "type": "mrkdwn",
-          "text": "*Complexity:*\nCOMPLEXITY_LABEL"
+          "text": "*Complexity:* COMPLEXITY_LABEL"
         }
       ]
     },
