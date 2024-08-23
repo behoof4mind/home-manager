@@ -11,10 +11,24 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-      # - name: Dump GitHub context
-      #   env:
-      #     GITHUB_CONTEXT: ${{ toJSON(github) }}
-      #   run: ls -lah ../../home-maneger/
+        # awk -F'Description: ' '{print $2}' | awk -F'Affects:' '{print $1}'
+        # awk -F'Affects: ' '{print $2}' | awk -F'Complexity: ' '{print $1}'
+        # awk -F'Complexity: ' '{print $2}'
+      - name: Get Description
+        id: description
+        run: |
+          echo ${{ github.event.pull_request.body }} | awk -F'Description: ' '{print $2}' | awk -F'Affects:' '{print $1}'
+      - name: Test variable
+        run: |
+          echo ${{ steps.description.outputs.fragment }}
+      # - name: Get Affects
+      #   id: affects
+      #   run: |
+      #     echo ${{ github.event.pull_request.body }} | awk -F'Affects: ' '{print $2}' | awk -F'Complexity: ' '{print $1}'
+      # - name: Get Combplexity
+      #   id: complexity
+      #   run: |
+      #     echo ${{ github.event.pull_request.body }} | awk -F'Complexity: ' '{print $2}'
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
