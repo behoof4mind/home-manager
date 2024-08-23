@@ -7,22 +7,24 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ !github.event.pull_request.draft }}
     outputs:
-      output1: ${{ steps.description.outputs.value }}
-      # output2: ${{ steps.step2.outputs.test }}
-      # output3: ${{ steps.step3.outputs.test }}
+      affects: ${{ steps.affects.outputs.value }}
+      complexity: ${{ steps.complexity.outputs.value }}
+      description: ${{ steps.description.outputs.value }}
     env:
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
+      - id: affects
+        run: |
+          a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects: ).*')
+          echo "value=$d" >> "$GITHUB_OUTPUT"
+      - id: complexity
+        run: |
+          c=$(echo -e "$PR_BODY" | grep -oP '(?<=Complexity: ).*')
+          echo "value=$d" >> "$GITHUB_OUTPUT"
       - id: description
         run: |
           d=$(echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*')
           echo "value=$d" >> "$GITHUB_OUTPUT"
-      # - id: affects
-      #   run: |
-      #     echo -e "$PR_BODY" | grep -oP '(?<=Affects: ).*' >> "$GITHUB_OUTPUT"
-      # - id: complexity
-      #   run: |
-      #     echo -e "$PR_BODY" | grep -oP '(?<=Complexity: ).*' >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest
     needs: get-body
@@ -30,8 +32,10 @@ jobs:
       - name: Output description
         env:
           # GITHUB_CONTEXT: ${{ toJSON(github) }}
-          OUTPUT1: ${{ needs.get-body.outputs.output1 }}
-        run: echo "$OUTPUT1"
+          OUTPUT1: ${{ needs.get-body.outputs.affects }}
+          OUTPUT2: ${{ needs.get-body.outputs.complexity }}
+          OUTPUT3: ${{ needs.get-body.outputs.description }}
+        run: echo "$OUTPUT1" "$OUTPUT2" "$OUTPUT3"
       # - name: Get Description
       #   id: body
       #   env:
