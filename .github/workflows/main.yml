@@ -17,10 +17,10 @@ jobs:
       - name: Get Description
         id: description
         run: |
-          echo ${{ github.event.pull_request.body }}  > pr_body.txt
+          echo -e ${{ github.event.pull_request.body }}  > pr_body.txt
           dos2unix pr_body.txt
           PR_BODY=$(cat pr_body.txt)
-          echo "$PR_BODI" | grep -oP '(?<=Description: ).*'
+          echo -e "$PR_BODI" | grep -oP '(?<=Description: ).*'
       - name: Test variable
         run: |
           echo ${{ steps.description.outputs.fragment }}
