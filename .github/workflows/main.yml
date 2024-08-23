@@ -3,156 +3,174 @@ on:
   pull_request:
     types: [opened, reopened, ready_for_review]
 jobs:
-  one:
+  get-body:
     runs-on: ubuntu-latest
     if: ${{ !github.event.pull_request.draft }}
+    outputs:
+      output1: ${{ steps.description.outputs.value }}
+      # output2: ${{ steps.step2.outputs.test }}
+      # output3: ${{ steps.step3.outputs.test }}
+    env:
+      PR_BODY: ${{ github.event.pull_request.body }}
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-        # awk -F'Description: ' '{print $2}' | awk -F'Affects:' '{print $1}'
-        # awk -F'Affects: ' '{print $2}' | awk -F'Complexity: ' '{print $1}'
-        # awk -F'Complexity: ' '{print $2}'
-      - name: Get Description
-        id: description
-        env:
-          PR_BODY: ${{ github.event.pull_request.body }}
+      - id: description
         run: |
-          echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*'
-      - name: Test variable
-        run: |
-          echo ${{ steps.description.outputs.fragment }}
-      # - name: Get Affects
-      #   id: affects
+          d = $(echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*')
+          echo "value=$d" >> "$GITHUB_OUTPUT"
+      # - id: affects
       #   run: |
-      #     echo ${{ github.event.pull_request.body }} | awk -F'Affects: ' '{print $2}' | awk -F'Complexity: ' '{print $1}'
-      # - name: Get Combplexity
-      #   id: complexity
+      #     echo -e "$PR_BODY" | grep -oP '(?<=Affects: ).*' >> "$GITHUB_OUTPUT"
+      # - id: complexity
       #   run: |
-      #     echo ${{ github.event.pull_request.body }} | awk -F'Complexity: ' '{print $2}'
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.26.0
-        with:
-          payload-file-path: "./payload-slack-content.json"
-          # For posting a rich message using Block Kit
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "New PR: #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Project:*\n${{ github.repository }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "Created by:\n*<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>*"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Filse changed:* ${{ github.event.pull_request.changed_files }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Complexity:* COMPLEXITY_LABEL"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Affects:*\nAFFECTS"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Description:*\nDESCRIPTION"
-                    }
-                  ]
-                },
-                {
-                  "type": "divider"
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "Use the following emojies as reactions to answer to the request:\n\n"
-                    }
-                  ]
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": ":clock1: - I can look at it later (use Thread later)"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": ":snail: - I would be able to look at it, but have no time"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": ":x: - I am not able to give a review, I don't know enough"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": ":hammer: - I'm done reviewing the PR, but I did request some changes"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": ":work-in-progress: - I will look at it right away"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": ":done: - I'm done reviewing the PR, all looks good"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "This is a section block with a button."
-                  },
-                  "accessory": {
-                    "type": "button",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "Open in Browser",
-                      "emoji": true
-                    },
-                    "value": "click_me_123",
-                    "url": "https://google.com",
-                    "action_id": "button-action"
-                  }
-                }
-              ]
-            }
+      #     echo -e "$PR_BODY" | grep -oP '(?<=Complexity: ).*' >> "$GITHUB_OUTPUT"
+  send-notification:
+    runs-on: ubuntu-latest
+    needs: get-body
+    steps:
+      - name: Output description
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          # GITHUB_CONTEXT: ${{ toJSON(github) }}
+          OUTPUT1: ${{ needs.get-body.outputs.output1 }}
+        run: echo "$OUTPUT1"
+      # - name: Get Description
+      #   id: body
+      #   env:
+      #     PR_BODY: ${{ github.event.pull_request.body }}
+      #   run: |
+      #     echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*'
+      # - name: Test variable
+      #   run: |
+      #     echo ${{ steps.description.outputs }}
+      # # - name: Get Affects
+      # #   id: affects
+      # #   run: |
+      # #     echo ${{ github.event.pull_request.body }} | awk -F'Affects: ' '{print $2}' | awk -F'Complexity: ' '{print $1}'
+      # # - name: Get Combplexity
+      # #   id: complexity
+      # #   run: |
+      # #     echo ${{ github.event.pull_request.body }} | awk -F'Complexity: ' '{print $2}'
+      # - name: Send custom JSON data to Slack workflow
+      #   id: slack
+      #   uses: slackapi/slack-github-action@v1.26.0
+      #   with:
+      #     payload-file-path: "./payload-slack-content.json"
+      #     # For posting a rich message using Block Kit
+      #     payload: |
+      #       {
+      #         "blocks": [
+      #           {
+      #             "type": "header",
+      #             "text": {
+      #               "type": "plain_text",
+      #               "text": "New PR: #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}",
+      #               "emoji": true
+      #             }
+      #           },
+      #           {
+      #             "type": "section",
+      #             "fields": [
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "*Project:*\n${{ github.repository }}"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "Created by:\n*<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>*"
+      #               }
+      #             ]
+      #           },
+      #           {
+      #             "type": "section",
+      #             "fields": [
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "*Filse changed:* ${{ github.event.pull_request.changed_files }}"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "*Complexity:* COMPLEXITY_LABEL"
+      #               }
+      #             ]
+      #           },
+      #           {
+      #             "type": "section",
+      #             "fields": [
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "*Affects:*\nAFFECTS"
+      #               }
+      #             ]
+      #           },
+      #           {
+      #             "type": "section",
+      #             "fields": [
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "*Description:*\nDESCRIPTION"
+      #               }
+      #             ]
+      #           },
+      #           {
+      #             "type": "divider"
+      #           },
+      #           {
+      #             "type": "context",
+      #             "elements": [
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": "Use the following emojies as reactions to answer to the request:\n\n"
+      #               }
+      #             ]
+      #           },
+      #           {
+      #             "type": "context",
+      #             "elements": [
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": ":clock1: - I can look at it later (use Thread later)"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": ":snail: - I would be able to look at it, but have no time"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": ":x: - I am not able to give a review, I don't know enough"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": ":hammer: - I'm done reviewing the PR, but I did request some changes"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": ":work-in-progress: - I will look at it right away"
+      #               },
+      #               {
+      #                 "type": "mrkdwn",
+      #                 "text": ":done: - I'm done reviewing the PR, all looks good"
+      #               }
+      #             ]
+      #           },
+      #           {
+      #             "type": "section",
+      #             "text": {
+      #               "type": "mrkdwn",
+      #               "text": "This is a section block with a button."
+      #             },
+      #             "accessory": {
+      #               "type": "button",
+      #               "text": {
+      #                 "type": "plain_text",
+      #                 "text": "Open in Browser",
+      #                 "emoji": true
+      #               },
+      #               "value": "click_me_123",
+      #               "url": "https://google.com",
+      #               "action_id": "button-action"
+      #             }
+      #           }
+      #         ]
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
+      #     SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
