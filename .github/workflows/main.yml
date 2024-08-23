@@ -16,11 +16,13 @@ jobs:
         # awk -F'Complexity: ' '{print $2}'
       - name: Get Description
         id: description
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          echo -e ${{ github.event.pull_request.body }}  > pr_body.txt
+          echo -e "$PR_BODY"  > pr_body.txt
           dos2unix pr_body.txt
           PR_BODY=$(cat pr_body.txt)
-          echo -e "$PR_BODI" | grep -oP '(?<=Description: ).*'
+          echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*'
       - name: Test variable
         run: |
           echo ${{ steps.description.outputs.fragment }}
