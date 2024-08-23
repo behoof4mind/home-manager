@@ -19,9 +19,6 @@ jobs:
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          echo -e "$PR_BODY"  > pr_body.txt
-          dos2unix pr_body.txt
-          PR_BODY=$(cat pr_body.txt)
           echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*'
       - name: Test variable
         run: |
