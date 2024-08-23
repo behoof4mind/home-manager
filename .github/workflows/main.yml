@@ -15,7 +15,7 @@ jobs:
     steps:
       - id: description
         run: |
-          d = $(echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*')
+          d=$(echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*')
           echo "value=$d" >> "$GITHUB_OUTPUT"
       # - id: affects
       #   run: |
