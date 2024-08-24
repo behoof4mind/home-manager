@@ -15,15 +15,15 @@ jobs:
     steps:
       - id: affects
         run: |
-          a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects: ).*')
+          a=$(echo -e -n "$PR_BODY" | grep -oP '(?<=Affects:).*')
           echo "value=$a" >> "$GITHUB_OUTPUT"
       - id: complexity
         run: |
-          c=$(echo -e "$PR_BODY" | grep -oP '(?<=Complexity: ).*')
+          c=$(echo -e -n "$PR_BODY" | grep -oP '(?<=Complexity:).*')
           echo "value=$c" >> "$GITHUB_OUTPUT"
       - id: description
         run: |
-          d=$(echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*')
+          d=$(echo -e -n "$PR_BODY" | grep -oP '(?<=Description:).*')
           echo "value=$d" >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest
@@ -66,11 +66,11 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Filse changed:* ${{ github.event.pull_request.changed_files }}"
+                      "text": "*Files changed:* ${{ github.event.pull_request.changed_files }}"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Complexity:*${{ needs.get-body.outputs.complexity }}"
+                      "text": "*Complexity:* ${{ needs.get-body.outputs.complexity }}"
                     }
                   ]
                 },
@@ -79,7 +79,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Affects:*\n${{ needs.get-body.outputs.affects }}"
+                      "text": "*Affects:* \n${{ needs.get-body.outputs.affects }}"
                     }
                   ]
                 },
@@ -88,7 +88,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Description:*\n${{ needs.get-body.outputs.description }}"
+                      "text": "*Description:* \n${{ needs.get-body.outputs.description }}"
                     }
                   ]
                 },
