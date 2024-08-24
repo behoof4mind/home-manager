@@ -29,13 +29,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: get-body
     steps:
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        # uses: slackapi/slack-github-action@v1.26.0
-        env:
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
-        with:
-          payload-file-path: ./.github/resources/payload-notification.json
+      # - name: Send custom JSON data to Slack workflow
+      #   id: slack
+      #   # uses: slackapi/slack-github-action@v1.26.0
+      #   env:
+      #     SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
+      #   with:
+      #     payload-file-path: ./.github/resources/payload-notification.json
+      - id: test
         run: |
           ls -lah
