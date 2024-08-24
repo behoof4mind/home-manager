@@ -7,7 +7,7 @@ env:
 jobs:
   get-body:
     runs-on: ubuntu-latest
-    if: contains('["opened", "synchronize"]', '123')
+    if: contains(fromJSON('["opened", "synchronize"]'), '123')
     outputs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
