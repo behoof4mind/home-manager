@@ -60,7 +60,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "Created by:\n*<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>*"
+                      "text": "*Created by:*\n<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>"
                     }
                   ]
                 },
@@ -73,7 +73,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Complexity:* $COMPLEXITY"
+                      "text": "*Complexity:*$COMPLEXITY"
                     }
                   ]
                 },
@@ -82,7 +82,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Affects:*\$AFFECTS"
+                      "text": "*Affects:*\n$AFFECTS"
                     }
                   ]
                 },
