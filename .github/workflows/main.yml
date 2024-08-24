@@ -8,10 +8,9 @@ jobs:
     steps:
     - uses: TheModdingInquisition/actions-team-membership@v1.0
       with:
-        # organization: # optional. Default value ${{ github.repository_owner }}
-        #               # Organization to get membership from
-        team: 'operations1' # required. The team to check for
-        token: ${{ secrets.GET_USERGOUPS_MEMBERS_PAT }} # required. Personal Access Token
+        organization: "FTAPI-Software"
+        team: "operations1"
+        token: ${{ secrets.GET_USERGOUPS_MEMBERS_PAT }}
   get-body:
     runs-on: ubuntu-latest
     if: contains(${PLATFORM_TEAM_MEMBERS}, ${{ github.actor }})
