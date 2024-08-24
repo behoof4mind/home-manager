@@ -39,4 +39,4 @@ jobs:
       #     payload-file-path: ./.github/resources/payload-notification.json
       - id: test
         run: |
-          ls -lah ../
+          ls -lah ../home-manager/.github/resources/
