@@ -5,15 +5,20 @@ on:
 jobs:
   check-team-membership:
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.draft }}
+    outputs:
+      isMember: ${{ steps.checker.outputs.permitted }}
     steps:
     - uses: TheModdingInquisition/actions-team-membership@v1.0
+      id: checker
       with:
         organization: "FTAPI-Software"
         team: "operations"
         token: ${{ secrets.GET_USERGOUPS_MEMBERS_PAT }}
+        exit: false
   get-body:
     runs-on: ubuntu-latest
-    if: ${{ !github.event.pull_request.draft }}
+    if: ${{ needs.check-team-membership.outputs.isMember != 'false' }}
     needs: check-team-membership
     outputs:
       affects: ${{ steps.affects.outputs.value }}
