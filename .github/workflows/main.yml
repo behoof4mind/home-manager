@@ -37,10 +37,18 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         env:
+          CREATOR_NAME: ${{ github.event.pull_request.base.user.login }}
+          CREATOR_URL: ${{ github.event.pull_request.base.user.url }}
+          PULL_REQUEST_AFFECTS: ${{ needs.get-body.outputs.affects }}
+          PULL_REQUEST_CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
+          PULL_REQUEST_COMPLEXITy: ${{ needs.get-body.outputs.complexity }}
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+          PULL_REQUEST_SHORT_DESCRIPTION: ${{ needs.get-body.outputs.description }}
+          PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
+          PULL_REQUEST_URL: ${{ github.event.pull_request.html_url }}
+          REPO_HTML_URL: ${{ github.event.pull_request.base.repo.html_url }}
+          REPO_NAME: ${{ github.repository }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
         with:
           payload-file-path: ./main/.github/resources/payload-notification.json
-      # - id: test
-      #   run: |
-      #     ls -lah ./main
