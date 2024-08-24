@@ -15,15 +15,15 @@ jobs:
     steps:
       - id: affects
         run: |
-          a=$(echo -e -n "$PR_BODY" | grep -oP '(?<=Affects:).*')
+          a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects:).*' | tr -dc '[:print:]')
           echo "value=$a" >> "$GITHUB_OUTPUT"
       - id: complexity
         run: |
-          c=$(echo -e -n "$PR_BODY" | grep -oP '(?<=Complexity:).*')
+          c=$(echo -e "$PR_BODY" | grep -oP '(?<=Complexity:).*' | tr -dc '[:print:]')
           echo "value=$c" >> "$GITHUB_OUTPUT"
       - id: description
         run: |
-          d=$(echo -e -n "$PR_BODY" | grep -oP '(?<=Description:).*')
+          d=$(echo -e "$PR_BODY" | grep -oP '(?<=Description:).*' | tr -dc '[:print:]')
           echo "value=$d" >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest
