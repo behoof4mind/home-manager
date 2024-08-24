@@ -7,7 +7,7 @@ env:
 jobs:
   get-body:
     runs-on: ubuntu-latest
-    if: ${{ !github.event.pull_request.draft }} && contains(fromJson(${PLATFORM_TEAM_MEMBERS}), "ttt")
+    if: ${{ !github.event.pull_request.draft }} && contains(fromJson($PLATFORM_TEAM_MEMBERS}), 'ttt')
     outputs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
