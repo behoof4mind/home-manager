@@ -33,9 +33,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         env:
-          AFFECTS: ${{ needs.get-body.outputs.affects }}
-          COMPLEXITY: ${{ needs.get-body.outputs.complexity }}
-          DESCRIPTION: ${{ needs.get-body.outputs.description }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
         with:
@@ -73,7 +70,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Complexity:*${COMPLEXITY}"
+                      "text": "*Complexity:*${{ needs.get-body.outputs.complexity }}"
                     }
                   ]
                 },
@@ -82,7 +79,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Affects:*\n${AFFECTS}"
+                      "text": "*Affects:*\n${{ needs.get-body.outputs.affects }}"
                     }
                   ]
                 },
@@ -91,7 +88,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Description:*\n${DESCRIPTION}"
+                      "text": "*Description:*\n${{ needs.get-body.outputs.description }}"
                     }
                   ]
                 },
