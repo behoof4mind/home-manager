@@ -16,11 +16,11 @@ jobs:
       - id: affects
         run: |
           a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects: ).*')
-          echo "value=$d" >> "$GITHUB_OUTPUT"
+          echo "value=$a" >> "$GITHUB_OUTPUT"
       - id: complexity
         run: |
           c=$(echo -e "$PR_BODY" | grep -oP '(?<=Complexity: ).*')
-          echo "value=$d" >> "$GITHUB_OUTPUT"
+          echo "value=$c" >> "$GITHUB_OUTPUT"
       - id: description
         run: |
           d=$(echo -e "$PR_BODY" | grep -oP '(?<=Description: ).*')
