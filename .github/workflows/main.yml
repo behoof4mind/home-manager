@@ -7,7 +7,7 @@ env:
 jobs:
   get-body:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.draft }} != 'true' && contains('["opened", "synchronize"]', 'ttt')
+    if: ${{ !github.event.pull_request.draft }} || !contains('["opened", "synchronize"]', 'ttt')
     outputs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
