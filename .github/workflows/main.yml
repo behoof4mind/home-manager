@@ -23,7 +23,7 @@ jobs:
           echo "value=$c" >> "$GITHUB_OUTPUT"
       - id: description
         run: |
-          d=$(echo -e "$PR_BODY" | grep -oP '(?<=Description:).*' | tr -dc '[:print:]')
+          d=$(echo -e "$PR_BODY" | grep -oP '(?<=Short description:).*' | tr -dc '[:print:]')
           echo "value=$d" >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest

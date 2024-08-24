@@ -1,5 +1,11 @@
-Description: aoeuaoeu
+Short description:
 
-Affects: aaooeuoaeu
+<!-- Short description in one line, right after ":" symbol -->
 
-Complexity: aoeuaoeuieii
+Affects:
+
+<!-- Affected services in one line, right after ":" symbol -->
+
+Complexity:
+
+<!-- Complexity like S,M,L,XL or XXL, right after ":" symbol -->
