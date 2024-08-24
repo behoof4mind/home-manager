@@ -35,5 +35,7 @@ jobs:
         env:
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS_PIE }}
-        with:
-          payload-file-path: ./.github/resources/payload-notification.json
+        run: |
+          ls -lah
+        # with:
+        #   payload-file-path: ./.github/resources/payload-notification.json
