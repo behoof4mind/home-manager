@@ -36,21 +36,17 @@
     },
     {
       "type": "section",
-      "fields": [
-        {
-          "type": "mrkdwn",
-          "text": "*Affects:* \n${{ env.PULL_REQUEST_AFFECTS }}"
-        }
-      ]
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Affects:* ${{ env.PULL_REQUEST_AFFECTS }}"
+      }
     },
     {
       "type": "section",
-      "fields": [
-        {
-          "type": "mrkdwn",
-          "text": "*Description:* \n${{ env.PULL_REQUEST_SHORT_DESCRIPTION }}"
-        }
-      ]
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Description:* ${{ env.PULL_REQUEST_SHORT_DESCRIPTION }}"
+      }
     },
     {
       "type": "actions",
