@@ -3,22 +3,25 @@ on:
   pull_request:
     types: [opened, reopened, ready_for_review]
 env:
-  PLATFORM_TEAM_MEMBERS: '["opened", "synchronize"]'
+  PLATFORM_TEAM_MEMBERS: '["opened","synchronize"]'
 jobs:
   get-body:
     runs-on: ubuntu-latest
+    if: contains(${PLATFORM_TEAM_MEMBERS}, ${{ github.actor }})
     # outputs:
     #   affects: ${{ steps.affects.outputs.value }}
     #   complexity: ${{ steps.complexity.outputs.value }}
     #   description: ${{ steps.description.outputs.value }}
     env:
       PR_BODY: ${{ github.event.pull_request.body }}
-      TEST: contains(fromJSON('["opened", "synchronize"]'), ${{ github.actor }})
     steps:
       - id: affects
         run: |
-          echo ${TEST}
-          echo ${{ github.actor }}
+          echo "contains"
+  #     - id: affects
+  #       run: |
+  #         a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects:\*\*).*' | tr -dc '[:print:]')
+  #         echo "value=$a" >> "$GITHUB_OUTPUT"
   #     - id: complexity
   #       run: |
   #         c=$(echo -e "$PR_BODY" | grep -oP '(?<=Complexity:\*\*).*' | tr -dc '[:print:]')
