@@ -73,7 +73,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Complexity:*$COMPLEXITY"
+                      "text": "*Complexity:*${COMPLEXITY}"
                     }
                   ]
                 },
@@ -82,7 +82,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Affects:*\n$AFFECTS"
+                      "text": "*Affects:*\n${AFFECTS}"
                     }
                   ]
                 },
@@ -91,7 +91,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Description:*\n$DESCRIPTION"
+                      "text": "*Description:*\n${DESCRIPTION}"
                     }
                   ]
                 },
