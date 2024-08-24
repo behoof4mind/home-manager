@@ -10,4 +10,4 @@
 
 ## <!-- Complexity like S,M,L,XL or XXL, right after ":**" symbol -->
 
-<!-- Any extra information you can put right after this roller -->
+<!-- Any extra information you can put right here -->
