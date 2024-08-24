@@ -4,7 +4,7 @@
       "type": "header",
       "text": {
         "type": "plain_text",
-        "text": "New PR: #${{ github.event.pull_request.number }} ${{ github.event.pull_request.title }}",
+        "text": "New PR: #${{ env.PULL_REQUEST_NUMBER }} ${{ env.PULL_REQUEST_TITLE }}",
         "emoji": true
       }
     },
@@ -13,11 +13,11 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Project:*\n<${{ github.event.pull_request.base.repo.html_url }}|${{ github.repository }}>"
+          "text": "*Project:*\n<${{ env.REPO_HTML_URL }}|${{ env.REPO_NAME }}>"
         },
         {
           "type": "mrkdwn",
-          "text": "*Created by:*\n<${{ github.event.pull_request.base.user.url }}|${{ github.event.pull_request.base.user.login }}>"
+          "text": "*Created by:*\n<${{ env.CREATOR_URL }}|${{ env.CREATOR_NAME }}>"
         }
       ]
     },
@@ -26,11 +26,11 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Files changed:* ${{ github.event.pull_request.changed_files }}"
+          "text": "*Files changed:* ${{ env.PULL_REQUEST_CHANGED_FILES }}"
         },
         {
           "type": "mrkdwn",
-          "text": "*Complexity:* ${{ needs.get-body.outputs.complexity }}"
+          "text": "*Complexity:* ${{ env.PULL_REQUEST_COMPLEXITy }}"
         }
       ]
     },
@@ -39,7 +39,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Affects:* \n${{ needs.get-body.outputs.affects }}"
+          "text": "*Affects:* \n${{ env.PULL_REQUEST_AFFECTS }}"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Description:* \n${{ needs.get-body.outputs.description }}"
+          "text": "*Description:* \n${{ env.PULL_REQUEST_SHORT_DESCRIPTION }}"
         }
       ]
     },
@@ -61,7 +61,7 @@
             "type": "plain_text",
             "text": "Open in Browser"
           },
-          "url": "${{ github.event.pull_request.html_url }}"
+          "url": "${{ env.PULL_REQUEST_URL }}"
         }
       ]
     },
