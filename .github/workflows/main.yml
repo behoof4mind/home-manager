@@ -16,7 +16,7 @@ jobs:
         team: "operations1"
         token: ${{ secrets.GET_USERGOUPS_MEMBERS_PAT }}
         exit: false
-  get-body:
+  collect:
     runs-on: ubuntu-latest
     if: ${{ needs.check-team-membership.outputs.isMember != 'false' }}
     needs: check-team-membership
@@ -24,6 +24,7 @@ jobs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
       description: ${{ steps.description.outputs.value }}
+      lines: ${{ steps.changed_lines.outputs.changed_lines }}
     env:
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
@@ -39,9 +40,12 @@ jobs:
         run: |
           d=$(echo -e "$PR_BODY" | grep -oP '(?<=Short description:\*\*).*' | tr -dc '[:print:]')
           echo "value=$d" >> "$GITHUB_OUTPUT"
+      - name: changed lines
+        id: changed_lines
+        uses: hestonhoffman/changed-lines@v1
   send-notification:
     runs-on: ubuntu-latest
-    needs: get-body
+    needs: collect
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,11 +56,11 @@ jobs:
         env:
           CREATOR_NAME: ${{ github.event.pull_request.base.user.login }}
           CREATOR_URL: ${{ github.event.pull_request.base.user.url }}
-          PULL_REQUEST_AFFECTS: ${{ needs.get-body.outputs.affects }}
-          PULL_REQUEST_CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
-          PULL_REQUEST_COMPLEXITy: ${{ needs.get-body.outputs.complexity }}
+          PULL_REQUEST_AFFECTS: ${{ needs.collect.outputs.affects }}
+          PULL_REQUEST_CHANGED_LINES: ${{ needs.collect.outputs.lines }}
+          PULL_REQUEST_COMPLEXITy: ${{ needs.collect.outputs.complexity }}
           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
-          PULL_REQUEST_SHORT_DESCRIPTION: ${{ needs.get-body.outputs.description }}
+          PULL_REQUEST_SHORT_DESCRIPTION: ${{ needs.collect.outputs.description }}
           PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
           PULL_REQUEST_URL: ${{ github.event.pull_request.html_url }}
           REPO_HTML_URL: ${{ github.event.pull_request.base.repo.html_url }}
