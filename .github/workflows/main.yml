@@ -1,7 +1,7 @@
 name: PR events Slack notification
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, reopened, ready_for_review]
 jobs:
   check-team-membership:
     runs-on: ubuntu-latest
@@ -28,8 +28,7 @@ jobs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
       description: ${{ steps.description.outputs.value }}
-      lines: ${{ steps.changed_lines.outputs.changed_lines }}
-      size_label: ${{ steps.size_label.outputs.size_label }}
+      size_label: ${{ steps.size_label.outputs.size_label.value }}
     env:
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
@@ -55,9 +54,6 @@ jobs:
         run: |
           d=$(echo -e "$PR_BODY" | grep -oP '(?<=Short description:\*\*).*' | tr -dc '[:print:]')
           echo "value=$d" >> "$GITHUB_OUTPUT"
-      # - name: changed lines
-      #   id: changed_lines
-      #   uses: hestonhoffman/changed-lines@v1
       - id: size_label
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -83,7 +79,7 @@ jobs:
           CREATOR_URL: ${{ github.event.pull_request.base.user.url }}
           PULL_REQUEST_AFFECTS: ${{ needs.collect.outputs.affects }}
           PULL_REQUEST_SIZE: ${{ needs.collect.outputs.size_label }}
-          PULL_REQUEST_COMPLEXITy: ${{ needs.collect.outputs.complexity }}
+          PULL_REQUEST_COMPLEXITY: ${{ needs.collect.outputs.complexity }}
           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
           PULL_REQUEST_SHORT_DESCRIPTION: ${{ needs.collect.outputs.description }}
           PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}

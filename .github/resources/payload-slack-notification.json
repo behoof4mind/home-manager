@@ -30,7 +30,7 @@
         },
         {
           "type": "mrkdwn",
-          "text": "*Complexity:*${{ env.PULL_REQUEST_COMPLEXITy }}"
+          "text": "*Complexity:*${{ env.PULL_REQUEST_COMPLEXITY }}"
         }
       ]
     },
