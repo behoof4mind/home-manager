@@ -60,7 +60,7 @@ jobs:
       #   uses: hestonhoffman/changed-lines@v1
       - id: size_label
         run: |
-          l = $(echo ${{ github.event.pull_request.labels }} | jq -r '.labels[] | select(.name | startswith("size")) | .name')
+          l=$(echo ${{ github.event.pull_request.labels }} | jq -r '.labels[] | select(.name | startswith("size")) | .name')
           echo "value=$l" >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest
