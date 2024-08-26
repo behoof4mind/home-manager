@@ -26,7 +26,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Files changed:* ${{ env.PULL_REQUEST_CHANGED_FILES }}"
+          "text": "*Lines changed:* ${{ env.PULL_REQUEST_CHANGED_LINES }}"
         },
         {
           "type": "mrkdwn",
