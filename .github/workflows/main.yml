@@ -13,7 +13,7 @@ jobs:
       id: checker
       with:
         organization: "FTAPI-Software"
-        team: "operations1"
+        team: "operations"
         token: ${{ secrets.GET_USERGOUPS_MEMBERS_PAT }}
         exit: false
   collect:
