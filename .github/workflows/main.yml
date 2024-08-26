@@ -43,6 +43,7 @@ jobs:
           exclude_files: '.txt'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABELS_CONTEXT: ${{ toJSON(github.event.pull_request.labels.*) }}
       - id: affects
         run: |
           a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects:\*\*).*' | tr -dc '[:print:]')
@@ -60,7 +61,7 @@ jobs:
       #   uses: hestonhoffman/changed-lines@v1
       - id: size_label
         run: |
-          l=$(echo fromJSON(${{ github.event.pull_request.labels.* }}) | jq -r '.labels[] | select(.name | startswith("size")) | .name')
+          l=$(echo "$LABELS_CONTEXT" | jq -r '.labels[] | select(.name | startswith("size")) | .name')
           echo "value=$l" >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest
