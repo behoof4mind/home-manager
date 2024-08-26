@@ -28,6 +28,16 @@ jobs:
     env:
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
+      - name: Label the PR size
+        uses: coverwallet/pr-labeler@v1.2.1
+        with:
+          xs_max_size: '10'
+          s_max_size: '100'
+          m_max_size: '500'
+          l_max_size: '1000'
+          exclude_files: '.txt'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - id: affects
         run: |
           a=$(echo -e "$PR_BODY" | grep -oP '(?<=Affects:\*\*).*' | tr -dc '[:print:]')
