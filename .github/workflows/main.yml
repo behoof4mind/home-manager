@@ -53,6 +53,7 @@ jobs:
       - name: changed lines
         id: changed_lines
         uses: hestonhoffman/changed-lines@v1
+        continue-on-error: true
   send-notification:
     runs-on: ubuntu-latest
     needs: collect
