@@ -66,8 +66,9 @@ jobs:
           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           labels="$(gh api repos/$OWNER/$REPO_NAME/pulls/$PULL_REQUEST_NUMBER --jq '.labels.[].name')"
-          l=$(echo "$labels" | jq -r '.labels[] | select(.name | startswith("size")) | .name')
-          echo "value=$l" >> "$GITHUB_OUTPUT"
+          echo $labels
+          # l=$(echo "$labels" | jq -r '.labels[] | select(.name | startswith("size")) | .name')
+          # echo "value=$l" >> "$GITHUB_OUTPUT"
   send-notification:
     runs-on: ubuntu-latest
     needs: collect
