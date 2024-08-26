@@ -67,7 +67,7 @@ jobs:
           CREATOR_NAME: ${{ github.event.pull_request.base.user.login }}
           CREATOR_URL: ${{ github.event.pull_request.base.user.url }}
           PULL_REQUEST_AFFECTS: ${{ needs.collect.outputs.affects }}
-          PULL_REQUEST_CHANGED_LINES: ${{ needs.collect.outputs.lines }}
+          PULL_REQUEST_CHANGED_LINES: 3
           PULL_REQUEST_COMPLEXITy: ${{ needs.collect.outputs.complexity }}
           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
           PULL_REQUEST_SHORT_DESCRIPTION: ${{ needs.collect.outputs.description }}
