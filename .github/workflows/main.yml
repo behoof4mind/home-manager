@@ -28,7 +28,7 @@ jobs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
       description: ${{ steps.description.outputs.value }}
-      size_label: ${{ steps.size_label.outputs.size_label.value }}
+      size_label: ${{ steps.size_label.outputs.value }}
     env:
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
