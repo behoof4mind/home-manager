@@ -16,7 +16,6 @@ with pkgs;
   cmctl
   commitizen
   coreutils-full
-  cpulimit
   ctags
   delve
   devcontainer
@@ -45,6 +44,7 @@ with pkgs;
   helm-ls
   hugo
   imagemagick
+  jdt-language-server
   jfrog-cli
   jq
   julia-bin
