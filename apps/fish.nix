@@ -10,8 +10,7 @@
       gtw = "cd ${vars.currentProject} && nvim .";
 
       g = "git";
-      nv = "nvim";
-      v = "vim";
+      v = "nvim .";
 
       # Podman
       p = "podman";
@@ -153,6 +152,7 @@
     interactiveShellInit = ''
       export "PATH=$PATH:$HOME/kubectl-plugins"
       export EDITOR="nvim"
+      set -gx  LC_ALL en_US.UTF-8
       export PATH="$PATH:/opt/homebrew/bin"
       export VISUAL="nvim"
       export XDG_CONFIG_HOME="$HOME/.config"
