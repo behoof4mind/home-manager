@@ -1,5 +1,4 @@
 return {
-  { import = "plugins.lang" },
   {
     "neovim/nvim-lspconfig",
     config = function()
