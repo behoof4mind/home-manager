@@ -294,8 +294,7 @@
                   "key_code": "left_command"
                 },
                 "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 100,
-                  "basic.to_if_held_down_threshold_milliseconds": 200
+                  "basic.to_if_alone_timeout_milliseconds": 200
                 },
                 "to": [
                   {
@@ -316,29 +315,6 @@
                         "y": "100%"
                       }
                     }
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": "left_control"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "comma",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": "left_control"
                   }
                 ],
                 "type": "basic"
