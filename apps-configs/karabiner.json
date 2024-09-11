@@ -318,6 +318,23 @@
                   }
                 ],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": "left_control"
+                  }
+                ],
+                "type": "basic"
               }
             ]
           },

@@ -60,9 +60,6 @@
           "url": "${{ env.PULL_REQUEST_URL }}"
         }
       ]
-    },
-    {
-      "type": "divider"
     }
   ]
 }
