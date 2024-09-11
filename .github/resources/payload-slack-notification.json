@@ -63,44 +63,6 @@
     },
     {
       "type": "divider"
-    },
-    {
-      "type": "context",
-      "elements": [
-        {
-          "type": "mrkdwn",
-          "text": "Use the following emojies as reactions to the request:\n\n"
-        }
-      ]
-    },
-    {
-      "type": "context",
-      "elements": [
-        {
-          "type": "mrkdwn",
-          "text": ":clock1: - I can look at it later (use Thread)"
-        },
-        {
-          "type": "mrkdwn",
-          "text": ":snail: - I would be able to look at it, but have no time"
-        },
-        {
-          "type": "mrkdwn",
-          "text": ":x: - I am not able to give a review, I don't know enough"
-        },
-        {
-          "type": "mrkdwn",
-          "text": ":hammer: - I'm done reviewing the PR, but I did request some changes"
-        },
-        {
-          "type": "mrkdwn",
-          "text": ":work-in-progress: - I will look at it right away"
-        },
-        {
-          "type": "mrkdwn",
-          "text": ":done: - I'm done reviewing the PR, all looks good"
-        }
-      ]
     }
   ]
 }
