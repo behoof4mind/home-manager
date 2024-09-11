@@ -5,11 +5,18 @@
     enable = true;
     shellAbbrs = {
 
+      # Ftapi
+      ftedb = "kubecolor exec -n percona-database cluster1-pxc-1 -c pxc -it -- /bin/bash -c 'mysql -uroot -p\$MYSQL_ROOT_PASSWORD'";
+      ftgnr = "kubecolor get pods -A | grep secutransfer | grep '0/1'";
+      ftgoom = "kubecolor get pods -A -o jsonpath='{range .items[?(@.status.containerStatuses[0].lastState.terminated.reason=='OOMKilled')]}{.status.containerStatuses[0].lastState.terminated.finishedAt} {.metadata.namespace} {.metadata.name} {.metadata.annotations.ftapi_com_hack_url}{'\\n'}{end}' | sort -r";
+      ftgpl = "kubectl -n=percona-database cp -c pxc cluster1-pxc-1:/var/lib/mysql/mysqld-error.log ./pxc-1-error.log";
+
       "..." = "cd ../..";
       gtp = "cd ${vars.currentProject}";
       gtw = "cd ${vars.currentProject} && nvim .";
 
       g = "git";
+      nv = "nvim";
       v = "nvim .";
 
       # Podman
@@ -56,18 +63,39 @@
 
       ## kubectl pods
       kdelp = "kubecolor delete pod";
+      kdelpn = "kubecolor delete pod --namespace";
+      kdelpa = "kubecolor delete pod --all";
+      kdelpna = "kubecolor delete pod --all --namespace";
       kdp = "kubecolor describe pod";
       kep = "kubecolor edit pod";
       kgp = "kubecolor get pods";
       kgpa = "kubecolor get pods -A";
       kgpn = "kubecolor get pods --namespace";
       kl = "kubecolor logs";
+      kln = "kubecolor logs --namespace";
       krun = "kubecolor run temorary-pod --image";
       kruny = "kubecolor run temorary-pod --dry-run=client -o yaml --image";
 
+      ## kubectl services
+      kdels = "kubecolor delete service";
+      kds = "kubecolor describe service";
+      kdsn = "kubecolor describe service --namespace";
+      kes = "kubecolor edit service";
+      kgs = "kubecolor get service";
+      kgsn = "kubecolor get service --namespace";
+
+      ## kubectl endpoints
+      kdelep = "kubecolor delete endpoint";
+      kdep = "kubecolor describe endpoint";
+      kdepn = "kubecolor describe endpoint --namespace";
+      keep = "kubecolor edit endpoint";
+      kgep = "kubecolor get endpoint";
+      kgepn = "kubecolor get endpoint --namespace";
+
       ## kubectl secrets
       kdelsec = "kubecolor delete secret";
-      kdsec = "kubecolor get secret --namespace";
+      kdsec = "kubecolor describe secret";
+      kdsecn = "kubecolor describe secret --namespace";
       kesec = "kubecolor edit secret";
       kgsec = "kubecolor get secret";
       kgsecn = "kubecolor get secret --namespace";
@@ -122,6 +150,7 @@
       kgnode = "kubecolor get nodes";
       kgnodew = "kubecolor get nodes --wide";
 
+      kdnp = "kubecolor describe networkpolicy";
       kdelnp = "kubecolor delete networkpolicy";
       kdelnpn = "kubecolor delete networkpolicy --namespace";
       kenp = "kubecolor edit networkpolicy";
@@ -139,6 +168,40 @@
       ksh = "kubecolor exec -it";
       ktn = "kubecolor top node";
       ktp = "kubecolor top pod";
+
+      # kubectl flux-helmrelease
+      kghr = "kubecolor get helmrelease";
+      kghrn = "kubecolor get helmrelease --namespace";
+
+      # flux gitrepositories
+      kgg = "kubecolor get gitrepositories";
+      kggn = "kubecolor get gitrepositories --namespace";
+
+      # kubectl flux-kustomizations
+      kgks = "kubecolor get kustomization";
+      kgksn = "kubecolor get kustomization --namespace";
+      keks = "kubecolor edit kustomization";
+      keksn = "kubecolor edit kustomization --namespace";
+      kdelks = "kubecolor delete kustomization";
+      kdelksn = "kubecolor delete kustomization --namespace";
+
+      # flux resume/suspend
+      fsusks = "flux suspend kustomization --namespace";
+      fresks = "flux resume kustomization --namespace";
+      fsushr = "flux suspend helmrelease --namespace";
+      freshr = "flux resume helmrelease --namespace";
+
+      # flux sources
+      fgsa = "flux get sources all";
+
+      # flux reconciliation
+      fr = "flux reconcile";
+      frhr = "flux reconcile helmrelease --namespace";
+      frhrf = "flux reconcile helmrelease --force --namespace";
+      frhrff = "flux reconcile helmrelease --force --with-source --namespace";
+      frsg = "flux reconcile sources git";
+      frks = "flux reconcile kustomization --namespace";
+      frksf = "flux reconcile kustomization --with-source --namespace";
 
       tf = "terraform";
       tfa = "terraform apply";

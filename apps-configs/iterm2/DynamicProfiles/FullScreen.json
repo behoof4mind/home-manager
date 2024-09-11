@@ -35,7 +35,7 @@
         "Alpha Component": 1,
         "Green Component": 0.68627452850341797
       },
-      "HotKey Window Floats": true,
+      "HotKey Window Floats": false,
       "Ansi 12 Color (Dark)": {
         "Red Component": 0.48235294222831726,
         "Color Space": "sRGB",
@@ -62,7 +62,7 @@
         "Alpha Component": 1,
         "Green Component": 0.7921568751335144
       },
-      "HotKey Window AutoHides": true,
+      "HotKey Window AutoHides": false,
       "Initial Text": "",
       "Selection Color (Dark)": {
         "Red Component": 0.19607843458652496,
