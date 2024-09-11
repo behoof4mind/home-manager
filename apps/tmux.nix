@@ -25,22 +25,35 @@
           plugin = tmuxPlugins.continuum;
           extraConfig = "set -g @continuum-save-interval '5'";
         }
-        {
-          plugin = tmuxPlugins.mode-indicator;
-          extraConfig = "set -g status-right '#{tmux_mode_indicator}'";
-        }
       ];
       extraConfig = ''
         # allow applications to manage clipboard
         set -s set-clipboard on
 
         # List of plugins
-        set -g @plugin 'tmux-plugins/tpm'
-        set -g @plugin 'tmux-plugins/tmux-sensible'
-        # add spotify plugin that does not have nix package
-        set -g @plugin 'niksingh710/minimal-tmux-status'
-        set -g @plugin 'xamut/tmux-spotify'
-        # set -g @plugin 'janoamaral/tokyo-night-tmux'
+        set -g @plugin "tmux-plugins/tpm"
+        set -g @plugin "tmux-plugins/tmux-sensible"
+        set -g @plugin "MunifTanjim/tmux-mode-indicator"
+        set -g @plugin "xamut/tmux-spotify"
+
+        # Kubecontext in status line
+        set -g @plugin "masa0221/tmux-kube-status"
+        set -g status-right "#{kube_status}"
+        set -g status-left "#{tmux_mode_indicator}"
+        set -g status-justify centre
+        set -g window-status-format "#[fg=#16161e,bg=#394b70] #I:#W "
+        set -g window-status-current-format "#[fg=#16161e,bg=#82aaff, bold] #I:#W "
+        set -g status-style fg=#86e1fc,bg=#1e2030
+        set -g @kube-status-format-default "#[fg=#16161e,bg=#82aaff,bold]"
+        set -g @kube-status-prod-pattern ".*production.*"
+        set -g @kube-status-format-prod "#[fg=#16161e,bg=#ff757f,bold]"
+        set -g @kube-status-stage-pattern ".*staging.*"
+        set -g @kube-status-format-stage "#[fg=#16161e,bg=#82aaff,bold]"
+        set -g @kube-status-dev-pattern ".*development.*"
+        set -g @kube-status-format-dev "#[fg=#16161e,bg=#82aaff,bold]"
+        set -g @mode_indicator_copy_mode_style "fg=#16161e,bg=#c3e88d,bold"
+        set -g @mode_indicator_prefix_mode_style "fg=#16161e,bg=#394b70,bold"
+        set -g @mode_indicator_empty_mode_style "fg=#16161e,bg=#82aaff,bold"
 
         # Increase panes numbers timeout
         set -g display-panes-time 5000

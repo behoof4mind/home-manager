@@ -2,6 +2,7 @@
 
 with pkgs;
 [
+  act
   age
   air
   ansible-language-server
@@ -65,6 +66,7 @@ with pkgs;
   kubepug # kubectl plugin
   kubernetes-helm
   kubernetes-helmPlugins.helm-unittest
+  kubie
   kustomize
   lazygit
   lemonade
