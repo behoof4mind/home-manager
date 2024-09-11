@@ -5,6 +5,7 @@ on:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
     outputs:
       affects: ${{ steps.affects.outputs.value }}
       complexity: ${{ steps.complexity.outputs.value }}
