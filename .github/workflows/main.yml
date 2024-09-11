@@ -33,12 +33,12 @@ jobs:
       PR_BODY: ${{ github.event.pull_request.body }}
     steps:
       - name: Label the PR size
-        uses: coverwallet/pr-labeler@v1.2.1
+        uses: FTAPI-Software/actions-pr-labeler@v1.2.1
         with:
-          xs_max_size: '5'
-          s_max_size: '50'
-          m_max_size: '200'
-          l_max_size: '500'
+          xs_max_size: '10'
+          s_max_size: '100'
+          m_max_size: '500'
+          l_max_size: '1000'
           exclude_files: '.txt'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
