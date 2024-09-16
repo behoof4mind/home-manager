@@ -1,0 +1,77 @@
+prSections:
+- title: Subscribed
+  filters: is:open type:pr state:open repo:FTAPI-Software/Server-Secutransfer repo:FTAPI-Software/k8s-prod-cluster repo:FTAPI-Software/k8s-dev-cluster repo:FTAPI-Software/k8s-base-cluster repo:FTAPI-Software/prod-infrastructure-terraform repo:FTAPI-Software/helm-charts repo:FTAPI-Software/dev-infrastructure-terraform draft:false -label:B!ts -label:ByteBusters -label:dependencies
+  limit: 50 # optional limit of rows fetched for this section
+- title: My Pull Requests
+  filters: is:open author:@me
+- title: Needs My Review
+  filters: is:open review-requested:@me
+- title: Involved
+  filters: is:open involves:@me -author:@me
+issuesSections:
+- title: My Issues
+  filters: is:open author:@me
+- title: Assigned
+  filters: is:open assignee:@me
+- title: Involved
+  filters: is:open involves:@me -author:@me
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 4
+      repo:
+        width: 18
+        grow: true
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
+        width: 10
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  universal:
+    - key: J
+      builtin: pageDown
+    - key: K
+      builtin: pageUp
+    - key: g
+      builtin: firstLine
+    - key: G
+      builtin: lastLine
+  issues: []
+  prs: []
+repoPaths:
+  FTAPI-Software/*: ~/Workplace/ftapi
+  behoof4mind/*: ~/MyGitHub
+  behoof4mind/home-manager: ~/.config/home-manager
+  :owner/:repo: ~/Workplace/other/:owner/:repo
+theme:
+  ui:
+    sectionsShowCount: true
+    table:
+      showSeparator: true
+pager:
+  diff: ""
+confirmQuit: true

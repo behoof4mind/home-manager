@@ -8,6 +8,7 @@ in
   "${XDG_PATH}/cz/config.yaml".source = ../apps-configs/git/commitizen-config.yaml;
   "${builtins.getEnv "HOME"}/Library/Application\ Support/iTerm2/DynamicProfiles/FullScreen.json".source = ../apps-configs/iterm2/DynamicProfiles/FullScreen.json;
   "${builtins.getEnv "HOME"}/.atac_vim_key_bindings.toml".source = ../apps-configs/atac_vim_key_bindings.toml;
+  "${builtins.getEnv "HOME"}/.config/gh-dash/config.yml".source = ../apps-configs/gh-dash/config.yml;
   "${builtins.getEnv "HOME"}/.config/karabiner/karabiner.json".source = ../apps-configs/karabiner.json;
   "${builtins.getEnv "HOME"}/.ctags".source = ../apps-configs/.ctags;
   "${builtins.getEnv "HOME"}/.gitconfig-ftapi-github".source = ../apps-configs/git/.gitconfig-ftapi-github;

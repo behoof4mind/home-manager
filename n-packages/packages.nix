@@ -3,6 +3,8 @@
 with pkgs;
 [
   act
+  wego
+  tldr
   age
   air
   ansible-language-server
@@ -27,6 +29,9 @@ with pkgs;
   docker-compose-language-service
   fd
   fluxcd
+  fx
+  gh
+  gh-dash
   git
   gitflow
   gnugrep
