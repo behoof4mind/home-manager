@@ -6,7 +6,6 @@ let
 in
 {
   "${XDG_PATH}/cz/config.yaml".source = ../apps-configs/git/commitizen-config.yaml;
-  "${builtins.getEnv "HOME"}/Library/Application\ Support/iTerm2/DynamicProfiles/FullScreen.json".source = ../apps-configs/iterm2/DynamicProfiles/FullScreen.json;
   "${builtins.getEnv "HOME"}/.atac_vim_key_bindings.toml".source = ../apps-configs/atac_vim_key_bindings.toml;
   "${builtins.getEnv "HOME"}/.config/gh-dash/config.yml".source = ../apps-configs/gh-dash/config.yml;
   "${builtins.getEnv "HOME"}/.config/karabiner/karabiner.json".source = ../apps-configs/karabiner.json;
@@ -15,6 +14,7 @@ in
   "${builtins.getEnv "HOME"}/.gitconfig-my-github".source = ../apps-configs/git/.gitconfig-my-github;
   "${builtins.getEnv "HOME"}/.ssh/config".source = ../apps-configs/.ssh-config;
   "${builtins.getEnv "HOME"}/Library/Application Support/Code/User/keybindings.json".source = ../apps-configs/vscode/keybindings.json;
+  "${builtins.getEnv "HOME"}/Library/Application\ Support/iTerm2/DynamicProfiles/FullScreen.json".source = ../apps-configs/iterm2/DynamicProfiles/FullScreen.json;
 }
 // neovimFiles
 // k9sFiles
