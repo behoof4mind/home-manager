@@ -67,6 +67,7 @@
       kdelpa = "kubecolor delete pod --all";
       kdelpna = "kubecolor delete pod --all --namespace";
       kdp = "kubecolor describe pod";
+      kdpn = "kubecolor describe pod --namespace";
       kep = "kubecolor edit pod";
       kgp = "kubecolor get pods";
       kgpa = "kubecolor get pods -A";
@@ -144,7 +145,9 @@
       kgea = "kubecolor get events -A";
 
       kgi = "kubecolor get ingress";
+      kgin = "kubecolor get ingress --namespace";
       kdi = "kubecolor describe ingress";
+      kdin = "kubecolor describe ingress --namespace";
       kdeli = "kubecolor delete ingress";
 
       kgnode = "kubecolor get nodes";
@@ -199,7 +202,7 @@
       frhr = "flux reconcile helmrelease --namespace";
       frhrf = "flux reconcile helmrelease --force --namespace";
       frhrff = "flux reconcile helmrelease --force --with-source --namespace";
-      frsg = "flux reconcile sources git";
+      frsg = "flux reconcile source git";
       frks = "flux reconcile kustomization --namespace";
       frksf = "flux reconcile kustomization --with-source --namespace";
 
@@ -209,6 +212,9 @@
       tg = "terragrunt";
       tga = "terragrunt apply";
       tgp = "terragrunt plan";
+
+      weather = "wego -owm-api-key '87e5d08c45b15d860c42fa1f466f2ea1' -l Freilassing";
+      prs = "gh-dash";
 
       hms = "home-manager switch";
     };
