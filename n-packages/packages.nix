@@ -2,9 +2,9 @@
 
 with pkgs;
 [
+  # jdt-language-server
+  # openjdk
   act
-  wego
-  tldr
   age
   air
   ansible-language-server
@@ -19,6 +19,8 @@ with pkgs;
   cmctl
   commitizen
   coreutils-full
+  crawl
+  crawlTiles
   ctags
   delve
   devcontainer
@@ -50,7 +52,6 @@ with pkgs;
   helm-ls
   hugo
   imagemagick
-  jdt-language-server
   jfrog-cli
   jq
   julia-bin
@@ -75,12 +76,15 @@ with pkgs;
   kustomize
   lazygit
   lemonade
+  llvm_18
+  pulseaudio
   lsd
   lua-language-server # LS for NeoVim
   markdownlint-cli2 # LS for NeoVim
   marksman
   maven
   minio-client
+  # ncspot
   neovim
   nerdfonts
   nil
@@ -97,7 +101,6 @@ with pkgs;
   nodePackages.vue-language-server
   nodejs_22
   obsidian
-  openjdk
   openssh
   ov
   pgadmin4-desktopmode
@@ -127,11 +130,13 @@ with pkgs;
   tflint
   thefuck
   tig
+  tldr
   tree
   unrar
   vim
   vscode-langservers-extracted
   watch
+  wego
   wget
   yaml-language-server
   yamlfmt

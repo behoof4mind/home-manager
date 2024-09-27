@@ -22,6 +22,10 @@ let
       bash
       ;
   };
+  kubectl-jq = pkgs.callPackage ./n-packages/local/kubectl-jq.nix {
+    inherit (pkgs) stdenvNoCC lib fetchurl;
+  };
+
 in
 {
   nixpkgs.config = import ./n-configs/config.nix;
@@ -29,6 +33,7 @@ in
   home.homeDirectory = "/Users/${vars.userName}";
   home.packages = [
     kubectl-node-shell
+    kubectl-jq
     ksniff
     dumpy
   ] ++ packageList;

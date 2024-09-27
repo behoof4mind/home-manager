@@ -217,6 +217,7 @@
       prs = "gh-dash";
 
       hms = "home-manager switch";
+      kk = "k9s";
     };
     interactiveShellInit = ''
       export "PATH=$PATH:$HOME/kubectl-plugins"
@@ -227,6 +228,7 @@
       export XDG_CONFIG_HOME="$HOME/.config"
       export KUBECONFIG="$HOME/.config/kube/config"
       export ATAC_KEY_BINDINGS="~/.atac_vim_key_bindings.toml"
+      export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
       kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
       thefuck --alias | source
