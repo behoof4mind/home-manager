@@ -3,6 +3,7 @@
 with pkgs;
 [
   # jdt-language-server
+  # ncspot
   # openjdk
   act
   age
@@ -18,6 +19,7 @@ with pkgs;
   chart-testing
   cmctl
   commitizen
+  cool-retro-term
   coreutils-full
   crawl
   crawlTiles
@@ -77,14 +79,12 @@ with pkgs;
   lazygit
   lemonade
   llvm_18
-  pulseaudio
   lsd
   lua-language-server # LS for NeoVim
   markdownlint-cli2 # LS for NeoVim
   marksman
   maven
   minio-client
-  # ncspot
   neovim
   nerdfonts
   nil
@@ -109,6 +109,7 @@ with pkgs;
   podman
   podman-compose
   popeye
+  pulseaudio
   python3
   python312Packages.python-lsp-server
   rakkess
@@ -120,6 +121,7 @@ with pkgs;
   scrcpy
   shfmt
   sops
+  stern
   stern
   stylua
   tcpdump

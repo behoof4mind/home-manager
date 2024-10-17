@@ -1,0 +1,32 @@
+views:
+  v1/pods:
+    sortColumn: AGE:asc
+    columns:
+      - NAME
+      - AGE
+      - PF
+      - READY
+      - STATUS
+      - RESTARTS
+      - CPU
+      - MEM
+      - NODE
+      - IP
+      - QOS
+  v1/services:
+    columns:
+      - NAME
+      - AGE
+      - PORTS
+      - CLUSTER-IP
+  v1/nodes:
+    columns:
+      - NAME
+      - STATUS
+      - AGE
+      - INTERNAL-IP
+      - PODS
+      - CPU/A
+      - CPU%
+      - MEM/A
+      - MEM%

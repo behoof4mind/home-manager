@@ -9,6 +9,7 @@
   "${XDG_PATH}/nvim/lua/config/lazy.lua".source = ../apps-configs/neovim/lua/config/lazy.lua;
   "${XDG_PATH}/nvim/lua/config/options.lua".source = ../apps-configs/neovim/lua/config/options.lua;
   "${XDG_PATH}/nvim/lua/plugins/coding.lua".source = ../apps-configs/neovim/lua/plugins/coding.lua;
+  "${XDG_PATH}/nvim/lua/plugins/chore.lua".source = ../apps-configs/neovim/lua/plugins/chore.lua;
   "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source = ../apps-configs/neovim/lua/plugins/colorscheme.lua;
   "${XDG_PATH}/nvim/lua/plugins/copilot.lua".source = ../apps-configs/neovim/lua/plugins/copilot.lua;
   "${XDG_PATH}/nvim/lua/plugins/databases.lua".source = ../apps-configs/neovim/lua/plugins/databases.lua;
