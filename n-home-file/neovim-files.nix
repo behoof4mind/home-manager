@@ -13,7 +13,7 @@
   "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source = ../apps-configs/neovim/lua/plugins/colorscheme.lua;
   "${XDG_PATH}/nvim/lua/plugins/copilot.lua".source = ../apps-configs/neovim/lua/plugins/copilot.lua;
   "${XDG_PATH}/nvim/lua/plugins/databases.lua".source = ../apps-configs/neovim/lua/plugins/databases.lua;
-  "${XDG_PATH}/nvim/lua/plugins/debugger.lua".source = ../apps-configs/neovim/lua/plugins/debugger.lua;
+  # "${XDG_PATH}/nvim/lua/plugins/debugger.lua".source = ../apps-configs/neovim/lua/plugins/debugger.lua;
   "${XDG_PATH}/nvim/lua/plugins/disabled.lua".source = ../apps-configs/neovim/lua/plugins/disabled.lua;
   "${XDG_PATH}/nvim/lua/plugins/file-editor.lua".source = ../apps-configs/neovim/lua/plugins/file-editor.lua;
   "${XDG_PATH}/nvim/lua/plugins/formatter.lua".source = ../apps-configs/neovim/lua/plugins/formatter.lua;

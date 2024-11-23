@@ -6,6 +6,7 @@ with pkgs;
   # ncspot
   # openjdk
   act
+  openstackclient
   age
   air
   ansible-language-server
@@ -85,6 +86,7 @@ with pkgs;
   marksman
   maven
   minio-client
+  mongosh
   neovim
   nerdfonts
   nil
@@ -96,12 +98,14 @@ with pkgs;
   nodePackages.node2nix
   nodePackages.pnpm
   nodePackages.prettier
+  nodePackages.typescript-language-server
+  nodePackages.vls
   nodePackages.vscode-html-languageserver-bin
   nodePackages.vscode-json-languageserver
-  nodePackages.vue-language-server
   nodejs_22
   obsidian
   openssh
+  openstackclient
   ov
   pgadmin4-desktopmode
   php
@@ -134,6 +138,7 @@ with pkgs;
   tig
   tldr
   tree
+  typescript
   unrar
   vim
   vscode-langservers-extracted

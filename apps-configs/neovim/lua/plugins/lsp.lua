@@ -13,21 +13,22 @@ return {
           end
         end,
       })
+      require("lspconfig").ansiblels.setup({})
       require("lspconfig").bashls.setup({})
+      require("lspconfig").docker_compose_language_service.setup({})
+      require("lspconfig").dockerls.setup({})
       require("lspconfig").gopls.setup({})
       require("lspconfig").helm_ls.setup({})
       require("lspconfig").html.setup({})
       require("lspconfig").jsonls.setup({})
       require("lspconfig").lua_ls.setup({})
       require("lspconfig").marksman.setup({})
-      require("lspconfig").terraformls.setup({})
       require("lspconfig").nil_ls.setup({})
-      require("lspconfig").vuels.setup({})
-      require("lspconfig").dockerls.setup({})
-      require("lspconfig").docker_compose_language_service.setup({})
-      require("lspconfig").ansiblels.setup({})
-      require("lspconfig").sqlls.setup({})
       require("lspconfig").pylsp.setup({})
+      require("lspconfig").sqlls.setup({})
+      require("lspconfig").terraformls.setup({})
+      require("lspconfig").ts_ls.setup({})
+      require("lspconfig").vuels.setup({})
     end,
   },
 }
