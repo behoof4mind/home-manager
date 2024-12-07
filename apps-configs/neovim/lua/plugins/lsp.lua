@@ -28,7 +28,6 @@ return {
       require("lspconfig").sqlls.setup({})
       require("lspconfig").terraformls.setup({})
       require("lspconfig").ts_ls.setup({})
-      require("lspconfig").vuels.setup({})
     end,
   },
 }

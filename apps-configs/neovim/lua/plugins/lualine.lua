@@ -3,13 +3,17 @@ return {
   dependencies = {
     { "nvim-tree/nvim-web-devicons", lazy = true },
   },
-  opts = { theme = "auto" },
-  sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { "filename" },
-    lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_y = { "progress" },
-    lualine_z = { "location" },
-  },
+  -- opts = function(_, opts)
+  --   table.insert(
+  --     opts.sections.lualine_x,
+  --     2,
+  --     LazyVim.lualine.status(LazyVim.config.icons.kinds.Copilot, function()
+  --       local clients = package.loaded["copilot"] and LazyVim.lsp.get_clients({ name = "copilot", bufnr = 0 }) or {}
+  --       if #clients > 0 then
+  --         local status = require("copilot.api").status.data.status
+  --         return (status == "InProgress" and "pending") or (status == "Warning" and "error") or "ok"
+  --       end
+  --     end)
+  --   )
+  -- end,
 }
