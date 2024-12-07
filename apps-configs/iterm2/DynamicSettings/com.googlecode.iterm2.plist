@@ -1710,7 +1710,7 @@
 			<key>Title Components</key>
 			<integer>288</integer>
 			<key>Transparency</key>
-			<real>0.14860926418439713</real>
+			<integer>0</integer>
 			<key>Triggers</key>
 			<array>
 				<dict>
