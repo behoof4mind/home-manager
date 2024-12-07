@@ -6,7 +6,6 @@ with pkgs;
   # ncspot
   # openjdk
   act
-  openstackclient
   age
   air
   ansible-language-server
@@ -106,6 +105,7 @@ with pkgs;
   obsidian
   openssh
   openstackclient
+  openstackclient
   ov
   pgadmin4-desktopmode
   php
@@ -122,6 +122,7 @@ with pkgs;
   restic
   ripgrep
   ruby
+  s3cmd
   scrcpy
   shfmt
   sops
