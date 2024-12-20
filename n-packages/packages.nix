@@ -84,8 +84,11 @@ with pkgs;
   markdownlint-cli2 # LS for NeoVim
   marksman
   maven
+  minikube
   minio-client
   mongosh
+  mycli
+  mysql84
   neovim
   nerdfonts
   nil
