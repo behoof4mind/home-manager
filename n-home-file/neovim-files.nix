@@ -11,7 +11,6 @@
   "${XDG_PATH}/nvim/lua/plugins/chore.lua".source = ../apps-configs/neovim/lua/plugins/chore.lua;
   "${XDG_PATH}/nvim/lua/plugins/coding.lua".source = ../apps-configs/neovim/lua/plugins/coding.lua;
   "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source = ../apps-configs/neovim/lua/plugins/colorscheme.lua;
-  "${XDG_PATH}/nvim/lua/plugins/copilot.lua".source = ../apps-configs/neovim/lua/plugins/copilot.lua;
   "${XDG_PATH}/nvim/lua/plugins/databases.lua".source = ../apps-configs/neovim/lua/plugins/databases.lua;
   "${XDG_PATH}/nvim/lua/plugins/disabled.lua".source = ../apps-configs/neovim/lua/plugins/disabled.lua;
   "${XDG_PATH}/nvim/lua/plugins/file-editor.lua".source = ../apps-configs/neovim/lua/plugins/file-editor.lua;
