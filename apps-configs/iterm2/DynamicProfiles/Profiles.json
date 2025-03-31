@@ -388,7 +388,7 @@
         "Alpha Component": 1,
         "Green Component": 0.70980393886566162
       },
-      "Normal Font": "HackNF-Regular 14",
+      "Normal Font": "MesloLGSNFM-Regular 15",
       "Triggers": [
         {
           "regex": "",
@@ -1337,7 +1337,7 @@
         "Alpha Component": 1,
         "Green Component": 0.70980393886566162
       },
-      "Normal Font": "HackNF-Regular 14",
+      "Normal Font": "MesloLGSNFM-Regular 15",
       "Triggers": [
         {
           "regex": "",

@@ -7,6 +7,7 @@ return {
         ["nix"] = { "nixfmt" },
         ["tf"] = { "terraform_fmt" },
         ["json"] = { "jq" },
+        ["hcl"] = { "hclfmt" },
         -- ["yaml"] = { "yq" },
       },
     },

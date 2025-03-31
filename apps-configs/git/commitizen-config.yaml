@@ -9,12 +9,12 @@ commitizen:
         choices:
           - value: chore
             name: 'chore: commit which not trigger anything'
+          - value: fix
+            name: 'fix: a bug fix'
           - value: refactor
             name: 'refactor: a code change that neither fixes a bug nor adds a feature'
           - value: feat
             name: 'feat: a new feature'
-          - value: fix
-            name: 'fix: a bug fix'
           - value: style
             name: style :changes that do not affect the meaning of the code
           - value: build

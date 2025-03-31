@@ -18,8 +18,12 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- Fix neovim yanking afte paste
+map("x", "p", "P", { silent = true })
+
 -- Unmap some LazyVim keybindings
 map("n", "<leader>tn", "<Nop>")
+map("n", "<leader>tp", "<Nop>")
 map("n", "<leader>ft", "<Nop>")
 map("n", "<leader>fT", "<Nop>")
 map("n", "<c-/>", "<Nop>")
@@ -44,23 +48,19 @@ map("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Open UndoTree" })
 
 local wk = require("which-key")
 wk.add({
-  -- Harpoon group
-  { "<leader>h", group = "Harpoon" },
-  { "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "Toggle quick menu", mode = "n" },
-  { "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", desc = "Add file", mode = "n" },
-  { "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", desc = "Next", mode = "n" },
-  { "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", desc = "Previous", mode = "n" },
-  -- Telescope group
-  { "<leader>f", group = "Telescope" },
-  {
-    mode = { "n", "v" },
-    { "<leader>cf", "<cmd>Telescope ssh-config<CR>", desc = "Open an ssh connexion" },
-  },
+  -- -- Octo group
+  { "<leader>O", group = "Octo" },
+  { "<leader>Oc", ":Octo pr create draft<CR>", desc = "Create PR draft", mode = "n" },
+  -- Oil group
+  { "<leader>e", group = "Oil Explorer" },
+  { "<leader>ec", ":Oil --float<CR>", desc = "Current directory", mode = "n" },
+  { "<leader>ef", ":Oil ~/Workplace/ftapi --float<CR>", desc = "Ftapi directory", mode = "n" },
+  { "<leader>eh", ":Oil ~/.config/home-manager --float<CR>", desc = "Home-manager directory", mode = "n" },
   -- Terminal group
-  { "<leader>t", group = "Terminal" },
-  { "<leader>tn", ":ToggleTerm direction=float<CR>", desc = "Open terminal in float window", mode = "n" },
-  { "<leader>th", ":ToggleTerm direction=horizontal<CR>", desc = "Open terminal in horizontal window", mode = "n" },
-  { "<leader>tv", ":ToggleTerm size=80 direction=vertical<CR>", desc = "Open terminal in vertical window", mode = "n" },
+  -- { "<leader>t", group = "Terminal" },
+  -- { "<leader>tn", ":ToggleTerm direction=float<CR>", desc = "Open terminal in float window", mode = "n" },
+  -- { "<leader>th", ":ToggleTerm direction=horizontal<CR>", desc = "Open terminal in horizontal window", mode = "n" },
+  -- { "<leader>tv", ":ToggleTerm size=80 direction=vertical<CR>", desc = "Open terminal in vertical window", mode = "n" },
   -- Debugger group
   -- { "<leader>d", group = "Debugger" },
   -- { "<leader>dO", ":DapStepOver<CR>", desc = "Step over", mode = "n" },
@@ -80,20 +80,56 @@ wk.add({
   { "<leader>o", group = "Obsidian" },
   {
     "<leader>od",
-    ":silent !lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/daily.mustache' --tag='ftapi' --tag='daily-notes'<CR>",
-    desc = "Create new daily note",
+    function()
+      local handle = io.popen(
+        "lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/daily.mustache' --tag='ftapi' --tag='daily-notes'"
+      )
+      if handle then
+        local result = handle:read("*a")
+        handle:close()
+        local filepath = result:gsub("%s+", "") -- Remove trailing newlines/spaces
+        if filepath and filepath ~= "" then
+          vim.cmd("e " .. vim.fn.fnameescape(filepath)) -- Open the file in the current buffer
+        end
+      end
+    end,
+    desc = "new daily note",
     mode = "n",
   },
   {
     "<leader>ol",
-    ":silent !lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/learned.mustache' --tag='learned'<CR>",
-    desc = "Create new learned note",
+    function()
+      local handle = io.popen(
+        "lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/daily.mustache' --tag='ftapi' --tag='learned'"
+      )
+      if handle then
+        local result = handle:read("*a")
+        handle:close()
+        local filepath = result:gsub("%s+", "") -- Remove trailing newlines/spaces
+        if filepath and filepath ~= "" then
+          vim.cmd("e " .. vim.fn.fnameescape(filepath)) -- Open the file in the current buffer
+        end
+      end
+    end,
+    desc = "new learned note",
     mode = "n",
   },
   {
     "<leader>op",
-    ":silent !lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/personal.mustache' --tag='personal'<CR>",
-    desc = "Create new personal note",
+    function()
+      local handle = io.popen(
+        "lua /Users/denislavrushko/MyGitHub/notes/scripts/create_repo.lua --template='/Users/denislavrushko/MyGitHub/notes/templates/daily.mustache' --tag='ftapi' --tag='personal'"
+      )
+      if handle then
+        local result = handle:read("*a")
+        handle:close()
+        local filepath = result:gsub("%s+", "") -- Remove trailing newlines/spaces
+        if filepath and filepath ~= "" then
+          vim.cmd("e " .. vim.fn.fnameescape(filepath)) -- Open the file in the current buffer
+        end
+      end
+    end,
+    desc = "new personal note",
     mode = "n",
   },
   { "<leader>of", ":ObsidianQuickSwitch<CR>", desc = "Search for note", mode = "n" },

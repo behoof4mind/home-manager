@@ -11,6 +11,22 @@
       ftgoom = "kubectl get pods -A -o jsonpath='{range .items[?(@.status.containerStatuses[0].lastState.terminated.reason=='OOMKilled')]}{.status.containerStatuses[0].lastState.terminated.finishedAt} {.metadata.namespace} {.metadata.name} {.metadata.annotations.ftapi_com_hack_url}{'\\n'}{end}' | sort -r";
       ftgpl = "kubectl -n=percona-database cp -c pxc cluster1-pxc-1:/var/lib/mysql/mysqld-error.log ./pxc-1-error.log";
 
+      # Switching contexts by custom fish functions
+      auc = "aws-set-profile";
+      kuc = "kubectl-set-context";
+      mcuc = "mc-set-alias";
+
+      # Minio client
+      mcal = "mc alias list";
+
+      # AWS cli
+      alo = "aws s3api list-objects";
+      aloot = "aws s3api list-objects --output table";
+      alooy = "aws s3api list-objects --output yaml";
+      alb = "aws s3api list-buckets";
+      albot = "aws s3api list-buckets --output table";
+      alboy = "aws s3api list-buckets --output yaml";
+
       "..." = "cd ../..";
       gtp = "cd ${vars.currentProject}";
       gtw = "cd ${vars.currentProject} && nvim .";
@@ -54,6 +70,7 @@
       ## kubectl global
       k = "kubectl";
       kar = "kubectl api-resources";
+      kun = "kubectl-set-namespace";
       kc = "kubectl create";
       kdel = "kubectl delete";
       ke = "kubectl edit";
@@ -225,6 +242,7 @@
       mssh = "minikube ssh";
     };
     interactiveShellInit = ''
+      set fish_greeting # Disable greeting
       export "PATH=$PATH:$HOME/kubectl-plugins"
       export EDITOR="nvim"
       set -gx  LC_ALL en_US.UTF-8
@@ -233,7 +251,11 @@
       export XDG_CONFIG_HOME="$HOME/.config"
       export KUBECONFIG="$HOME/.config/kube/config"
       export ATAC_KEY_BINDINGS="~/.atac_vim_key_bindings.toml"
-      export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+      export JAVA_HOME=$(/usr/libexec/java_home -v 23)
+      export FZF_DEFAULT_OPTS="
+        --color=bg+:#1a1b26,bg:#24283b,spinner:#bb9af7,hl:#bb9af7
+        --color=fg:#c0caf5,header:#7aa2f7,info:#7dcfff,pointer:#7aa2f7
+        --color=marker:#9ece6a,fg+:#c0caf5,prompt:#7dcfff,hl+:#bb9af7"
       kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
       thefuck --alias | source
@@ -244,6 +266,43 @@
         body = "__fish_default_command_not_found_handler $argv[1]";
         onEvent = "fish_command_not_found";
       };
+      fish_user_key_bindings = {
+        body = ''
+          fish_vi_key_bindings
+          bind -M visual 'y' fish_clipboard_copy
+        '';
+      };
+      fish_clipboard_copy = {
+        body = ''
+          # Save the cursor position before yanking
+          set -l cursor_pos (commandline -C)
+
+          # Get selected text in Vi visual mode
+          set -l selection (commandline -j)
+
+          # Ensure selection is not empty before copying
+          if test -n "$selection"
+              if command -q wl-copy
+                  echo -n $selection | wl-copy
+              else if command -q xclip
+                  echo -n $selection | xclip -selection clipboard
+              else if command -q pbcopy
+                  echo -n $selection | pbcopy
+              else
+                  echo "No clipboard tool found!" >&2
+              end
+          else
+              echo "No text selected." >&2
+          end
+
+          # Exit visual mode and return to normal mode
+          commandline -f cancel # Drops selection and exits Visual mode
+
+          # Restore cursor position to where selection started
+          commandline -C $cursor_pos
+          commandline -f repaint
+        '';
+      };
       kubectl = {
         body = "command kubecolor $argv";
         wraps = "kubectl";
@@ -251,6 +310,88 @@
       kubecolor = {
         body = "command kubecolor $argv";
         wraps = "kubectl";
+      };
+      kubectl-set-context = {
+        body = ''
+          # Fetch the list of Kubernetes contexts
+          set contexts (kubectl config get-contexts --output=name)
+
+          # Ensure contexts are available before proceeding
+          if test -n "$contexts"
+              set selected (printf "%s\n" $contexts | fzf --prompt="Select Kubernetes Context: " --height=10 --border --ansi)
+
+              if test -n "$selected"
+                  # Set the selected context
+                  kubectl config use-context $selected
+                  echo "Switched to Kubernetes context: $selected"
+              else
+                  echo "No context selected."
+              end
+          else
+              echo "No Kubernetes contexts found."
+          end
+        '';
+      };
+      kubectl-set-namespace = {
+        body = ''
+          # Fetch the list of Kubernetes namespaces
+          set namespaces (kubectl get namespaces -o jsonpath="{.items[*].metadata.name}" | tr ' ' '\n')
+
+          # Ensure namespaces are available before proceeding
+          if test -n "$namespaces"
+              set selected (printf "%s\n" $namespaces | fzf --prompt="Select Kubernetes Namespace: " --height=10 --border --ansi)
+
+              if test -n "$selected"
+                  # Set the selected namespace in the current context
+                  kubectl config set-context --current --namespace=$selected
+                  echo "Switched to Kubernetes namespace: $selected"
+              else
+                  echo "No namespace selected."
+              end
+          else
+              echo "No Kubernetes namespaces found."
+          end
+        '';
+      };
+      mc-set-alias = {
+        body = ''
+          # Parse aliases from ~/.mc/config.json using jq
+          set aliases (jq -r ".aliases | keys[]" ~/.mc/config.json 2>/dev/null)
+
+          # Use fzf to select an alias
+          if test -n "$aliases"
+              set selected (printf "%s\n" $aliases | fzf --prompt="Select MinIO Alias: " --height=10 --border --ansi)
+              if test -n "$selected"
+                  # Set the selected alias as a universal variable
+                  set -Ux MC_ALIAS $selected
+                  echo -n "$MC_ALIAS" | pbcopy
+                  echo "MC_ALIAS set to $selected"
+              else
+                  echo "No alias selected."
+              end
+          else
+              echo "No aliases found in ~/.mc/config.json."
+          end
+        '';
+      };
+      aws-set-profile = {
+        body = ''
+          # Extract profile names from ~/.aws/config using awk to avoid grep warnings
+          set profiles (awk -F ' ' '/^\[profile / {gsub(/[\[\]]/, "", $2); print $2} /^\[default\]/ {gsub(/[\[\]]/, "", $1); print $1}' ~/.aws/config)
+
+          # Ensure profiles are passed to fzf as separate lines
+          if set -q profiles[1]
+              set selected (printf "%s\n" $profiles | fzf --prompt="Select AWS Profile: " --height=10 --border --ansi)
+              if test -n "$selected"
+                  set -Ux AWS_PROFILE $selected
+                  echo "AWS_PROFILE set to $selected"
+              else
+                  echo "No profile selected."
+              end
+          else
+              echo "No profiles found in ~/.aws/config."
+          end
+        '';
       };
     };
     plugins = [

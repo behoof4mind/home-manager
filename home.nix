@@ -45,6 +45,6 @@ in
 
   home.file = homeFiles;
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 }

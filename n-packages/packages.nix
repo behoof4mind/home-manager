@@ -2,7 +2,6 @@
 
 with pkgs;
 [
-  # jdt-language-server
   # ncspot
   # openjdk
   act
@@ -10,9 +9,10 @@ with pkgs;
   air
   ansible-language-server
   argocd
+  aria2
   atac
   autossh
-  awscli
+  awscli2
   bash
   bat
   cargo
@@ -24,6 +24,7 @@ with pkgs;
   crawl
   crawlTiles
   ctags
+  curl
   delve
   devcontainer
   devpod
@@ -34,6 +35,7 @@ with pkgs;
   fd
   fluxcd
   fx
+  fzf
   gh
   gh-dash
   git
@@ -45,15 +47,18 @@ with pkgs;
   go-swagger
   golangci-lint
   golangci-lint-langserver
+  google-cloud-sdk
   goose
   gopls
   grafana-loki
   grc
   hackgen-nf-font
   hadolint
+  hclfmt
   helm-ls
   hugo
   imagemagick
+  jdt-language-server
   jfrog-cli
   jq
   julia-bin
@@ -102,7 +107,6 @@ with pkgs;
   nodePackages.prettier
   nodePackages.typescript-language-server
   nodePackages.vls
-  nodePackages.vscode-html-languageserver-bin
   nodePackages.vscode-json-languageserver
   nodejs_22
   obsidian
@@ -138,20 +142,25 @@ with pkgs;
   terraform-ls
   terragrunt
   tflint
+  thanos
   thefuck
   tig
   tldr
   tree
   typescript
   unrar
+  vault
+  viddy
   vim
   vscode-langservers-extracted
   watch
   wego
+  wezterm
   wget
   yaml-language-server
   yamlfmt
   yarn
   yq-go
   zoxide
+  zulu17
 ]

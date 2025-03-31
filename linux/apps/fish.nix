@@ -124,6 +124,8 @@
       export ATAC_KEY_BINDINGS="~/.atac_vim_key_bindings.toml"
       source ~/.iterm2_shell_integration.fish
       direnv hook fish | source
+
+      set -Ux OPENAI_API_KEY (cat ~/.openai/api_key)
     '';
     plugins = [
       {

@@ -69,11 +69,12 @@
         # Refresh 'status-left' and 'status-right' more often, from every 15s to 5s
         set -g status-interval 5
 
-        # Set default shell
+        # # Set default shell
         set-option -g default-shell "/Users/${vars.userName}/.nix-profile/bin/fish"
+        set -g default-command "/Users/${vars.userName}/.nix-profile/bin/fish"
 
         # Upgrade $TERM
-        set -g default-terminal "screen-256color"
+        set -g default-terminal "tmux-256color"
 
         # Emacs key bindings in tmux command prompt (prefix + :) are better than
         # vi keys, even for vim users

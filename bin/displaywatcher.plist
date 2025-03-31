@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.displaywatcher</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/denislavrushko/.nix-profile/bin/fish</string>
+        <string>fish</string>
+        <string>-c</string>
+        <string>~/display_watcher</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>3</integer>  <!-- Runs every 3 seconds -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>
