@@ -155,7 +155,6 @@ with pkgs;
   vscode-langservers-extracted
   watch
   wego
-  wezterm
   wget
   yaml-language-server
   yamlfmt

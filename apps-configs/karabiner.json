@@ -326,88 +326,6 @@
             ]
           },
           {
-            "description": "Use Left Command for Iterm2 and NeoVim",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "left_command"
-                },
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 200
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "lazy": true
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": "left_control"
-                  },
-                  {
-                    "software_function": {
-                      "set_mouse_cursor_position": {
-                        "screen": 0,
-                        "x": "0%",
-                        "y": "100%"
-                      }
-                    }
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "comma",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": "left_control"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Use Right Command for Tmux",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "right_option"
-                },
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 250,
-                  "basic.to_if_held_down_threshold_milliseconds": 500
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "n",
-                    "modifiers": "left_control"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "n",
-                    "modifiers": "left_control"
-                  },
-                  {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Zoom hotkeys",
             "manipulators": [
               {
@@ -651,6 +569,16 @@
       "name": "Hard setup",
       "selected": true,
       "simple_modifications": [
+        {
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "f18"
+            }
+          ]
+        },
         {
           "from": {
             "key_code": "caps_lock"
@@ -1002,88 +930,6 @@
             ]
           },
           {
-            "description": "Use Left Command for Iterm2 and NeoVim",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "left_command"
-                },
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 200
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "lazy": true
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": "left_option"
-                  },
-                  {
-                    "software_function": {
-                      "set_mouse_cursor_position": {
-                        "screen": 0,
-                        "x": "0%",
-                        "y": "100%"
-                      }
-                    }
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "comma",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": "left_control"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Use Right Command for Tmux",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "right_command"
-                },
-                "parameters": {
-                  "basic.to_if_alone_timeout_milliseconds": 250,
-                  "basic.to_if_held_down_threshold_milliseconds": 500
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "n",
-                    "modifiers": "left_control"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "n",
-                    "modifiers": "left_control"
-                  },
-                  {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Zoom hotkeys",
             "manipulators": [
               {
@@ -1195,6 +1041,16 @@
       ],
       "name": "Light setup",
       "simple_modifications": [
+        {
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "f18"
+            }
+          ]
+        },
         {
           "from": {
             "key_code": "caps_lock"
