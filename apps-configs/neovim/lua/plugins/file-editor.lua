@@ -8,6 +8,14 @@ return {
         show_hidden = true,
       },
       default_floating_win = true,
+      watch_for_changes = true,
+      columns = {
+        "icon",
+        "permissions",
+        "size",
+        "mtime",
+      },
+
       keymaps = {
         ["-"] = function()
           require("oil.actions").parent.callback()

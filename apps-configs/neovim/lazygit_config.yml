@@ -1,22 +1,24 @@
+git:
+  overrideGpg: true
 customCommands:
   - key: c
     command: cz --config ~/.config/cz/config.yaml commit
     description: commit with commitizen
     context: files
     loadingText: opening commitizen commit tool
-    subprocess: true
+    output: terminal
   - key: b
     command: tig blame -- {{.SelectedFile.Name}}
     context: files
     description: blame file at tree
-    subprocess: yes
+    output: terminal
   - key: b
     command: tig blame {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: blame file at revision
-    subprocess: yes
+    output: terminal
   - key: B
     command: tig blame -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: blame file at tree
-    subprocess: yes
+    output: terminal

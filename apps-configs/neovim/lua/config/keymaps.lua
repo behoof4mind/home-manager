@@ -24,8 +24,8 @@ map("x", "p", "P", { silent = true })
 -- Unmap some LazyVim keybindings
 map("n", "<leader>tn", "<Nop>")
 map("n", "<leader>tp", "<Nop>")
-map("n", "<leader>ft", "<Nop>")
-map("n", "<leader>fT", "<Nop>")
+-- map("n", "<leader>ft", "<Nop>")
+-- map("n", "<leader>fT", "<Nop>")
 map("n", "<c-/>", "<Nop>")
 map("n", "<c-/>", "<Nop>")
 map("n", "<c-_>", "<Nop>")
@@ -44,13 +44,15 @@ map("n", "<C-h>", vim.lsp.buf.signature_help, { desc = "GoTo signature_help" })
 map("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "GoTo type_definition" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "GoTo rename" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "GoTo code_action" })
-map("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Open UndoTree" })
+map("n", "<leader>su", function()
+  Snacks.picker.undo()
+end, { desc = "UndoTree" })
 
 local wk = require("which-key")
 wk.add({
   -- -- Octo group
-  { "<leader>O", group = "Octo" },
-  { "<leader>Oc", ":Octo pr create draft<CR>", desc = "Create PR draft", mode = "n" },
+  -- { "<leader>O", group = "Octo" },
+  -- { "<leader>Oc", ":Octo pr create draft<CR>", desc = "Create PR draft", mode = "n" },
   -- Oil group
   { "<leader>e", group = "Oil Explorer" },
   { "<leader>ec", ":Oil --float<CR>", desc = "Current directory", mode = "n" },

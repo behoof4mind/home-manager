@@ -7,3 +7,7 @@ Host GitHub
 Host *.*.test.app
     IdentityFile ~/.ssh/gitlab
     User denislavrushko
+
+Host blog.behoof.dev
+  IdentityFile ~/.ssh/hetzner
+  User root

@@ -323,13 +323,21 @@
               if test -n "$selected"
                   # Set the selected context
                   kubectl config use-context $selected
-                  echo "Switched to Kubernetes context: $selected"
+                  # echo "Switched to Kubernetes context: $selected"
               else
                   echo "No context selected."
               end
           else
               echo "No Kubernetes contexts found."
           end
+          # set config_file ~/.config/wezterm/.wezterm.lua
+          #
+          # # Add and remove a line safely in Fish
+          # echo >> $config_file
+          # set lines (head -n -1 $config_file)
+          # printf "%s\n" $lines > $config_file
+          #
+          # echo "✅ WezTerm config touched and reloaded"
         '';
       };
       kubectl-set-namespace = {

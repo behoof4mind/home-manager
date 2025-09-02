@@ -16,11 +16,11 @@ return {
         },
       }
     end,
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = { ensure_installed = { "java-debug-adapter", "java-test" } },
-      },
-    },
+    -- dependencies = {
+    --   {
+    --     "williamboman/mason.nvim",
+    --     opts = { ensure_installed = { "java-debug-adapter", "java-test" } },
+    --   },
+    -- },
   },
 }

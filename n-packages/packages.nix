@@ -5,6 +5,7 @@ with pkgs;
   # ncspot
   # openjdk
   act
+  postman
   age
   air
   ansible-language-server
@@ -45,6 +46,7 @@ with pkgs;
   gnused
   go
   go-swagger
+  go-task
   golangci-lint
   golangci-lint-langserver
   google-cloud-sdk
@@ -62,6 +64,7 @@ with pkgs;
   jfrog-cli
   jq
   julia-bin
+  k8sgpt
   k9s
   kail # kubectl plugin
   kdash # simple dashboard for kubernetes
@@ -95,7 +98,7 @@ with pkgs;
   mycli
   mysql84
   neovim
-  nerdfonts
+  nerd-fonts.jetbrains-mono
   nil
   nix-prefetch-git
   nixfmt-rfc-style
@@ -106,11 +109,11 @@ with pkgs;
   nodePackages.pnpm
   nodePackages.prettier
   nodePackages.typescript-language-server
-  nodePackages.vls
   nodePackages.vscode-json-languageserver
   nodejs_22
   obsidian
   openssh
+  openssl
   openstackclient
   openstackclient
   ov
@@ -138,7 +141,7 @@ with pkgs;
   stylua
   tcpdump
   termshark
-  terraform
+  # terraform_1_12
   terraform-ls
   terragrunt
   tflint
