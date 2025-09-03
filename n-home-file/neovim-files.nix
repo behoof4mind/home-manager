@@ -13,6 +13,7 @@
   "${XDG_PATH}/nvim/lua/plugins/remote.lua".source = ../apps-configs/neovim/lua/plugins/remote.lua;
   # "${XDG_PATH}/nvim/lua/plugins/fzf-lua.lua".source = ../apps-configs/neovim/lua/plugins/fzf-lua.lua;
   "${XDG_PATH}/nvim/lua/plugins/coding.lua".source = ../apps-configs/neovim/lua/plugins/coding.lua;
+  "${XDG_PATH}/nvim/lua/plugins/octo.lua".source = ../apps-configs/neovim/lua/plugins/octo.lua;
   "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source =
     ../apps-configs/neovim/lua/plugins/colorscheme.lua;
   "${XDG_PATH}/nvim/lua/plugins/ai.lua".source = ../apps-configs/neovim/lua/plugins/ai.lua;

@@ -36,7 +36,8 @@ in
     kubectl-jq
     ksniff
     dumpy
-  ] ++ packageList;
+  ]
+  ++ packageList;
 
   programs.fish = (pkgs.callPackage ./apps/fish.nix { inherit vars; }).programs.fish;
   programs.git = (pkgs.callPackage ./apps/git.nix { inherit vars; }).programs.git;
