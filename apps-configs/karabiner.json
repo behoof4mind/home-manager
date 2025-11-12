@@ -1,12 +1,15 @@
 {
   "profiles": [
     {
+      "name": "Hard setup",
+      "selected": true,
       "complex_modifications": {
         "rules": [
           {
-            "description": "Change context menu button to the left option",
+            "description": "Change context menu (Application) key to left_option",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "application"
                 },
@@ -14,8 +17,34 @@
                   {
                     "key_code": "left_option"
                   }
-                ],
-                "type": "basic"
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Swap `~ with non_us_backslash (global)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "grave_accent_and_tilde"
+                },
+                "to": [
+                  {
+                    "key_code": "non_us_backslash"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "non_us_backslash"
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde"
+                  }
+                ]
               }
             ]
           },
@@ -23,10 +52,11 @@
             "description": "Switch by F12 key",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "name": "profile switched",
                     "type": "variable_if",
+                    "name": "profile switched",
                     "value": 1
                   }
                 ],
@@ -51,10 +81,10 @@
                   {
                     "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Light setup'"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "f12",
                   "modifiers": {
@@ -76,8 +106,7 @@
                   {
                     "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Hard setup'"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
@@ -85,12 +114,13 @@
             "description": "Use Left Command for GatherTown",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -98,16 +128,16 @@
                 },
                 "to": {
                   "key_code": "j"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -120,16 +150,16 @@
                 },
                 "to": {
                   "key_code": "z"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -142,16 +172,16 @@
                 },
                 "to": {
                   "key_code": "f"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -159,16 +189,16 @@
                 },
                 "to": {
                   "key_code": "g"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -184,16 +214,16 @@
                   "modifiers": [
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -209,16 +239,16 @@
                   "modifiers": [
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -229,16 +259,16 @@
                   "modifiers": [
                     "left_control"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -254,16 +284,16 @@
                   "modifiers": [
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -275,16 +305,16 @@
                     "left_shift",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -296,16 +326,16 @@
                     "left_shift",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -320,8 +350,7 @@
                   {
                     "shell_command": "/opt/homebrew/bin/cliclick -r c:425,960 m:425:400"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
@@ -329,12 +358,13 @@
             "description": "Zoom hotkeys",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^us\\.zoom\\.xos$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -351,16 +381,16 @@
                     "left_shift",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^us\\.zoom\\.xos$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -377,8 +407,7 @@
                     "left_control",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               }
             ]
           }
@@ -386,6 +415,40 @@
       },
       "devices": [
         {
+          "identifiers": {
+            "is_keyboard": true,
+            "vendor_id": 76,
+            "product_id": 668
+          },
+          "simple_modifications": [
+            {
+              "from": {
+                "key_code": "grave_accent_and_tilde"
+              },
+              "to": [
+                {
+                  "key_code": "non_us_backslash"
+                }
+              ]
+            },
+            {
+              "from": {
+                "key_code": "non_us_backslash"
+              },
+              "to": [
+                {
+                  "key_code": "grave_accent_and_tilde"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 130,
+            "vendor_id": 12136
+          },
           "fn_function_keys": [
             {
               "from": {
@@ -498,11 +561,6 @@
               ]
             }
           ],
-          "identifiers": {
-            "is_keyboard": true,
-            "product_id": 130,
-            "vendor_id": 12136
-          },
           "simple_modifications": [
             {
               "from": {
@@ -566,12 +624,10 @@
           ]
         }
       ],
-      "name": "Hard setup",
-      "selected": true,
       "simple_modifications": [
         {
           "from": {
-            "key_code": "right_option"
+            "key_code": "right_command"
           },
           "to": [
             {
@@ -606,16 +662,18 @@
       }
     },
     {
+      "name": "Light setup",
       "complex_modifications": {
         "rules": [
           {
             "description": "Switch by F12 key",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "name": "profile switched",
                     "type": "variable_if",
+                    "name": "profile switched",
                     "value": 1
                   }
                 ],
@@ -640,10 +698,10 @@
                   {
                     "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Light setup'"
                   }
-                ],
-                "type": "basic"
+                ]
               },
               {
+                "type": "basic",
                 "from": {
                   "key_code": "f12",
                   "modifiers": {
@@ -665,8 +723,7 @@
                   {
                     "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Hard setup'"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
@@ -674,12 +731,13 @@
             "description": "Use Left Command for GatherTown",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -692,16 +750,16 @@
                 },
                 "to": {
                   "key_code": "j"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -714,16 +772,16 @@
                 },
                 "to": {
                   "key_code": "z"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -736,16 +794,16 @@
                 },
                 "to": {
                   "key_code": "f"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -758,16 +816,16 @@
                 },
                 "to": {
                   "key_code": "g"
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -783,16 +841,16 @@
                   "modifiers": [
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -803,16 +861,16 @@
                   "modifiers": [
                     "left_control"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -828,16 +886,16 @@
                   "modifiers": [
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -848,16 +906,16 @@
                   "modifiers": [
                     "left_control"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -874,16 +932,16 @@
                     "left_shift",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -900,16 +958,16 @@
                     "left_shift",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^com\\.gather\\.Gather$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -924,8 +982,7 @@
                   {
                     "shell_command": "/opt/homebrew/bin/cliclick -r c:425,960 m:425:400"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
@@ -933,12 +990,13 @@
             "description": "Zoom hotkeys",
             "manipulators": [
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^us\\.zoom\\.xos$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -955,16 +1013,16 @@
                     "left_shift",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               },
               {
+                "type": "basic",
                 "conditions": [
                   {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "^us\\.zoom\\.xos$"
-                    ],
-                    "type": "frontmost_application_if"
+                    ]
                   }
                 ],
                 "from": {
@@ -981,8 +1039,7 @@
                     "left_control",
                     "left_command"
                   ]
-                },
-                "type": "basic"
+                }
               }
             ]
           }
@@ -1039,7 +1096,6 @@
           ]
         }
       ],
-      "name": "Light setup",
       "simple_modifications": [
         {
           "from": {
