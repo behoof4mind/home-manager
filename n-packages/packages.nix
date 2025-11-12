@@ -5,7 +5,6 @@ with pkgs;
   # ncspot
   # openjdk
   act
-  postman
   age
   air
   ansible-language-server
@@ -19,6 +18,7 @@ with pkgs;
   cargo
   chart-testing
   cmctl
+  colima
   commitizen
   cool-retro-term
   coreutils-full
@@ -37,7 +37,6 @@ with pkgs;
   fluxcd
   fx
   fzf
-  gh
   gh-dash
   git
   gitflow
@@ -70,6 +69,7 @@ with pkgs;
   kdash # simple dashboard for kubernetes
   kube-capacity # kubectl plugin
   kube-linter
+  kubebuilder
   kubecolor
   kubectl
   kubectl-doctor # kubectl plugin
@@ -120,9 +120,10 @@ with pkgs;
   pgadmin4-desktopmode
   php
   php81Packages.composer
-  podman
+  # podman
   podman-compose
   popeye
+  postman
   pulseaudio
   python3
   python312Packages.python-lsp-server
@@ -141,7 +142,6 @@ with pkgs;
   stylua
   tcpdump
   termshark
-  # terraform_1_12
   terraform-ls
   terragrunt
   tflint
