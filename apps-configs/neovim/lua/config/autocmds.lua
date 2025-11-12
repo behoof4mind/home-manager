@@ -42,6 +42,13 @@ vim.api.nvim_create_autocmd("User", {
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "octo",
 --   callback = function()
+--     vim.cmd("Octo pr url")
+--   end,
+-- })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "octo",
+--   callback = function()
 --     local wk = require("which-key")
 --     wk.register({
 --       c = { ":Octo pr commits<CR>", "List commits" },
