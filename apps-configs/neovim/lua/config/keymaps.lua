@@ -50,34 +50,61 @@ end, { desc = "UndoTree" })
 
 local wk = require("which-key")
 wk.add({
-  -- -- Octo group
-  -- { "<leader>O", group = "Octo" },
-  -- { "<leader>Oc", ":Octo pr create draft<CR>", desc = "Create PR draft", mode = "n" },
+  -- Octo group
+  { "<leader>O", group = "Octo" },
+
+  { "<leader>Oi", group = "Issue (Octo)" },
+  { "<leader>Oil", ":Octo issue list<CR>", desc = "List" },
+  { "<leader>Ois", ":Octo issue search<CR>", desc = "Search" },
+
+  { "<leader>OR", group = "Repo (Octo)" },
+  { "<leader>ORl", ":Octo repo list<CR>", desc = "List" },
+  { "<leader>ORb", ":Octo repo browser<CR>", desc = "Open in Browser" },
+  { "<leader>ORy", ":Octo repo url<CR>", desc = "Yank url" },
+  { "<leader>ORv", ":Octo repo view<CR>", desc = "View" },
+
+  { "<leader>Op", group = "PR (Octo)" },
+  { "<leader>Opn", "<cmd>Octo pr create draft<CR>", desc = "Create PR draft", mode = "n" },
+  { "<leader>Opb", "<cmd>Octo pr browser<CR>", desc = "Open in Browser", mode = "n" },
+  { "<leader>Opc", "<cmd>Octo pr changes<CR>", desc = "Changes", mode = "n" },
+  { "<leader>OpC", "<cmd>Octo pr checkout<CR>", desc = "Checkout", mode = "n" },
+  { "<leader>Opd", "<cmd>Octo pr diff<CR>", desc = "Show diff", mode = "n" },
+  { "<leader>OpD", "<cmd>Octo pr draft<CR>", desc = "Change to draft", mode = "n" },
+  { "<leader>Opm", "<cmd>Octo pr merge<CR>", desc = "Merge", mode = "n" },
+  { "<leader>Opr", "<cmd>Octo pr ready<CR>", desc = "Change to ready", mode = "n" },
+  { "<leader>OpR", "<cmd>Octo pr reload<CR>", desc = "Reload PR", mode = "n" },
+  { "<leader>Opx", "<cmd>Octo pr close<CR>", desc = "Close PR", mode = "n" },
+  { "<leader>Opy", "<cmd>Octo pr url<CR>", desc = "Yank url", mode = "n" },
+
+  { "<leader>Oc", group = "Comment (Octo)" },
+  { "<leader>Oca", "<cmd>Octo comment add<CR>", desc = "Add", mode = "n" },
+  { "<leader>Ocd", "<cmd>Octo comment delete<CR>", desc = "Delete", mode = "n" },
+  { "<leader>Ocr", "<cmd>Octo comment reply<CR>", desc = "Reply", mode = "n" },
+  { "<leader>Ocs", "<cmd>Octo comment suggest<CR>", desc = "Suggest", mode = "n" },
+  { "<leader>Ocy", "<cmd>Octo comment url<CR>", desc = "Yank url", mode = "n" },
+
+  { "<leader>Oa", group = "Assignee (Octo)" },
+  { "<leader>Oaa", "<cmd>Octo assignee add<CR>", desc = "Add", mode = "n" },
+  { "<leader>Oar", "<cmd>Octo assignee remove<CR>", desc = "Remove", mode = "n" },
+
+  { "<leader>Or", group = "Review (Octo)" },
+  { "<leader>Orb", "<cmd>Octo review browse<CR>", desc = "Open in Browser", mode = "n" },
+  { "<leader>Orc", "<cmd>Octo review comments<CR>", desc = "Comments", mode = "n" },
+  { "<leader>OrC", "<cmd>Octo review commit<CR>", desc = "Commit", mode = "n" },
+  { "<leader>Ord", "<cmd>Octo review discard<CR>", desc = "Discard", mode = "n" },
+  { "<leader>Orr", "<cmd>Octo review resume<CR>", desc = "Resume", mode = "n" },
+  { "<leader>Ors", "<cmd>Octo review start<CR>", desc = "Start", mode = "n" },
+  { "<leader>OrS", "<cmd>Octo review submit<CR>", desc = "Submit", mode = "n" },
+  { "<leader>Ort", "<cmd>Octo review thread<CR>", desc = "Thread", mode = "n" },
+  { "<leader>Ort", "<cmd>Octo review thread<CR>", desc = "Thread", mode = "n" },
+  { "<leader>Orx", "<cmd>Octo review close<CR>", desc = "Close", mode = "n" },
+
   -- Oil group
   { "<leader>e", group = "Oil Explorer" },
   { "<leader>ec", ":Oil --float<CR>", desc = "Current directory", mode = "n" },
   { "<leader>ef", ":Oil ~/Workplace/ftapi --float<CR>", desc = "Ftapi directory", mode = "n" },
   { "<leader>eh", ":Oil ~/.config/home-manager --float<CR>", desc = "Home-manager directory", mode = "n" },
-  -- Terminal group
-  -- { "<leader>t", group = "Terminal" },
-  -- { "<leader>tn", ":ToggleTerm direction=float<CR>", desc = "Open terminal in float window", mode = "n" },
-  -- { "<leader>th", ":ToggleTerm direction=horizontal<CR>", desc = "Open terminal in horizontal window", mode = "n" },
-  -- { "<leader>tv", ":ToggleTerm size=80 direction=vertical<CR>", desc = "Open terminal in vertical window", mode = "n" },
-  -- Debugger group
-  -- { "<leader>d", group = "Debugger" },
-  -- { "<leader>dO", ":DapStepOver<CR>", desc = "Step over", mode = "n" },
-  -- { "<leader>db", ":DapToggleBreakpoint<CR>", desc = "Toggle breakpoint", mode = "n" },
-  -- { "<leader>dc", ":DapContinue<CR>", desc = "Continue", mode = "n" },
-  -- { "<leader>di", ":DapStepInto<CR>", desc = "Step into", mode = "n" },
-  -- { "<leader>dn", ":DapNew<CR>", desc = "Start debugger", mode = "n" },
-  -- { "<leader>do", ":DapStepOut<CR>", desc = "Step out", mode = "n" },
-  -- { "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", desc = "Reset UI", mode = "n" },
-  -- { "<leader>dt", ":DapTerminate<CR>", desc = "Terminate", mode = "n" },
-  -- { "<leader>du", ":lua require('dapui').toggle({})<CR>", desc = "Toggle UI", mode = "n" },
-  -- {
-  --   mode = { "n", "v" },
-  --   { "<leader>de", ":lua require('dapui').eval()<CR>", desc = "Evaluate" },
-  -- },
+
   -- Obsidian group
   { "<leader>o", group = "Obsidian" },
   {
@@ -88,7 +115,6 @@ wk.add({
       )
       if handle then
         local result = handle:read("*a")
-        handle:close()
         local filepath = result:gsub("%s+", "") -- Remove trailing newlines/spaces
         if filepath and filepath ~= "" then
           vim.cmd("e " .. vim.fn.fnameescape(filepath)) -- Open the file in the current buffer
