@@ -29,6 +29,8 @@
   "${XDG_PATH}/nvim/lua/plugins/formatter.lua".source =
     ../apps-configs/neovim/lua/plugins/formatter.lua;
   "${XDG_PATH}/nvim/lua/plugins/git.lua".source = ../apps-configs/neovim/lua/plugins/git.lua;
+  "${XDG_PATH}/nvim/lua/plugins/lazy-jira.lua".source =
+    ../apps-configs/neovim/lua/plugins/lazy-jira.lua;
   "${XDG_PATH}/nvim/lua/plugins/lsp.lua".source = ../apps-configs/neovim/lua/plugins/lsp.lua;
   "${XDG_PATH}/nvim/lua/plugins/obsidian.lua".source =
     ../apps-configs/neovim/lua/plugins/obsidian.lua;
