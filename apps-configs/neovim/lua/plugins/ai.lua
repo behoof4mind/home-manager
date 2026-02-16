@@ -15,7 +15,7 @@ return {
           prev = "<M-[>",
         },
       },
-      panel = { enabled = true },
+      panel = { enabled = false },
       filetypes = {
         markdown = true,
         help = true,
