@@ -32,6 +32,7 @@
       gtw = "cd ${vars.currentProject} && nvim .";
 
       g = "git";
+      ge = "gemini";
       nv = "nvim";
       v = "nvim";
 
@@ -260,6 +261,20 @@
       source ~/.iterm2_shell_integration.fish
       thefuck --alias | source
       zoxide init fish | source
+      # --- Secret Environment Variables ---
+      # These environment variables are retrieved securely from the macOS Keychain.
+      # To manage these secrets:
+      # - Add/Update: security add-generic-password -a "$USER" -s "<service-name>" -w
+      # - Delete: security delete-generic-password -a "$USER" -s "<service-name>"
+      #
+      # Service names used:
+      # - 'passwork-api-key-v2' for PASSWORK_API_KEY
+      # - 'lazy-jira-api-token' for LAZY_JIRA_API_TOKEN
+      # - 'github-api-token-matrikus' for GITHUB_API_TOKEN_MATRIKUS
+      # ------------------------------------
+      set -x PASSWORK_API_KEY (security find-generic-password -w -s 'passwork-api-key-v2')
+      set -x LAZY_JIRA_API_TOKEN (security find-generic-password -w -s 'lazy-jira-api-token')
+      set -x GITHUB_API_TOKEN_MATRIKUS (security find-generic-password -w -s 'github-api-token-matrikus')
     '';
     functions = {
       __fish_command_not_found_handler = {
