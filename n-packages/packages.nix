@@ -3,22 +3,27 @@
 with pkgs;
 [
   # ncspot
+  # nodePackages.eslint
+  # nodePackages.prettier
+  # nodePackages.typescript-language-server
   # openjdk
+  # typescript
   act
   age
   air
   ansible-language-server
   argocd
   aria2
+  ast-grep
   atac
   autossh
   awscli2
   bash
   bat
   cargo
+  chafa
   chart-testing
   cmctl
-  colima
   commitizen
   cool-retro-term
   coreutils-full
@@ -38,6 +43,7 @@ with pkgs;
   fx
   fzf
   gh-dash
+  ghostscript
   git
   gitflow
   gnugrep
@@ -92,6 +98,7 @@ with pkgs;
   markdownlint-cli2 # LS for NeoVim
   marksman
   maven
+  mermaid-cli
   minikube
   minio-client
   mongosh
@@ -104,11 +111,8 @@ with pkgs;
   nixfmt-rfc-style
   nodePackages.bash-language-server
   nodePackages.dockerfile-language-server-nodejs
-  nodePackages.eslint
   nodePackages.node2nix
   nodePackages.pnpm
-  nodePackages.prettier
-  nodePackages.typescript-language-server
   nodePackages.vscode-json-languageserver
   nodejs_22
   obsidian
@@ -117,11 +121,10 @@ with pkgs;
   openstackclient
   openstackclient
   ov
+  pandoc
   pgadmin4-desktopmode
   php
   php81Packages.composer
-  # podman
-  podman-compose
   popeye
   postman
   pulseaudio
@@ -150,11 +153,12 @@ with pkgs;
   tig
   tldr
   tree
-  typescript
+  ueberzugpp
   unrar
   vault
   viddy
   vim
+  viu
   vscode-langservers-extracted
   watch
   wego
@@ -164,5 +168,6 @@ with pkgs;
   yarn
   yq-go
   zoxide
+  grafana-alloy
   zulu17
 ]
