@@ -22,19 +22,8 @@
             ]
           },
           {
-            "description": "Swap `~ with non_us_backslash (global)",
+            "description": "non_us_backslash → ` and Shift+non_us_backslash → ~",
             "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "grave_accent_and_tilde"
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_backslash"
-                  }
-                ]
-              },
               {
                 "type": "basic",
                 "from": {
@@ -43,6 +32,25 @@
                 "to": [
                   {
                     "key_code": "grave_accent_and_tilde"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "non_us_backslash",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": [
+                      "shift"
+                    ]
                   }
                 ]
               }
@@ -420,28 +428,7 @@
             "vendor_id": 76,
             "product_id": 668
           },
-          "simple_modifications": [
-            {
-              "from": {
-                "key_code": "grave_accent_and_tilde"
-              },
-              "to": [
-                {
-                  "key_code": "non_us_backslash"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "non_us_backslash"
-              },
-              "to": [
-                {
-                  "key_code": "grave_accent_and_tilde"
-                }
-              ]
-            }
-          ]
+          "simple_modifications": []
         },
         {
           "identifiers": {
