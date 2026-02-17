@@ -1,39 +1,145 @@
 return {
   {
-    "stevearc/oil.nvim",
-    ---@module 'oil'
-    ---@type oil.SetupOpts
+    "nvim-mini/mini.files",
     opts = {
-      view_options = {
-        show_hidden = true,
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 30,
       },
-      default_floating_win = true,
-      watch_for_changes = true,
-      columns = {
-        "icon",
-        "permissions",
-        "size",
-        "mtime",
-      },
-
-      keymaps = {
-        ["-"] = function()
-          require("oil.actions").parent.callback()
-          vim.cmd.lcd(require("oil").get_current_dir())
-        end,
-        ["<CR>"] = function()
-          require("oil").select(nil, function(err)
-            if not err then
-              local curdir = require("oil").get_current_dir()
-              if curdir then
-                vim.cmd.lcd(curdir)
-              end
-            end
-          end)
-        end,
+      options = {
+        -- Whether to use for editing directories
+        -- Disabled by default in LazyVim because neo-tree is used for that
+        use_as_default_explorer = true,
       },
     },
-    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    keys = {
+      {
+        "<leader>fm",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Open mini.files (Directory of Current File)",
+      },
+      {
+        "<leader>fM",
+        function()
+          require("mini.files").open(vim.uv.cwd(), true)
+        end,
+        desc = "Open mini.files (cwd)",
+      },
+    },
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+
+      local show_dotfiles = true
+      local filter_show = function(fs_entry)
+        return true
+      end
+      local filter_hide = function(fs_entry)
+        return not vim.startswith(fs_entry.name, ".")
+      end
+
+      local toggle_dotfiles = function()
+        show_dotfiles = not show_dotfiles
+        local new_filter = show_dotfiles and filter_show or filter_hide
+        require("mini.files").refresh({ content = { filter = new_filter } })
+      end
+
+      local map_split = function(buf_id, lhs, direction, close_on_file)
+        local rhs = function()
+          local new_target_window
+          local cur_target_window = require("mini.files").get_explorer_state().target_window
+          if cur_target_window ~= nil then
+            vim.api.nvim_win_call(cur_target_window, function()
+              vim.cmd("belowright " .. direction .. " split")
+              new_target_window = vim.api.nvim_get_current_win()
+            end)
+
+            require("mini.files").set_target_window(new_target_window)
+            require("mini.files").go_in({ close_on_file = close_on_file })
+          end
+        end
+
+        local desc = "Open in " .. direction .. " split"
+        if close_on_file then
+          desc = desc .. " and close"
+        end
+        vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+      end
+
+      local files_set_cwd = function()
+        local cur_entry_path = MiniFiles.get_fs_entry().path
+        local cur_directory = vim.fs.dirname(cur_entry_path)
+        if cur_directory ~= nil then
+          vim.fn.chdir(cur_directory)
+        end
+      end
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          local buf_id = args.data.buf_id
+          vim.keymap.set("n", "<CR>", function()
+            require("mini.files").go_in({ close_on_file = true })
+          end, { buffer = buf_id, desc = "Open file and close explorer" })
+
+          vim.keymap.set("n", "gi", function()
+            local fs_entry = require("mini.files").get_fs_entry()
+            if fs_entry == nil then
+              return
+            end
+
+            local stat = vim.uv.fs_stat(fs_entry.path)
+            if stat then
+              -- Convert permissions to octal (like 644)
+              local perms = string.format("%o", stat.mode):sub(-3)
+              -- Format mtime (modification time)
+              local mtime = os.date("%Y-%m-%d %H:%M", stat.mtime.sec)
+
+              print(string.format("󰦝 %s | 󰥨 %s | %s", perms, mtime, fs_entry.name))
+            end
+          end, { buffer = buf_id, desc = "Show file info" })
+
+          -- Add this inside the callback(args) function of your MiniFilesBufferCreate autocmd
+          local set_cwd = function()
+            local fs_entry = require("mini.files").get_fs_entry()
+            if fs_entry == nil then
+              return
+            end
+
+            -- If it's a file, get the parent directory; if it's a directory, use it directly
+            local path = fs_entry.path
+            local new_cwd = fs_entry.type == "directory" and path or vim.fs.dirname(path)
+
+            if new_cwd ~= nil then
+              vim.fn.chdir(new_cwd)
+              print("Working directory changed to: " .. new_cwd)
+            end
+          end
+
+          vim.keymap.set("n", "gc", set_cwd, { buffer = buf_id, desc = "Set CWD to entry's directory" })
+
+          vim.keymap.set(
+            "n",
+            opts.mappings and opts.mappings.toggle_hidden or "g.",
+            toggle_dotfiles,
+            { buffer = buf_id, desc = "Toggle hidden files" }
+          )
+
+          map_split(buf_id, opts.mappings and opts.mappings.go_in_horizontal or "<C-w>s", "horizontal", false)
+          map_split(buf_id, opts.mappings and opts.mappings.go_in_vertical or "<C-w>v", "vertical", false)
+          map_split(buf_id, opts.mappings and opts.mappings.go_in_horizontal_plus or "<C-w>S", "horizontal", true)
+          map_split(buf_id, opts.mappings and opts.mappings.go_in_vertical_plus or "<C-w>V", "vertical", true)
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event)
+          Snacks.rename.on_rename_file(event.data.from, event.data.to)
+        end,
+      })
+    end,
   },
 }

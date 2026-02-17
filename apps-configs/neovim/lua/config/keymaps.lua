@@ -98,11 +98,32 @@ wk.add({
   { "<leader>Ort", "<cmd>Octo review thread<CR>", desc = "Thread", mode = "n" },
   { "<leader>Orx", "<cmd>Octo review close<CR>", desc = "Close", mode = "n" },
 
-  -- Oil group
-  { "<leader>e", group = "Oil Explorer" },
-  { "<leader>ec", ":Oil --float<CR>", desc = "Current directory", mode = "n" },
-  { "<leader>ef", ":Oil ~/Workplace/ftapi --float<CR>", desc = "Ftapi directory", mode = "n" },
-  { "<leader>eh", ":Oil ~/.config/home-manager --float<CR>", desc = "Home-manager directory", mode = "n" },
+  -- File editor group
+  { "<leader>e", group = "Mini Files" },
+  {
+    "<leader>ec",
+    function()
+      require("mini.files").open(vim.api.nvim_buf_get_name(0))
+    end,
+    desc = "Current directory",
+    mode = "n",
+  },
+  {
+    "<leader>ef",
+    function()
+      require("mini.files").open(vim.fn.expand("~/Workplace/ftapi"))
+    end,
+    desc = "Ftapi directory",
+    mode = "n",
+  },
+  {
+    "<leader>eh",
+    function()
+      require("mini.files").open(vim.fn.expand("~/.config/home-manager"))
+    end,
+    desc = "Home-manager directory",
+    mode = "n",
+  },
 
   -- Jira group
   { "<leader>j", group = "Jira" },
