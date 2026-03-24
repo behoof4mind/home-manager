@@ -11,6 +11,8 @@
   "${XDG_PATH}/nvim/lua/config/options.lua".source = ../apps-configs/neovim/lua/config/options.lua;
   "${XDG_PATH}/nvim/lua/plugins/chore.lua".source = ../apps-configs/neovim/lua/plugins/chore.lua;
   "${XDG_PATH}/nvim/lua/plugins/remote.lua".source = ../apps-configs/neovim/lua/plugins/remote.lua;
+  "${XDG_PATH}/nvim/lua/plugins/kube-utils.lua".source =
+    ../apps-configs/neovim/lua/plugins/kube-utils.lua;
   # "${XDG_PATH}/nvim/lua/plugins/fzf-lua.lua".source = ../apps-configs/neovim/lua/plugins/fzf-lua.lua;
   "${XDG_PATH}/nvim/lua/plugins/coding.lua".source = ../apps-configs/neovim/lua/plugins/coding.lua;
   "${XDG_PATH}/nvim/lua/plugins/octo.lua".source = ../apps-configs/neovim/lua/plugins/octo.lua;

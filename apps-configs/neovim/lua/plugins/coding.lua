@@ -55,6 +55,13 @@ return {
   --   },
   -- },
   {
+    "ruifm/gitlinker.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("gitlinker").setup()
+    end,
+  },
+  {
     "NachoNievaG/atac.nvim",
     dependencies = { "akinsho/toggleterm.nvim" },
     config = function()

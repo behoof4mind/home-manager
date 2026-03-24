@@ -14,6 +14,15 @@ vim.api.nvim_create_autocmd("FileType", {
   group = autocmd_group,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*/tmp/kubectl-edit-*.yaml" },
+  callback = function()
+    vim.bo.filetype = "yaml"
+    -- Manually trigger LSP start in case root detection fails
+    vim.cmd("LspStart yamlls")
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { ".aerospace.toml" },
   callback = function()

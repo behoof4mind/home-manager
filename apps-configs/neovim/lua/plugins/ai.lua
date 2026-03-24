@@ -20,6 +20,7 @@ return {
         markdown = true,
         help = true,
         yaml = true,
+        terraform = true,
       },
     },
   },
