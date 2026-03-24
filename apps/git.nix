@@ -5,28 +5,28 @@
     enable = true;
     includes = [
       {
-          path = "/Users/${vars.userName}/.gitconfig-my-github";
-          condition = "gitdir:~/MyGitHub/**";
+        path = "/Users/${vars.userName}/.gitconfig-my-github";
+        condition = "gitdir:~/MyGitHub/**";
       }
       {
-          path = "/Users/${vars.userName}/.gitconfig-my-github";
-          condition = "gitdir:~/.config/home-manager/**";
+        path = "/Users/${vars.userName}/.gitconfig-my-github";
+        condition = "gitdir:~/.config/home-manager/**";
       }
       {
-          path = "/Users/${vars.userName}/.gitconfig-my-github";
-          condition = "gitdir:~/Workplace/other/";
+        path = "/Users/${vars.userName}/.gitconfig-my-github";
+        condition = "gitdir:~/Workplace/other/";
       }
       {
-          path = "/Users/${vars.userName}/.gitconfig-my-github";
-          condition = "gitdir:~/Workplace/other/**";
+        path = "/Users/${vars.userName}/.gitconfig-my-github";
+        condition = "gitdir:~/Workplace/other/**";
       }
       {
-          path = "/Users/${vars.userName}/.gitconfig-ftapi-github";
-          condition = "gitdir:~/Workplace/ftapi/";
+        path = "/Users/${vars.userName}/.gitconfig-ftapi-github";
+        condition = "gitdir:~/Workplace/ftapi/";
       }
       {
-          path = "/Users/${vars.userName}/.gitconfig-ftapi-github";
-          condition = "gitdir:~/Workplace/ftapi/**";
+        path = "/Users/${vars.userName}/.gitconfig-ftapi-github";
+        condition = "gitdir:~/Workplace/ftapi/**";
       }
     ];
     extraConfig = {
