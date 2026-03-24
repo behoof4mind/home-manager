@@ -6,6 +6,40 @@
       "complex_modifications": {
         "rules": [
           {
+            "description": "non_us_backslash to tilde",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "non_us_backslash",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "product_id": 668
+                      },
+                      {
+                        "is_built_in_keyboard": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Change context menu (Application) key to left_option",
             "manipulators": [
               {
@@ -16,41 +50,6 @@
                 "to": [
                   {
                     "key_code": "left_option"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "non_us_backslash → ` and Shift+non_us_backslash → ~",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "non_us_backslash"
-                },
-                "to": [
-                  {
-                    "key_code": "grave_accent_and_tilde"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "non_us_backslash",
-                  "modifiers": {
-                    "mandatory": [
-                      "shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "grave_accent_and_tilde",
-                    "modifiers": [
-                      "shift"
-                    ]
                   }
                 ]
               }
@@ -575,28 +574,7 @@
           "identifiers": {
             "is_keyboard": true
           },
-          "simple_modifications": [
-            {
-              "from": {
-                "key_code": "grave_accent_and_tilde"
-              },
-              "to": [
-                {
-                  "key_code": "non_us_backslash"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "non_us_backslash"
-              },
-              "to": [
-                {
-                  "key_code": "grave_accent_and_tilde"
-                }
-              ]
-            }
-          ]
+          "simple_modifications": []
         }
       ],
       "fn_function_keys": [
@@ -652,6 +630,40 @@
       "name": "Light setup",
       "complex_modifications": {
         "rules": [
+          {
+            "description": "non_us_backslash to tilde",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "non_us_backslash",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "product_id": 668
+                      },
+                      {
+                        "is_built_in_keyboard": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
           {
             "description": "Switch by F12 key",
             "manipulators": [
@@ -1042,6 +1054,16 @@
           "simple_modifications": [
             {
               "from": {
+                "key_code": "right_option"
+              },
+              "to": [
+                {
+                  "key_code": "f18"
+                }
+              ]
+            },
+            {
+              "from": {
                 "key_code": "caps_lock"
               },
               "to": [
@@ -1111,26 +1133,6 @@
           "to": [
             {
               "key_code": "caps_lock"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "grave_accent_and_tilde"
-          },
-          "to": [
-            {
-              "key_code": "non_us_backslash"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "non_us_backslash"
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde"
             }
           ]
         }
