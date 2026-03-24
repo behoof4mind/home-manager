@@ -69,7 +69,6 @@ with pkgs;
   jdt-language-server
   jfrog-cli
   jq
-  julia-bin
   k8sgpt
   k9s
   kail # kubectl plugin
@@ -98,7 +97,7 @@ with pkgs;
   lua-language-server # LS for NeoVim
   maccy
   markdownlint-cli2 # LS for NeoVim
-  marksman
+  # marksman
   maven
   mermaid-cli
   minikube
