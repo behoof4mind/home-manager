@@ -9,7 +9,6 @@ with pkgs;
   # openjdk
   # typescript
   act
-  mac-app-util
   age
   air
   ansible-language-server

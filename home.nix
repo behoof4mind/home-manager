@@ -47,7 +47,7 @@ in
   home.file = homeFiles;
 
   # trampoline for apps that don't have a nix package or a home-manager module
-  programs.mac-app-util.enable = true;
+  # programs.mac-app-util.enable = true;
 
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
