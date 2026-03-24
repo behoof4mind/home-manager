@@ -30,17 +30,17 @@
       }
     ];
     extraConfig = {
-          core = {
-            editor = "nvim";
-            excludesfile = "~/.config/git/ignore";
-          };
-          push = {
-            default = "simple";
-          };
-          user = {
-            username = "behoof4mind";
-            name = "Denis Lavrushko";
-          };
+      core = {
+        editor = "nvim";
+        excludesfile = "~/.config/git/ignore";
+      };
+      push = {
+        default = "simple";
+      };
+      user = {
+        username = "behoof4mind";
+        name = "Denis Lavrushko";
+      };
     };
     ignores = [
       "# Macos"

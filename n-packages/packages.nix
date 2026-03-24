@@ -113,7 +113,7 @@ with pkgs;
   nix-prefetch-git
   nixfmt-rfc-style
   nodePackages.bash-language-server
-  nodePackages.dockerfile-language-server-nodejs
+  dockerfile-language-server-nodejs
   nodePackages.node2nix
   nodePackages.pnpm
   nodePackages.vscode-json-languageserver
@@ -127,7 +127,6 @@ with pkgs;
   pandoc
   pgadmin4-desktopmode
   php
-  php81Packages.composer
   popeye
   postman
   pulseaudio
@@ -152,7 +151,6 @@ with pkgs;
   terragrunt
   tflint
   thanos
-  thefuck
   tig
   tldr
   tree
