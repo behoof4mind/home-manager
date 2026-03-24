@@ -9,6 +9,7 @@ with pkgs;
   # openjdk
   # typescript
   act
+  mac-app-util
   age
   air
   ansible-language-server
@@ -57,6 +58,7 @@ with pkgs;
   google-cloud-sdk
   goose
   gopls
+  grafana-alloy
   grafana-loki
   grc
   hackgen-nf-font
@@ -95,12 +97,14 @@ with pkgs;
   llvm_18
   lsd
   lua-language-server # LS for NeoVim
+  maccy
   markdownlint-cli2 # LS for NeoVim
   marksman
   maven
   mermaid-cli
   minikube
   minio-client
+  mongodb-tools
   mongosh
   mycli
   mysql84
@@ -168,6 +172,5 @@ with pkgs;
   yarn
   yq-go
   zoxide
-  grafana-alloy
   zulu17
 ]
