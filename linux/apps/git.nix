@@ -10,6 +10,10 @@
       }
       {
           path = "~/.gitconfig-my-github";
+          condition = "gitdir:~/Workspace/mygithub/**";
+      }
+      {
+          path = "~/.gitconfig-my-github";
           condition = "gitdir:~/.config/nixpkgs/**";
       }
       {

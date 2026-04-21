@@ -1,3 +1,7 @@
+if vim.loop.os_uname().sysname == "Linux" then
+  return {}
+end
+
 return {
   {
     "pwntester/octo.nvim",

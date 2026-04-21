@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.username = "linux";
-  home.homeDirectory = "/home/linux";
+  home.username = "denny";
+  home.homeDirectory = "/home/denny";
 
   home.packages = with pkgs; [
     air
@@ -35,13 +35,13 @@
     nix-prefetch-git
     nixfmt
     nixpkgs-fmt
-    nodePackages.pnpm
-    nodePackages.yaml-language-server
+    pnpm
+    yaml-language-server
     nodejs
     oh-my-fish
     openjdk
     php
-    php80Packages.composer
+    phpPackages.composer
     ranger
     ripgrep
     ruby
@@ -51,6 +51,13 @@
     vault
     watch
     xsel
+    keyd
+    gh
+    zoxide
+    kubecolor
+    fzf
+    copyq
+    nerd-fonts.jetbrains-mono
   ];
 
   # Crossplatform
@@ -58,15 +65,16 @@
   programs.git = (pkgs.callPackage ./apps/git.nix { }).programs.git;
   programs.tmux = (pkgs.callPackage ./apps/tmux.nix { }).programs.tmux;
   programs.neovim = (pkgs.callPackage ./apps/neovim.nix { }).programs.neovim;
-  home.file."/home/linux/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
-  home.file."/home/linux/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
-  home.file."/home/linux/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
-  # home.file."/home/linux/.ssh/config".source = ./apps/configs/.ssh-config;
-  home.file."/home/linux/.ctags".source = ./apps/configs/.ctags;
-  home.file."/home/linux/.config/nvim/lua/custom/plugins/init.lua".source = ./apps/configs/neovim/lua/custom/plugins/init.lua;
-  home.file."/home/linux/.config/nvim/lua/custom/plugins/go.lua".source = ./apps/configs/neovim/lua/custom/plugins/go.lua;
-  home.file."/home/linux/.config/nvim/lua/custom/plugins/terraform.lua".source = ./apps/configs/neovim/lua/custom/plugins/terraform.lua;
-  # home.file."/home/linux/.config/nvim/lua/custom/plugins/set.lua".source = ./apps/configs/neovim/lua/custom/plugins/set.lua;
+  home.file."/home/denny/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
+  home.file."/home/denny/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
+  home.file."/home/denny/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
+  # home.file."/home/denny/.ssh/config".source = ./apps/configs/.ssh-config;
+  home.file."/home/denny/.ctags".source = ./apps/configs/.ctags;
+  home.file."/home/denny/.config/wezterm/wezterm.lua".source = ./apps/configs/wezterm.lua;
+  home.file."/home/denny/.config/nvim" = {
+    source = ../apps-configs/neovim;
+    recursive = true;
+  };
 
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;

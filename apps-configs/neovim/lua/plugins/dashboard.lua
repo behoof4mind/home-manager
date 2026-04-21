@@ -4,18 +4,6 @@ return {
     "nvimdev/dashboard-nvim",
     lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
     opts = function()
-      local logo = [[
-     ⢰⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-     ⢸⣿⣿⣿⣿⣿⣿⣿⡿⠛⣿⣿⡇⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣾⣿⣇⠀⠀⠀⣾⣿⣿⣿⣿⣶⣦⠀⣿⣿⠀
-     ⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⡇⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀⣼⣿⢿⣿⡄⠀⠀⣿⣿⡇⠀⠀⣿⣿⡇⣿⣿⠀
-     ⢸⣿⣿⣿⣿⡏⢸⣿⠇⢰⣿⣿⡇⠀⠀⠀⢸⣿⣿⣿⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⢰⣿⣟⣈⣿⣿⡀⠀⣿⣿⣷⣶⣶⣿⠿⠁⣿⣿⠀
-     ⢠⣤⣤⣤⣬⠀⢠⣿⣴⣿⣿⣿⡇⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⢠⣿⣿⠿⠿⠿⣿⣷⠀⣿⣿⡏⠉⠉⠀⠀⠀⣿⣿⠀
-     ⢀⣉⣉⣉⣁⣤⣾⣿⣿⣿⣿⣿⡇⠀⠀⠀⠸⠿⠇⠀⠀⠀⠀⠀⠀⠿⠿⠇⠀⠾⠿⠃⠀⠀⠀⠻⠿⠇⠿⠿⠇⠀⠀⠀⠀⠀⠿⠿⠀
-     ⠘⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-    ]]
-
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-
       local opts = {
         theme = "doom",
         hide = {
@@ -24,7 +12,6 @@ return {
           statusline = false,
         },
         config = {
-          header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
           { action = 'lua LazyVim.pick()()',                           desc = " Find File",       icon = " ", key = "f" },

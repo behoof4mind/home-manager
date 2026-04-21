@@ -1,6 +1,15 @@
+if vim.loop.os_uname().sysname == "Linux" then
+  return {}
+end
+
+local local_dir = vim.fn.expand("~/MyGitHub/lazy-jira")
+if vim.fn.isdirectory(local_dir) ~= 1 then
+  return {}
+end
+
 return {
   {
-    dir = "/Users/denislavrushko/MyGitHub/lazy-jira",
+    dir = local_dir,
     name = "lazy-jira",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -9,7 +18,7 @@ return {
     config = function()
       require("lazy_jira").setup({
         pandoc_cmd = "pandoc",
-        config_file = "/Users/denislavrushko/.lazy-jira.json",
+        config_file = vim.fn.expand("~/.lazy-jira.json"),
         debug = true,
         layout = "current",
         exclude_columns = { "Backlog" },
@@ -21,7 +30,6 @@ return {
           "summary",
           "due",
         },
-        -- exclude_issue_types = { "Epic", "Sub-task" },
         max_issues_per_column = 200,
         boards = {
           {

@@ -1,6 +1,6 @@
 [user]
-  name = "Denis Lavrushko"
+  name = "behoof4mind"
   email = "dlavrushko@protonmail.com"
 [core]
   editor = nvim
-  sshCommand = ssh -i ~/.ssh/github
+  sshCommand = ssh -i ~/.ssh/github_personal
