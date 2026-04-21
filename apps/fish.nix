@@ -259,7 +259,6 @@
         --color=marker:#9ece6a,fg+:#c0caf5,prompt:#7dcfff,hl+:#bb9af7"
       kubectl completion fish | source
       source ~/.iterm2_shell_integration.fish
-      thefuck --alias | source
       zoxide init fish | source
       # --- Secret Environment Variables ---
       # These environment variables are retrieved securely from the macOS Keychain.
