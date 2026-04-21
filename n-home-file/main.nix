@@ -9,6 +9,7 @@ in
   "${builtins.getEnv "HOME"}/.atac_vim_key_bindings.toml".source =
     ../apps-configs/atac_vim_key_bindings.toml;
   "${builtins.getEnv "HOME"}/.config/gh-dash/config.yml".source = ../apps-configs/gh-dash/config.yml;
+  "${builtins.getEnv "HOME"}/.config/wezterm/wezterm.lua".source = ../apps-configs/wezterm.lua;
   "${builtins.getEnv "HOME"}/.config/fish/functions/fish_prompt.fish".source =
     ../apps-configs/fish_theme.fish;
   "${builtins.getEnv "HOME"}/.config/karabiner/karabiner.json" = {
