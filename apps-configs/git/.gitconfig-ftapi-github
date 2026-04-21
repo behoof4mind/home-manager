@@ -7,3 +7,5 @@
   gpgSign = true
 [core]
   sshCommand = "ssh -i ~/.ssh/ftapi-github"
+[url "git@github.com:"]
+  insteadOf = https://github.com/
