@@ -270,10 +270,12 @@
       # - 'passwork-api-key-v2' for PASSWORK_API_KEY
       # - 'lazy-jira-api-token' for LAZY_JIRA_API_TOKEN
       # - 'github-api-token-matrikus' for GITHUB_API_TOKEN_MATRIKUS
+      # - 'gitlab-private-token' for GITLAB_PRIVATE_TOKEN
       # ------------------------------------
       set -x PASSWORK_API_KEY (security find-generic-password -w -s 'passwork-api-key-v2')
       set -x LAZY_JIRA_API_TOKEN (security find-generic-password -w -s 'lazy-jira-api-token')
       set -x GITHUB_API_TOKEN_MATRIKUS (security find-generic-password -w -s 'github-api-token-matrikus')
+      set -x GITLAB_PRIVATE_TOKEN (security find-generic-password -w -s 'gitlab-private-token')
     '';
     functions = {
       __fish_command_not_found_handler = {

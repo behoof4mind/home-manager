@@ -24,6 +24,10 @@
           path = "~/.gitconfig-iits-gitlab";
           condition = "gitdir:~/Workplace/gitlab/**";
       }
+      {
+          path = "~/.gitconfig-maincard-gitlab";
+          condition = "gitdir:~/Workspace/maincard/**";
+      }
     ];
   };
 }

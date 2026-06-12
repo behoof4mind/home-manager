@@ -20,6 +20,10 @@
       # Minio client
       mcal = "mc alias list";
 
+      # Claude code
+      cc = "claude promt -c";
+      cC = "claude promt";
+
       # AWS cli
       alo = "aws s3api list-objects";
       aloot = "aws s3api list-objects --output table";
@@ -252,10 +256,24 @@
       export VISUAL="nvim"
       export XDG_CONFIG_HOME="$HOME/.config"
       export KUBECONFIG="$HOME/.config/kube/config"
+      export AWS_PROFILE=maincard
       set -gx LC_ALL en_US.UTF-8
       kubectl completion fish | source
       direnv hook fish | source
       zoxide init fish | source
+
+      # --- Secret Environment Variables ---
+      # Secrets live in GNOME Keyring, not in this repo.
+      # One-time setup:
+      #   secret-tool store --label="GitLab PAT for MCP" service gitlab-private-token account $USER
+      # Rotate/delete:
+      #   secret-tool clear service gitlab-private-token account $USER
+      if type -q secret-tool
+        set -l gitlab_token (secret-tool lookup service gitlab-private-token account $USER 2>/dev/null)
+        if test -n "$gitlab_token"
+          set -x GITLAB_PRIVATE_TOKEN $gitlab_token
+        end
+      end
     '';
     functions = {
       __fish_command_not_found_handler = {
@@ -340,6 +358,11 @@
           end
         '';
       };
+      aws-morning = {
+        body = ''
+          aws-vault exec maincard --duration=10h -- fish
+        '';
+      };
       aws-set-profile = {
         body = ''
           set profiles (awk -F ' ' '/^\[profile / {gsub(/[\[\]]/, "", $2); print $2} /^\[default\]/ {gsub(/[\[\]]/, "", $1); print $1}' ~/.aws/config)
@@ -388,15 +411,6 @@
       {
         name = "grc";
         src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "kubectl";
-        src = pkgs.fetchFromGitHub {
-          owner = "evanlucas";
-          repo = "fish-kubectl-completions";
-          rev = "ced676392575d618d8b80b3895cdc3159be3f628";
-          sha256 = "09qcj82qfs4y4nfwvy90y10xmx6vc9yp33nmyk1mpvx0dx6ri21r";
-        };
       }
     ];
   };
