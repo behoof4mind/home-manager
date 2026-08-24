@@ -110,30 +110,6 @@ config.key_tables = {
     { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
     { key = "Escape", action = "PopKeyTable" },
   },
-  copy_mode = {
-    { key = "h", mods = "NONE", action = act.CopyMode("MoveLeft") },
-    { key = "j", mods = "NONE", action = act.CopyMode("MoveDown") },
-    { key = "k", mods = "NONE", action = act.CopyMode("MoveUp") },
-    { key = "l", mods = "NONE", action = act.CopyMode("MoveRight") },
-    { key = "w", mods = "NONE", action = act.CopyMode("MoveForwardWord") },
-    { key = "b", mods = "NONE", action = act.CopyMode("MoveBackwardWord") },
-    { key = "0", mods = "NONE", action = act.CopyMode("MoveToStartOfLine") },
-    { key = "4", mods = "SHIFT", action = act.CopyMode("MoveToEndOfLineContent") },
-    { key = "g", mods = "NONE", action = act.CopyMode("MoveToScrollbackTop") },
-    { key = "G", mods = "NONE", action = act.CopyMode("MoveToScrollbackBottom") },
-    { key = "v", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Cell" }) },
-    { key = "V", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Line" }) },
-    {
-      key = "y",
-      mods = "NONE",
-      action = wezterm.action.Multiple({
-        { CopyTo = "ClipboardAndPrimarySelection" },
-        { CopyMode = "Close" },
-      }),
-    },
-    { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
-    { key = "q", mods = "NONE", action = act.CopyMode("Close") },
-  },
 }
 
 return config
