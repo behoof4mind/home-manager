@@ -136,6 +136,7 @@ config.send_composed_key_when_right_alt_is_pressed = false
 config.use_dead_keys = false
 config.leader = { key = "F18", timeout_milliseconds = 1500 }
 config.keys = {
+  { key = "o", mods = "CMD", action = act.SendKey({ key = "o", mods = "CTRL" }) },
   { key = "e", mods = "LEADER", action = wezterm.action.ShowLauncher },
   {
     key = "s",
