@@ -254,7 +254,15 @@
       export PATH="$PATH:/opt/homebrew/bin"
       export VISUAL="nvim"
       export XDG_CONFIG_HOME="$HOME/.config"
-      export KUBECONFIG="$HOME/.config/kube/config"
+      if not set -q __KUBECONFIG_ISOLATED
+        set -g __KUBECONFIG_ISOLATED 1
+        set -l tmpconfig (mktemp "$HOME/.config/kube/config.XXXXXX")
+        cp "$HOME/.config/kube/config" $tmpconfig
+        set -gx KUBECONFIG $tmpconfig
+        function __kubeconfig_cleanup --on-event fish_exit
+          test -f "$KUBECONFIG" && string match -q "$HOME/.config/kube/config.*" "$KUBECONFIG" && rm -f "$KUBECONFIG"
+        end
+      end
       export ATAC_KEY_BINDINGS="~/.atac_vim_key_bindings.toml"
       export JAVA_HOME=$(/usr/libexec/java_home -v 23)
       export FZF_DEFAULT_OPTS="
