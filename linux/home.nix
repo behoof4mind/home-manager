@@ -149,6 +149,16 @@
     recursive = true;
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-input-source = [ "<Control>space" ];
+      switch-input-source-backward = [ "<Shift><Control>space" ];
+    };
+    "org/gnome/shell/keybindings" = {
+      toggle-overview = [ "<Super>space" ];
+    };
+  };
+
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
