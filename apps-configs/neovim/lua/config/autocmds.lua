@@ -6,6 +6,13 @@
 -- The default conceallevel is 3 in LazyVim
 --
 local autocmd_group = vim.api.nvim_create_augroup("Custom auto-commands", { clear = true })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = autocmd_group,
+  callback = function()
+    vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { buffer = true })
+  end,
+})
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "json", "jsonc", "markdown" },
   callback = function()

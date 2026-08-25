@@ -1,5 +1,22 @@
 return {
   {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    cmd = {
+      "ClaudeCode", "ClaudeCodeFocus", "ClaudeCodeSelectModel",
+      "ClaudeCodeAdd", "ClaudeCodeSend", "ClaudeCodeTreeAdd",
+      "ClaudeCodeStatus", "ClaudeCodeStart", "ClaudeCodeStop",
+      "ClaudeCodeOpen", "ClaudeCodeClose", "ClaudeCodeDiffAccept",
+      "ClaudeCodeDiffDeny", "ClaudeCodeCloseAllDiffs",
+    },
+    keys = {
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude Code" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send selection to Claude" },
+      { "<leader>aa", "<cmd>ClaudeCodeAdd<cr>", desc = "Add file to Claude context" },
+    },
+  },
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
