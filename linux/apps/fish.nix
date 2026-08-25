@@ -88,7 +88,7 @@
       kdpn = "kubectl describe pod --namespace";
       kep = "kubectl edit pod";
       kgp = "kubectl get pods";
-      kgpa = "kubectl get pods -A";
+      kgpa = "rtk summary kubectl get pods -A";
       kgpn = "kubectl get pods --namespace";
       kl = "kubectl logs";
       kln = "kubectl logs --namespace";
@@ -247,6 +247,7 @@
       mssh = "minikube ssh";
 
       hms = "home-manager switch";
+
     };
     interactiveShellInit = ''
       set fish_greeting
