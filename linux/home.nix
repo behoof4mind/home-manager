@@ -156,6 +156,7 @@
     };
     "org/gnome/shell/keybindings" = {
       toggle-overview = [ "<Super>space" ];
+      show-screenshot-ui = [ "F12" "Print" ];
     };
   };
 
