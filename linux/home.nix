@@ -5,8 +5,13 @@
   home.homeDirectory = "/home/denny";
 
   home.packages = with pkgs; [
+    spec-kit
     air
+    netbird
+    netbird-ui
+    argocd
     cargo
+    krew
     ctags
     delve
     deno
@@ -131,7 +136,8 @@
   home.file."/home/denny/.gitconfig-my-github".source = ./apps/configs/.gitconfig-my-github;
   home.file."/home/denny/.gitconfig-iits-github".source = ./apps/configs/.gitconfig-iits-github;
   home.file."/home/denny/.gitconfig-iits-gitlab".source = ./apps/configs/.gitconfig-iits-gitlab;
-  home.file."/home/denny/.gitconfig-maincard-gitlab".source = ./apps/configs/.gitconfig-maincard-gitlab;
+  home.file."/home/denny/.gitconfig-maincard-gitlab".source =
+    ./apps/configs/.gitconfig-maincard-gitlab;
   # home.file."/home/denny/.ssh/config".source = ./apps/configs/.ssh-config;
   home.file."/home/denny/.ctags".source = ./apps/configs/.ctags;
   home.file."/home/denny/.config/wezterm/wezterm.lua".source = ./apps/configs/wezterm.lua;
