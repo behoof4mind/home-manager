@@ -373,6 +373,133 @@
                     ]
                 },
                 {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "key_code": "play_or_pause" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "consumer_key_code": "scan_previous_track" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "consumer_key_code": "eject" }]
+                        },
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "consumer_key_code": "mute" }]
+                        },
+                        {
+                            "from": { "key_code": "f6" },
+                            "to": [{ "consumer_key_code": "volume_decrement" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "consumer_key_code": "volume_increment" }]
+                        },
+                        {
+                            "from": { "key_code": "f8" },
+                            "to": [{ "pointing_button": "button18" }]
+                        },
+                        {
+                            "from": { "key_code": "f9" },
+                            "to": [{ "pointing_button": "button19" }]
+                        },
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "pointing_button": "button20" }]
+                        },
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "pointing_button": "button21" }]
+                        },
+                        {
+                            "from": { "key_code": "f12" },
+                            "to": [{ "key_code": "keypad_5" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 9760,
+                        "vendor_id": 6645
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                },
+                {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "key_code": "play_or_pause" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "consumer_key_code": "scan_previous_track" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "consumer_key_code": "eject" }]
+                        },
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "consumer_key_code": "mute" }]
+                        },
+                        {
+                            "from": { "key_code": "f6" },
+                            "to": [{ "consumer_key_code": "volume_decrement" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "consumer_key_code": "volume_increment" }]
+                        },
+                        {
+                            "from": { "key_code": "f8" },
+                            "to": [{ "pointing_button": "button18" }]
+                        },
+                        {
+                            "from": { "key_code": "f9" },
+                            "to": [{ "pointing_button": "button19" }]
+                        },
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "pointing_button": "button20" }]
+                        },
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "pointing_button": "button21" }]
+                        },
+                        {
+                            "from": { "key_code": "f12" },
+                            "to": [{ "key_code": "keypad_5" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 9760,
+                        "vendor_id": 6645
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                },
+                {
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
@@ -733,6 +860,65 @@
                         "is_keyboard": true,
                         "product_id": 130,
                         "vendor_id": 12136
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "escape" }]
+                        },
+                        {
+                            "from": { "key_code": "escape" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        },
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "f18" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 9760,
+                        "vendor_id": 6645
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "escape" }]
+                        },
+                        {
+                            "from": { "key_code": "escape" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        },
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "f18" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 9760,
+                        "vendor_id": 6645
                     },
                     "simple_modifications": [
                         {
