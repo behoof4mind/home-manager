@@ -4,6 +4,9 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
+    # Rolling channel for tools that break when stale (mise: old clients get
+    # rejected by its aqua-registry mirror)
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +18,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       mac-app-util,
       ...
@@ -22,10 +26,12 @@
     let
       system = "aarch64-darwin"; # Use "x86_64-darwin" if you're on an Intel Mac
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       homeConfigurations."denislavrushko" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit pkgs-unstable; };
 
         # Specify your home.nix here
         modules = [

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 let
   XDG_PATH = "${builtins.getEnv "HOME"}/.config";
@@ -36,6 +36,8 @@ in
     kubectl-jq
     ksniff
     dumpy
+    # from unstable: 25.05's mise (2025.5.3) is rejected by mise-versions.jdx.dev
+    pkgs-unstable.mise
   ]
   ++ packageList;
 
