@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(home-manager generations *)",
+      "Bash(nix-env --list-generations)",
+      "Bash(rtk ls *)",
+      "Bash(rtk du *)",
+      "Bash(rtk read *)"
+    ]
+  }
+}
