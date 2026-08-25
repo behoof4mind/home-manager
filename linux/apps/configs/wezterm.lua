@@ -28,6 +28,29 @@ config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1500 }
 
 config.keys = {
   { key = "c", mods = "ALT", action = act.CopyTo("Clipboard") },
+  {
+    key = "c",
+    mods = "CTRL",
+    action = wezterm.action_callback(function(window, pane)
+      local sel = window:get_selection_text_for_pane(pane)
+      if sel and #sel > 0 then
+        window:perform_action(act.CopyTo("ClipboardAndPrimarySelection"), pane)
+        window:perform_action(act.ClearSelection, pane)
+      else
+        window:perform_action(act.SendKey({ key = "c", mods = "CTRL" }), pane)
+      end
+    end),
+  },
+  { key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+  { key = "1", mods = "CTRL", action = act.ActivateTab(0) },
+  { key = "2", mods = "CTRL", action = act.ActivateTab(1) },
+  { key = "3", mods = "CTRL", action = act.ActivateTab(2) },
+  { key = "4", mods = "CTRL", action = act.ActivateTab(3) },
+  { key = "5", mods = "CTRL", action = act.ActivateTab(4) },
+  { key = "6", mods = "CTRL", action = act.ActivateTab(5) },
+  { key = "7", mods = "CTRL", action = act.ActivateTab(6) },
+  { key = "8", mods = "CTRL", action = act.ActivateTab(7) },
+  { key = "9", mods = "CTRL", action = act.ActivateTab(8) },
   { key = "1", mods = "SUPER", action = act.ActivateTab(0) },
   { key = "2", mods = "SUPER", action = act.ActivateTab(1) },
   { key = "3", mods = "SUPER", action = act.ActivateTab(2) },
