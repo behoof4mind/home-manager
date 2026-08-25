@@ -19,9 +19,11 @@
   "${XDG_PATH}/nvim/lua/plugins/colorscheme.lua".source =
     ../apps-configs/neovim/lua/plugins/colorscheme.lua;
   "${XDG_PATH}/nvim/lua/plugins/ai.lua".source = ../apps-configs/neovim/lua/plugins/ai.lua;
+  "${XDG_PATH}/nvim/lua/plugins/aerial.lua".source = ../apps-configs/neovim/lua/plugins/aerial.lua;
   # "${XDG_PATH}/nvim/lua/plugins/dashboard.lua".source = ../apps-configs/neovim/lua/plugins/dashboard.lua;
   # "${XDG_PATH}/nvim/lua/plugins/debugger.lua".source =
   #   ../apps-configs/neovim/lua/plugins/debugger.lua;
+  "${XDG_PATH}/nvim/lua/plugins/dap.lua".source = ../apps-configs/neovim/lua/plugins/dap.lua;
   "${XDG_PATH}/nvim/lua/plugins/databases.lua".source =
     ../apps-configs/neovim/lua/plugins/databases.lua;
   "${XDG_PATH}/nvim/lua/plugins/disabled.lua".source =
@@ -31,6 +33,7 @@
   "${XDG_PATH}/nvim/lua/plugins/formatter.lua".source =
     ../apps-configs/neovim/lua/plugins/formatter.lua;
   "${XDG_PATH}/nvim/lua/plugins/git.lua".source = ../apps-configs/neovim/lua/plugins/git.lua;
+  "${XDG_PATH}/nvim/lua/plugins/java.lua".source = ../apps-configs/neovim/lua/plugins/java.lua;
   "${XDG_PATH}/nvim/lua/plugins/lazy-jira.lua".source =
     ../apps-configs/neovim/lua/plugins/lazy-jira.lua;
   "${XDG_PATH}/nvim/lua/plugins/lsp.lua".source = ../apps-configs/neovim/lua/plugins/lsp.lua;

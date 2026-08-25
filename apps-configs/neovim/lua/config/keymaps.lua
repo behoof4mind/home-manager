@@ -48,6 +48,20 @@ map("n", "<leader>su", function()
   Snacks.picker.undo()
 end, { desc = "UndoTree" })
 
+-- Zoom current buffer into a floating window; Esc/q closes it
+map("n", "<leader>wz", function()
+  local buf = vim.api.nvim_get_current_buf()
+  local cur = vim.api.nvim_win_get_cursor(0)
+  local win = Snacks.win({
+    buf = buf,
+    width = 0.95,
+    height = 0.95,
+    border = "rounded",
+    keys = { q = "close", ["<esc>"] = "close" },
+  })
+  vim.api.nvim_win_set_cursor(win.win, cur)
+end, { desc = "Zoom buffer (float)" })
+
 local wk = require("which-key")
 wk.add({
   -- Octo group
