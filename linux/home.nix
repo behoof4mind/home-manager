@@ -36,6 +36,7 @@
     kustomize
     lemonade
     lsd
+    tdl
     luajitPackages.luarocks
     nix-prefetch-git
     nixfmt

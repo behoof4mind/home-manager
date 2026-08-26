@@ -277,6 +277,47 @@
       end
     '';
     functions = {
+      tgread = {
+        description = "Read last N messages from whitelisted Maincard telegram chats";
+        body = ''
+          set -l chat $argv[1]
+          set -l n 10
+          if set -q argv[2]
+              set n $argv[2]
+          end
+          set -l id ""
+          set -l topic ""
+          switch "$chat"
+              case dev
+                  set id 4866559623
+              case sandbox
+                  set id 2958627787
+              case argo-prod
+                  set id 2958627787
+                  set topic 961
+              case argo-dev
+                  set id 2958627787
+                  set topic 958
+              case k8s-prod
+                  set id 2958627787
+                  set topic 955
+              case k8s-dev
+                  set id 2958627787
+                  set topic 953
+              case '*'
+                  echo "usage: tgread {dev|sandbox|argo-prod|argo-dev|k8s-prod|k8s-dev} [count]"
+                  return 1
+          end
+          set -l out (mktemp)
+          set -l topicflag
+          if test -n "$topic"
+              set topicflag --topic $topic
+          end
+          tdl chat export -c $id -T last -i $n --all --raw $topicflag -o $out >/dev/null 2>&1
+          jq -r '.messages[] | .raw | "\(.Date | todate) | \(.FromID.UserID // "chan") | \(.Message)"' $out
+          rm -f $out
+        '';
+      };
       __fish_command_not_found_handler = {
         body = "__fish_default_command_not_found_handler $argv[1]";
         onEvent = "fish_command_not_found";
