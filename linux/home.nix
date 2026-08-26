@@ -5,7 +5,6 @@
   home.homeDirectory = "/home/denny";
 
   home.packages = with pkgs; [
-    spec-kit
     air
     netbird
     netbird-ui

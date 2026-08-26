@@ -6,6 +6,7 @@
     shellAbbrs = {
       "..." = "cd ../..";
       gtw = "cd ~/MyGitHub";
+      specify = "uvx --from git+https://github.com/github/spec-kit.git specify";
 
       # Ftapi
       ftedb = "kubectl exec -n percona-database cluster1-pxc-1 -c pxc -it -- /bin/bash -c 'mysql -uroot -p\$MYSQL_ROOT_PASSWORD'";
