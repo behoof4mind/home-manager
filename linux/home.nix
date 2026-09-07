@@ -150,6 +150,9 @@
   };
 
   dconf.settings = {
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = [ "caps:escape" ];
+    };
     "org/gnome/desktop/wm/keybindings" = {
       switch-input-source = [ "<Control>space" ];
       switch-input-source-backward = [ "<Shift><Control>space" ];
