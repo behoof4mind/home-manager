@@ -1,3 +1,7 @@
 [profile maincard]
 region = us-east-1
 credential_process = aws-vault exec maincard --json --no-session
+
+[profile personal]
+region = eu-central-1
+credential_process = aws-vault exec personal --json --no-session
