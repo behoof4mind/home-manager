@@ -41,7 +41,17 @@ config.keys = {
       end
     end),
   },
-  { key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+  {
+    key = "v",
+    mods = "CTRL",
+    action = wezterm.action_callback(function(window, pane)
+      if pane:is_alt_screen_active() then
+        window:perform_action(act.SendKey({ key = "v", mods = "CTRL" }), pane)
+      else
+        window:perform_action(act.PasteFrom("Clipboard"), pane)
+      end
+    end),
+  },
   { key = "1", mods = "CTRL", action = act.ActivateTab(0) },
   { key = "2", mods = "CTRL", action = act.ActivateTab(1) },
   { key = "3", mods = "CTRL", action = act.ActivateTab(2) },
@@ -132,6 +142,15 @@ config.key_tables = {
     { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
     { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
     { key = "Escape", action = "PopKeyTable" },
+  },
+}
+
+config.ssh_domains = {
+  {
+    name = "daemon-box",
+    remote_address = "daemon-box",
+    username = "denny",
+    multiplexing = "WezTerm",
   },
 }
 
