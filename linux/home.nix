@@ -139,6 +139,7 @@
   home.file."/home/denny/.gitconfig-maincard-gitlab".source =
     ./apps/configs/.gitconfig-maincard-gitlab;
   home.file."/home/denny/.ssh/config".source = ./apps/configs/.ssh-config;
+  home.file."/home/denny/Workspace/mygithub/CLAUDE.md".source = ./apps/configs/mygithub-CLAUDE.md;
   home.file."/home/denny/.ctags".source = ./apps/configs/.ctags;
   home.file."/home/denny/.config/wezterm/wezterm.lua".source = ./apps/configs/wezterm.lua;
   home.file."/home/denny/.config/nchat/ui.conf".source = ./apps/configs/nchat/ui.conf;
