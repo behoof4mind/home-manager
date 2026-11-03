@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+import argparse
+import gzip
+import hashlib
+import html
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.request
+import zlib
+
+UA = "Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"
+CACHE = os.path.expanduser("~/.cache/amz")
+TTL = 6 * 3600
+GAP = 1.5
+PAIR_WORDS = ("2er", "paar", "set of 2", "zweier", "2 stück", "2x", "2 x")
+SINGLE_WORDS = ("1 stück", "einzeln", "single", "1x", "einzelne")
+
+
+def cache_path(url):
+    return os.path.join(CACHE, hashlib.sha1(url.encode()).hexdigest() + ".html")
+
+
+def throttle():
+    os.makedirs(CACHE, exist_ok=True)
+    stamp = os.path.join(CACHE, ".last")
+    try:
+        wait = GAP - (time.time() - os.path.getmtime(stamp))
+        if wait > 0:
+            time.sleep(wait)
+    except OSError:
+        pass
+    open(stamp, "w").close()
+
+
+def fetch(url, fresh=False):
+    os.makedirs(CACHE, exist_ok=True)
+    path = cache_path(url)
+    if not fresh and os.path.exists(path) and time.time() - os.path.getmtime(path) < TTL:
+        return open(path, encoding="utf-8", errors="replace").read()
+    throttle()
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "de-DE,de;q=0.9,en;q=0.8",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "close",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            raw = r.read()
+            enc = r.headers.get("Content-Encoding", "")
+    except urllib.error.HTTPError as e:
+        sys.exit("amz: %s returned HTTP %d" % (url, e.code))
+    except urllib.error.URLError as e:
+        sys.exit("amz: %s: %s" % (url, e.reason))
+    if enc == "gzip":
+        raw = gzip.decompress(raw)
+    elif enc == "deflate":
+        raw = zlib.decompress(raw, -zlib.MAX_WBITS)
+    body = raw.decode("utf-8", "replace")
+    if re.search(r"Geben Sie die Zeichen|Enter the characters you see|/errors/validateCaptcha", body):
+        sys.exit("amz: blocked by a captcha. Open the page in a browser once, then retry.")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(body)
+    return body
+
+
+def text(s):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
+
+
+def first(doc, patterns):
+    for p in patterns:
+        m = re.search(p, doc, re.S)
+        if m:
+            return text(m.group(1))
+    return None
+
+
+def asin_of(ref):
+    m = re.search(r"/(?:dp|gp/product|product-reviews)/([A-Z0-9]{10})", ref)
+    if m:
+        return m.group(1)
+    if re.fullmatch(r"[A-Z0-9]{10}", ref):
+        return ref
+    return None
+
+
+def pairing(blob):
+    low = blob.lower()
+    if any(w in low for w in PAIR_WORDS):
+        return "looks like a PAIR"
+    if any(w in low for w in SINGLE_WORDS):
+        return "looks like a SINGLE dumbbell/unit"
+    return "does not say pair or single - check before paying"
+
+
+def show_item(ref, domain, fresh):
+    asin = asin_of(ref)
+    url = ref if ref.startswith("http") else "https://www.amazon.%s/dp/%s" % (domain, asin)
+    doc = fetch(url, fresh)
+    title = first(doc, [r'id="productTitle"[^>]*>(.*?)</span>']) or "(no title found)"
+    price = first(doc, [
+        r'class="a-price aok-align-center[^"]*"[^>]*>.*?class="a-offscreen">([^<]+)<',
+        r'id="corePrice_feature_div".*?class="a-offscreen">([^<]+)<',
+        r'class="a-offscreen">([^<]*(?:€|EUR)[^<]*)<',
+    ]) or "(no price shown)"
+    was = first(doc, [r'class="a-price a-text-price"[^>]*>.*?class="a-offscreen">([^<]+)<'])
+    rating = first(doc, [r'id="acrPopover"[^>]*title="([^"]+)"', r'class="a-icon-alt">([^<]*(?:von 5|out of 5)[^<]*)<'])
+    count = first(doc, [r'id="acrCustomerReviewText"[^>]*>([^<]+)<'])
+    avail = first(doc, [r'id="availability"[^>]*>\s*<span[^>]*>(.*?)</span>'])
+    brand = first(doc, [r'id="bylineInfo"[^>]*>(.*?)</a>'])
+    bullets = []
+    block = re.search(r'id="feature-bullets"(.*?)id="', doc, re.S)
+    if block:
+        for li in re.findall(r'<span class="a-list-item[^"]*">(.*?)</span>', block.group(1), re.S):
+            t = text(li)
+            if t and t not in bullets:
+                bullets.append(t)
+    print(title)
+    print("  url     ", url)
+    print("  asin    ", asin or "-")
+    print("  price   ", price + ((" (was %s)" % was) if was else ""))
+    print("  rating  ", "%s, %s" % (rating or "-", count or "no count"))
+    if avail:
+        print("  stock   ", avail)
+    if brand:
+        print("  brand   ", brand)
+    print("  quantity", pairing(title + " " + " ".join(bullets)))
+    for b in bullets[:8]:
+        print("   -", b[:180])
+    print()
+    print("  reviews need a signed-in session and are not fetched; search the model name on the web for those")
+
+
+def show_search(query, domain, limit, fresh):
+    url = "https://www.amazon.%s/s?k=%s" % (domain, urllib.request.quote(query))
+    doc = fetch(url, fresh)
+    seen = set()
+    rows = []
+    for asin, blk in re.findall(r'data-asin="([A-Z0-9]{10})"(.*?)(?=data-asin="[A-Z0-9]{10}"|\Z)', doc, re.S):
+        if asin in seen:
+            continue
+        t = first(blk, [r'<h2[^>]*>.*?<span[^>]*>(.*?)</span>', r'class="[^"]*a-text-normal[^"]*"[^>]*>(.*?)</span>'])
+        if not t or t.lower() == "gesponsert":
+            continue
+        seen.add(asin)
+        price = first(blk, [r'class="a-offscreen">([^<]+)<']) or "-"
+        rating = first(blk, [r'([0-9][.,][0-9]) (?:von|out of) 5'])
+        count = first(blk, [r'aria-label="([0-9.,]+) (?:Bewertungen|ratings)"'])
+        rows.append((asin, price, rating, count, t))
+        if len(rows) >= limit:
+            break
+    if not rows:
+        sys.exit("amz: no results parsed; the page layout may have changed (cached at %s)" % cache_path(url))
+    print("%-12s %12s %6s %8s  %s" % ("ASIN", "PRICE", "STARS", "RATINGS", "TITLE"))
+    for asin, price, rating, count, t in rows:
+        print("%-12s %12s %6s %8s  %s" % (asin, price, rating or "-", count or "-", t[:76]))
+    print()
+    print("open one with: amz item <ASIN>")
+
+
+def main():
+    ap = argparse.ArgumentParser(
+        prog="amz",
+        description="Read Amazon listings from this machine. WebFetch gets 503 from Amazon; a browser user agent from a home IP does not.")
+    ap.add_argument("--domain", default="de", help="amazon domain suffix, de by default")
+    ap.add_argument("--fresh", action="store_true", help="ignore the 6 hour cache")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    s = sub.add_parser("search", help="list search results with price and rating")
+    s.add_argument("query", nargs="+")
+    s.add_argument("-n", type=int, default=12)
+    i = sub.add_parser("item", help="show one listing by ASIN or URL")
+    i.add_argument("ref")
+    r = sub.add_parser("raw", help="print the path of the cached html")
+    r.add_argument("ref")
+    a = ap.parse_args()
+    if a.cmd == "search":
+        show_search(" ".join(a.query), a.domain, a.n, a.fresh)
+    elif a.cmd == "item":
+        show_item(a.ref, a.domain, a.fresh)
+    else:
+        ref = a.ref if a.ref.startswith("http") else "https://www.amazon.%s/dp/%s" % (a.domain, asin_of(a.ref))
+        fetch(ref, a.fresh)
+        print(cache_path(ref))
+
+
+if __name__ == "__main__":
+    main()

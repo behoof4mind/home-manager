@@ -16,6 +16,10 @@ in
     source = ../apps-configs/karabiner.json;
     force = true;
   };
+  "${builtins.getEnv "HOME"}/.local/bin/amz" = {
+    source = ../bin/amz;
+    executable = true;
+  };
   "${builtins.getEnv "HOME"}/.ctags".source = ../apps-configs/.ctags;
   "${builtins.getEnv "HOME"}/.gitconfig-ftapi-github".source =
     ../apps-configs/git/.gitconfig-ftapi-github;
