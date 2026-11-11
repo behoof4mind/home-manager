@@ -247,7 +247,7 @@
       mdash = "minikube dashboard";
       mssh = "minikube ssh";
 
-      hms = "home-manager switch";
+      hms = "home-manager switch --impure";
 
     };
     interactiveShellInit = ''

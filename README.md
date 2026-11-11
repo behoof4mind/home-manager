@@ -20,7 +20,8 @@ Right after installation all applications should be availabale and have proper c
 To apply any changes you need to:
 
 ```shell
-home-manager switch
+home-manager switch          # macOS
+home-manager switch --impure # linux
 ```
 
 or short Fish shell abbreviation:
@@ -28,6 +29,12 @@ or short Fish shell abbreviation:
 ```shell
 hms
 ```
+
+Linux needs `--impure` because `~/.config/home-manager/home.nix` is a
+symlink into this repo and a flake evaluated in pure mode refuses to follow
+an absolute path out of its own source tree. Without the flag the switch
+fails with `access to absolute path ... is forbidden in pure evaluation
+mode`. The `hms` abbreviation carries the flag on linux.
 
 ## Scripts
 
