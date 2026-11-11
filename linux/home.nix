@@ -117,7 +117,9 @@ in
     uv
     vault
     vscode-langservers-extracted
+    warpd
     watch
+    wezterm
     xclip
     xsel
     yaml-language-server
@@ -177,22 +179,15 @@ in
       custom-keybindings = [
         "${customKeybindings}/custom0/"
         "${customKeybindings}/custom1/"
-        "${customKeybindings}/custom2/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "WezTerm";
-      binding = "F12";
-      command = "wezterm-toggle";
+      name = "CopyQ Popup";
+      binding = "<Super><Shift>v";
+      command = "copyq toggle";
       enable-in-lockscreen = false;
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "CopyQ Popup";
-      binding = "<Super><Shift>v";
-      command = "/home/denny/.nix-profile/bin/copyq toggle";
-      enable-in-lockscreen = false;
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       name = "Warpd Hint";
       binding = "<Control><Alt>x";
       command = "warpd --hint --oneshot";

@@ -36,6 +36,18 @@ an absolute path out of its own source tree. Without the flag the switch
 fails with `access to absolute path ... is forbidden in pure evaluation
 mode`. The `hms` abbreviation carries the flag on linux.
 
+## deskflow
+
+`bin/setup-deskflow.sh <server-ip> [screen-name]` writes the three settings
+that make the client sit in the tray and know who its server is. It refuses
+to run while deskflow is open, because the app rewrites that file on exit,
+which is also why home-manager does not own it.
+
+Hotkeys do not belong here. keyd reads evdev and deskflow injects through
+libei straight into the compositor, so keystrokes arriving from the other
+machine never pass a single keyd rule. Remap on the machine the keyboard is
+plugged into.
+
 ## keyd
 
 `linux/apps/configs/keyd/default.conf` is the source of truth, but keyd is a
