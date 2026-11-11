@@ -6,126 +6,112 @@
 
   home.packages = with pkgs; [
     air
-    netbird
-    netbird-ui
+    ansible-language-server
     argocd
+    aws-iam-authenticator
+    aws-vault
+    awscli2
+    bash-language-server
     cargo
-    krew
+    chamber
+    copyq
     ctags
     delve
     deno
+    deskflow
     direnv
     dive
     docker-compose
+    docker-compose-language-service
+    dockerfile-language-server
+    eksctl
     fd
+    fzf
     gcc_multi
+    gh
+    glab
     go
     golangci-lint
     golangci-lint-langserver
     gomplate
     gopls
     grc
+    hadolint
+    hclfmt
+    jdt-language-server
     jq
     k9s
+    kail
+    keyd
+    krew
+    kube-capacity
+    kube-linter
+    kubebuilder
+    kubecolor
     kubectl
     kubectl-doctor
     kubectl-example
+    kubectl-explore
+    kubectl-gadget
+    kubectl-images
     kubectl-tree
+    kubelogin-oidc
+    kubepug
     kubernetes-helm
+    kubernetes-helmPlugins.helm-unittest
+    kubie
     kustomize
+    lazygit
     lemonade
+    libsecret
     lsd
-    tdl
+    lua-language-server
     luajitPackages.luarocks
+    markdownlint-cli2
+    minio-client
+    mpv
+    nchat
+    nerd-fonts.jetbrains-mono
+    netbird
+    netbird-ui
+    nil
     nix-prefetch-git
     nixfmt
     nixpkgs-fmt
-    pnpm
-    yaml-language-server
     nodejs
     oh-my-fish
     openjdk
     php
     phpPackages.composer
+    pnpm
+    popeye
+    pyradio
+    python312Packages.python-lsp-server
+    rakkess
     ranger
     ripgrep
     ruby
+    s3cmd
+    shfmt
+    sops
+    ssm-session-manager-plugin
+    stern
+    stylua
+    tdl
     terraform
     terraform-ls
     terragrunt
-    tree
-    vault
-    watch
-    xsel
-    xclip
-    keyd
-    gh
-    zoxide
-    kubecolor
-    fzf
-    copyq
-    lazygit
-    nerd-fonts.jetbrains-mono
-
-    # Language servers & formatters (neovim)
-    ansible-language-server
-    docker-compose-language-service
-    dockerfile-language-server
-    jdt-language-server
-    lua-language-server
-    markdownlint-cli2
-    nil
-    bash-language-server
-
-    python312Packages.python-lsp-server
-    stylua
-    vscode-langservers-extracted
-
-    # Linters & formatters
-    hadolint
-    hclfmt
-    shfmt
     tflint
-    yamlfmt
-
-    # kubectl plugins
-    kail
-    kube-capacity
-    kube-linter
-    kubebuilder
-    kubectl-explore
-    kubectl-gadget
-    kubectl-images
-    kubelogin-oidc
-    kubepug
-    kubernetes-helmPlugins.helm-unittest
-    kubie
-    popeye
-    rakkess
-    stern
-
-    # Storage / infra
-    minio-client
-
-    # AWS
-    awscli2
-    aws-vault
-    glab
+    tree
     uv
-    ssm-session-manager-plugin
-    eksctl
-    aws-iam-authenticator
-    sops
-    chamber
-    s3cmd
-    libsecret
-
-    # Telegram TUI
-    nchat
-
-    # Radio
-    pyradio
-    mpv
+    vault
+    vscode-langservers-extracted
+    watch
+    xclip
+    xsel
+    yaml-language-server
+    yamlfmt
+    zoxide
   ];
 
   # Crossplatform
@@ -146,6 +132,8 @@
   home.file."/home/denny/.config/nchat/ui.conf".source = ./apps/configs/nchat/ui.conf;
   home.file."/home/denny/.config/keyd/default.conf".source = ./apps/configs/keyd/default.conf;
   home.file."/home/denny/.aws/config".source = ./apps/configs/aws-config;
+  home.file."/home/denny/.config/autostart/org.deskflow.deskflow.desktop".source =
+    ./apps/configs/deskflow/autostart.desktop;
   home.file."/home/denny/.config/nvim" = {
     source = ../apps-configs/neovim;
     recursive = true;
@@ -161,7 +149,10 @@
     };
     "org/gnome/shell/keybindings" = {
       toggle-overview = [ "<Super>space" ];
-      show-screenshot-ui = [ "F12" "Print" ];
+      show-screenshot-ui = [
+        "F12"
+        "Print"
+      ];
     };
   };
 
