@@ -27,6 +27,7 @@ config.use_dead_keys = false
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1500 }
 
 config.keys = {
+  { key = "F11", action = act.ToggleFullScreen },
   { key = "c", mods = "ALT", action = act.CopyTo("Clipboard") },
   {
     key = "c",
