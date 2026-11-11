@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Deskflow
+GenericName=Keyboard and mouse sharing
+Comment=Mouse and keyboard sharing utility
+Exec=/home/denny/.nix-profile/bin/deskflow
+Icon=org.deskflow.deskflow
+Terminal=false
+Categories=Utility;Network;
+Keywords=keyboard;mouse;sharing;network;share;kvm;synergy;barrier;

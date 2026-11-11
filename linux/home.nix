@@ -134,6 +134,8 @@
   home.file."/home/denny/.aws/config".source = ./apps/configs/aws-config;
   home.file."/home/denny/.config/autostart/org.deskflow.deskflow.desktop".source =
     ./apps/configs/deskflow/autostart.desktop;
+  home.file."/home/denny/.local/share/applications/org.deskflow.deskflow.desktop".source =
+    ./apps/configs/deskflow/deskflow.desktop;
   home.file."/home/denny/.config/nvim" = {
     source = ../apps-configs/neovim;
     recursive = true;
