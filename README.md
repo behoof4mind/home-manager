@@ -43,9 +43,11 @@ system daemon and reads `/etc/keyd/`, which home-manager cannot write. After
 changing it, copy it across and restart the daemon:
 
 ```shell
-sudo install -m 0644 -T ~/.config/keyd/default.conf /etc/keyd/default.conf
-sudo systemctl restart keyd
+bin/setup-keyd.sh
 ```
+
+That script copies the file, restarts the daemon and clears the GNOME and
+dock Super+number shortcuts that would otherwise swallow the layers.
 
 Skip that and the file in git silently disagrees with the keyboard: on
 2026-11-11 the two had been apart long enough that the copyq binding and the

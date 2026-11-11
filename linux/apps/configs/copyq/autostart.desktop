@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=CopyQ
+Comment=Clipboard manager
+Exec=/home/denny/.nix-profile/bin/copyq
+Icon=copyq
+Terminal=false
+X-GNOME-Autostart-enabled=true

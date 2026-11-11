@@ -1,5 +1,16 @@
 { pkgs, ... }:
 
+let
+  clearedNumberKeys =
+    prefix:
+    builtins.listToAttrs (
+      map (i: {
+        name = "${prefix}-${toString i}";
+        value = [ ];
+      }) (builtins.genList (i: i + 1) 9)
+    );
+  customKeybindings = "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings";
+in
 {
   home.username = "denny";
   home.homeDirectory = "/home/denny";
@@ -136,6 +147,8 @@
     ./apps/configs/deskflow/autostart.desktop;
   home.file."/home/denny/.local/share/applications/org.deskflow.deskflow.desktop".source =
     ./apps/configs/deskflow/deskflow.desktop;
+  home.file."/home/denny/.config/autostart/copyq.desktop".source =
+    ./apps/configs/copyq/autostart.desktop;
   home.file."/home/denny/.config/nvim" = {
     source = ../apps-configs/neovim;
     recursive = true;
@@ -148,13 +161,42 @@
     "org/gnome/desktop/wm/keybindings" = {
       switch-input-source = [ "<Control>space" ];
       switch-input-source-backward = [ "<Shift><Control>space" ];
-    };
+    }
+    // clearedNumberKeys "switch-to-workspace";
     "org/gnome/shell/keybindings" = {
       toggle-overview = [ "<Super>space" ];
       show-screenshot-ui = [
         "F12"
         "Print"
       ];
+    }
+    // clearedNumberKeys "switch-to-application";
+    "org/gnome/shell/extensions/dash-to-dock" =
+      clearedNumberKeys "app-hotkey" // clearedNumberKeys "app-ctrl-hotkey";
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "${customKeybindings}/custom0/"
+        "${customKeybindings}/custom1/"
+        "${customKeybindings}/custom2/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "WezTerm";
+      binding = "F12";
+      command = "wezterm-toggle";
+      enable-in-lockscreen = false;
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "CopyQ Popup";
+      binding = "<Super><Shift>v";
+      command = "/home/denny/.nix-profile/bin/copyq toggle";
+      enable-in-lockscreen = false;
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "Warpd Hint";
+      binding = "<Control><Alt>x";
+      command = "warpd --hint --oneshot";
+      enable-in-lockscreen = false;
     };
   };
 
