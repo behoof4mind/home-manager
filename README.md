@@ -36,6 +36,26 @@ an absolute path out of its own source tree. Without the flag the switch
 fails with `access to absolute path ... is forbidden in pure evaluation
 mode`. The `hms` abbreviation carries the flag on linux.
 
+## keyd
+
+`linux/apps/configs/keyd/default.conf` is the source of truth, but keyd is a
+system daemon and reads `/etc/keyd/`, which home-manager cannot write. After
+changing it, copy it across and restart the daemon:
+
+```shell
+sudo install -m 0644 -T ~/.config/keyd/default.conf /etc/keyd/default.conf
+sudo systemctl restart keyd
+```
+
+Skip that and the file in git silently disagrees with the keyboard: on
+2026-11-11 the two had been apart long enough that the copyq binding and the
+Alt+Tab switcher had never once been live.
+
+Note also that keyd sits on evdev, so it never sees keystrokes that arrive
+over deskflow from another machine: those are injected into the compositor
+through libei and bypass `/dev/input` entirely. Remapping for a keyboard
+attached to the other machine has to happen on that machine.
+
 ## Scripts
 
 `bin/amz` lands in `~/.local/bin/amz` and reads Amazon listings from this
