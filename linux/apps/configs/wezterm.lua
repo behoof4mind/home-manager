@@ -8,7 +8,7 @@ config.automatically_reload_config = true
 -- Appearance
 config.color_scheme = "tokyonight_night"
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
-config.font_size = 14
+config.font_size = 17.5
 config.enable_tab_bar = true
 config.window_decorations = "NONE"
 config.use_fancy_tab_bar = false
