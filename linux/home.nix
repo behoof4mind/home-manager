@@ -117,7 +117,6 @@ in
     uv
     vault
     vscode-langservers-extracted
-    warpd
     watch
     wezterm
     xclip
@@ -178,19 +177,12 @@ in
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "${customKeybindings}/custom0/"
-        "${customKeybindings}/custom1/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "CopyQ Popup";
       binding = "<Super><Shift>v";
       command = "copyq toggle";
-      enable-in-lockscreen = false;
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "Warpd Hint";
-      binding = "<Control><Alt>x";
-      command = "warpd --hint --oneshot";
       enable-in-lockscreen = false;
     };
   };
