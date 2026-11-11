@@ -1,6 +1,16 @@
 {
   "backends": {
-    "enable": ["atspi"]
+    "enable": ["atspi", "opencv"],
+    "opencv": {
+      "preload": false,
+      "application_rules": {
+        "default": {
+          "kernel_size": 6,
+          "canny_min_val": 180,
+          "canny_max_val": 320
+        }
+      }
+    }
   },
   "hints": {
     "hint_height": 20,
