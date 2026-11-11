@@ -4,13 +4,6 @@
       "atspi",
       "opencv"
     ],
-    "atspi": {
-      "application_rules": {
-        "TelegramDesktop": {
-          "scale_factor": 0.8
-        }
-      }
-    },
     "opencv": {
       "preload": false,
       "application_rules": {
