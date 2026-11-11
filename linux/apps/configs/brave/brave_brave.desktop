@@ -1,0 +1,21 @@
+[Desktop Entry]
+X-SnapInstanceName=brave
+Version=1.0
+Name=Brave Web Browser
+GenericName=Web Browser
+Exec=/snap/bin/brave --force-renderer-accessibility %U
+StartupNotify=true
+StartupWMClass=brave-browser
+Icon=/snap/brave/current/opt/brave.com/brave/product_logo_128.png
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/chromium;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/snap/bin/brave --force-renderer-accessibility
+
+[Desktop Action new-private-window]
+Name=New Private Window
+Exec=/snap/bin/brave --force-renderer-accessibility --incognito

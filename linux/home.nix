@@ -151,6 +151,8 @@ in
     ./apps/configs/copyq/autostart.desktop;
   home.file."/home/denny/.config/hints/config.json".source =
     ./apps/configs/hints/config.json;
+  home.file."/home/denny/.local/share/applications/brave_brave.desktop".source =
+    ./apps/configs/brave/brave_brave.desktop;
   home.file."/home/denny/.config/nvim" = {
     source = ../apps-configs/neovim;
     recursive = true;
