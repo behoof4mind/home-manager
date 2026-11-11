@@ -36,6 +36,22 @@ an absolute path out of its own source tree. Without the flag the switch
 fails with `access to absolute path ... is forbidden in pure evaluation
 mode`. The `hms` abbreviation carries the flag on linux.
 
+## GUI programs stay on apt
+
+wezterm was moved into nix on 2026-11-11 and would not open a window after
+the reboot:
+
+```
+Failed to create window: with_egl_lib failed:
+libEGL.so: cannot open shared object file
+```
+
+A nix-built GPU program looks for its graphics driver inside the nix store,
+and on a non-NixOS host the driver lives in /usr/lib, so it finds nothing.
+It was moved back to apt. The same trap waits for any other GPU-accelerated
+program, so GUI ones belong to the distribution here and nix keeps the
+command line tools.
+
 ## deskflow
 
 `bin/setup-deskflow.sh <server-ip> [screen-name]` writes the three settings

@@ -118,7 +118,6 @@ in
     vault
     vscode-langservers-extracted
     watch
-    wezterm
     xclip
     xsel
     yaml-language-server
