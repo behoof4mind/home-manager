@@ -149,6 +149,8 @@ in
     ./apps/configs/deskflow/deskflow.desktop;
   home.file."/home/denny/.config/autostart/copyq.desktop".source =
     ./apps/configs/copyq/autostart.desktop;
+  home.file."/home/denny/.config/hints/config.json".source =
+    ./apps/configs/hints/config.json;
   home.file."/home/denny/.config/nvim" = {
     source = ../apps-configs/neovim;
     recursive = true;

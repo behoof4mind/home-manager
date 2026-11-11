@@ -22,8 +22,8 @@
       mcal = "mc alias list";
 
       # Claude code
-      cc = "claude promt -c";
-      cC = "claude promt";
+      cc = "claude -c";
+      cC = "claude";
 
       # AWS cli
       alo = "aws s3api list-objects";
