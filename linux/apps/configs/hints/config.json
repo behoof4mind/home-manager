@@ -1,6 +1,9 @@
 {
   "backends": {
-    "enable": ["atspi", "opencv"],
+    "enable": [
+      "atspi",
+      "opencv"
+    ],
     "atspi": {
       "application_rules": {
         "TelegramDesktop": {
@@ -15,6 +18,11 @@
           "kernel_size": 6,
           "canny_min_val": 180,
           "canny_max_val": 320
+        },
+        "TelegramDesktop": {
+          "kernel_size": 4,
+          "canny_min_val": 60,
+          "canny_max_val": 140
         }
       }
     }
