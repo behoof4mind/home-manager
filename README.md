@@ -36,6 +36,18 @@ an absolute path out of its own source tree. Without the flag the switch
 fails with `access to absolute path ... is forbidden in pure evaluation
 mode`. The `hms` abbreviation carries the flag on linux.
 
+## Shortcuts are bound to symbols, and this laptop types Dvorak
+
+A GNOME shortcut names the symbol a key produces, not the key. Three
+different names meet on one key here: keyd reports the hardware position in
+QWERTY terms, the keycaps are QWERTZ, and the active layout is us+dvorak.
+The key printed Z sits where QWERTY puts Y, keyd calls it y, and dvorak
+makes it type f, so the shortcut that fires on it is written `<Control><Shift>f`.
+
+Binding what the keycap says will not work. Bind the symbol the key types,
+or pick something outside the letters - a function key, space, a digit -
+which no layout moves.
+
 ## GUI programs stay on apt
 
 wezterm was moved into nix on 2026-11-11 and would not open a window after

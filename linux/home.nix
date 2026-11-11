@@ -190,13 +190,13 @@ in
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       name = "Hints";
-      binding = "<Control><Shift>y";
+      binding = "<Control><Shift>f";
       command = "/home/denny/.local/bin/hints";
       enable-in-lockscreen = false;
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       name = "Hints Scroll";
-      binding = "<Super>y";
+      binding = "<Control><Shift>g";
       command = "/home/denny/.local/bin/hints --mode scroll";
       enable-in-lockscreen = false;
     };
