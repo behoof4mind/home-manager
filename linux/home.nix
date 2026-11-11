@@ -190,7 +190,7 @@ in
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       name = "Hints";
-      binding = "<Super><Shift>f";
+      binding = "<Control><Shift>y";
       command = "/home/denny/.local/bin/hints";
       enable-in-lockscreen = false;
     };
