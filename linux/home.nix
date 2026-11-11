@@ -163,8 +163,8 @@ in
       xkb-options = [ "caps:escape" ];
     };
     "org/gnome/desktop/interface" = {
-      text-scaling-factor = 1.25;
       toolkit-accessibility = true;
+      text-scaling-factor = 1.25;
     };
     "org/gnome/desktop/wm/keybindings" = {
       switch-input-source = [ "<Control>space" ];
