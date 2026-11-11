@@ -186,7 +186,7 @@ in
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "CopyQ Popup";
-      binding = "<Super><Shift>v";
+      binding = "<Control><Shift>v";
       command = "/home/denny/.nix-profile/bin/copyq toggle";
       enable-in-lockscreen = false;
     };
