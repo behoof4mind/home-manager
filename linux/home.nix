@@ -176,12 +176,26 @@ in
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "${customKeybindings}/custom0/"
+        "${customKeybindings}/custom1/"
+        "${customKeybindings}/custom2/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "CopyQ Popup";
       binding = "<Super><Shift>v";
       command = "copyq toggle";
+      enable-in-lockscreen = false;
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "Hints";
+      binding = "<Super>i";
+      command = "/home/denny/.local/bin/hints";
+      enable-in-lockscreen = false;
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "Hints Scroll";
+      binding = "<Super>y";
+      command = "/home/denny/.local/bin/hints --mode scroll";
       enable-in-lockscreen = false;
     };
   };
