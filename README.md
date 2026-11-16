@@ -66,6 +66,38 @@ command line tools.
 
 ## deskflow
 
+Start it from the applications menu or let the autostart entry do it. Never
+from a terminal: a process started with `setsid deskflow &` inherits the
+terminal's systemd scope, and the portal reads the app id from that scope, so
+the permission to control this screen gets written against the terminal
+instead. On 2026-11-11 that recorded `org.wezfurlong.wezterm` as the holder of
+a remote-desktop grant, and five days later the client connected, switched
+screens on request and moved no pointer at all, because its own restore token
+no longer matched any permission.
+
+The symptom is specific: the connection is up and the log says the screen
+switched, but nothing moves. One command separates it from every other fault.
+
+```shell
+gdbus introspect --session --dest org.gnome.Mutter.RemoteDesktop \
+  --object-path /org/gnome/Mutter/RemoteDesktop | grep -c "node name"
+```
+
+Zero means the portal granted no session, so there is nothing to inject
+through. To repair, quit deskflow, then clear both halves of the stale state -
+the stored grant and the token that points at it - and start it again from the
+menu, approving the dialog that appears:
+
+```shell
+gdbus call --session --dest org.freedesktop.impl.portal.PermissionStore \
+  --object-path /org/freedesktop/impl/portal/PermissionStore \
+  --method org.freedesktop.impl.portal.PermissionStore.List "remote-desktop"
+gdbus call --session --dest org.freedesktop.impl.portal.PermissionStore \
+  --object-path /org/freedesktop/impl/portal/PermissionStore \
+  --method org.freedesktop.impl.portal.PermissionStore.Delete "remote-desktop" "<id>"
+sed -i '/^xdpRestoreToken=/d' ~/.config/Deskflow/Deskflow.conf
+```
+
 `bin/setup-deskflow.sh <server-ip> [screen-name]` writes the three settings
 that make the client sit in the tray and know who its server is. It refuses
 to run while deskflow is open, because the app rewrites that file on exit,
