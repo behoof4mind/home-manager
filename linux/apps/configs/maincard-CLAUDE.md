@@ -4,6 +4,18 @@
 Read `.infra-notes/` at the start of any infrastructure investigation. It contains known broken
 things (`known-issues.md`) and recurring failure patterns (`patterns.md`) that save diagnostic time.
 
+## Infrastructure as code: default rule
+
+Everything in AWS and in the clusters is managed by terraform (`terraform/`) or GitOps (`cluster-gitops/`, `gitops/`).
+Changing a live object with the AWS CLI, the console or kubectl is the exception, not a way of working:
+
+- A hand-made object we need to touch is first imported into the right terraform root (`import` block plus HCL), or
+  deleted if nothing needs it. Then the change goes through an MR and the CI apply.
+- Breaking the rule is allowed only for an incident or an emergency (an active attack, a down service), and the import or
+  the revert follows the same day. Say explicitly in the ticket that the change was made by hand and why.
+- Kubernetes objects follow the same logic through Argo CD: a `kubectl patch` or a manual sync is a stop-gap, the commit
+  in cluster-gitops is the fix.
+
 ## Overview
 
 Multi-repo GitOps infrastructure for a white-label casino SaaS platform running on AWS EKS. Deployments are driven by ArgoCD (main cluster) and Flux CD (tech cluster). Each casino client runs as an isolated Kubernetes namespace with its own database, secrets, and full application stack.

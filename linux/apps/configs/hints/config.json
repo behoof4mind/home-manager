@@ -24,6 +24,14 @@
     "hint_height": 20,
     "hint_width_padding": 6,
     "hint_font_size": 11,
-    "hint_background_a": 0.9
+    "hint_background_a": 1,
+    "hint_background_r": 1,
+    "hint_background_g": 0.85,
+    "hint_background_b": 0,
+    "hint_font_r": 0,
+    "hint_font_g": 0,
+    "hint_font_b": 0,
+    "hint_font_a": 1,
+    "hint_inactive_layer_opacity": 0.92
   }
 }
